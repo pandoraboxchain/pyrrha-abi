@@ -1,0 +1,92 @@
+{
+  "contract_name": "Neurocontract",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "processedAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "commitWork",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "prepayWork",
+      "outputs": [],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_rootNeurochain",
+          "type": "address"
+        },
+        {
+          "name": "_kernelContract",
+          "type": "address"
+        },
+        {
+          "name": "_datasetContract",
+          "type": "address"
+        },
+        {
+          "name": "_hardwareType",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000c57fe5b6040516080806102db83398101604090815281516020830151918301516060909301519092905b5b60008054600160a060020a03191633600160a060020a03161790555b600060055560048054600160a060020a03808716600160a060020a03199283161790925560028054868416908316178155600380549386169390921692909217808255839260a060020a60ff021990911690740100000000000000000000000000000000000000009084908111156100c457fe5b02179055505b505050505b6101fd806100de6000396000f300606060405263ffffffff60e060020a6000350416631c8e9a6f811461004d57806383197ef0146100625780638da5cb5b14610074578063b2cd292a146100a0578063f2fde38b146100aa575bfe5b341561005557fe5b6100606004356100c8565b005b341561006a57fe5b610060610101565b005b341561007c57fe5b61008461012e565b60408051600160a060020a039092168252519081900360200190f35b61006061013d565b005b34156100b257fe5b610060600160a060020a0360043516610165565b005b600160a060020a03331660009081526001602081905260409091205460ff161515146100f45760006000fd5b60058054820190555b5b50565b60005433600160a060020a0390811691161461011d5760006000fd5b600054600160a060020a0316ff5b5b565b600054600160a060020a031681565b60005433600160a060020a039081169116146101595760006000fd5b61012b6101b1565b5b5b565b60005433600160a060020a039081169116146101815760006000fd5b600160a060020a038116156100fd5760008054600160a060020a031916600160a060020a0383161790555b5b5b50565b60005433600160a060020a0390811691161461012b5760006000fd5b5b5b5600a165627a7a72305820df517832f544e21fa6dda8e8095c04cada980430a2b72f99513175a025fe4bb10029",
+  "networks": {
+    "1496654852853": {
+      "links": {},
+      "events": {},
+      "updated_at": 1496675059156
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1496675059156
+}

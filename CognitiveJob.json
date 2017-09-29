@@ -1,0 +1,226 @@
+{
+  "contract_name": "CognitiveJob",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "dataset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "acceptWork",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "pandora",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "workerNode",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_ipfsResults",
+          "type": "bytes"
+        }
+      ],
+      "name": "commitWork",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "percent",
+          "type": "uint8"
+        }
+      ],
+      "name": "commitProgress",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "completed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "kernel",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "declineWork",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_pandora",
+          "type": "address"
+        },
+        {
+          "name": "_kernel",
+          "type": "address"
+        },
+        {
+          "name": "_dataset",
+          "type": "address"
+        },
+        {
+          "name": "_workerNode",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "progreess",
+          "type": "uint8"
+        }
+      ],
+      "name": "JobProgress",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "ipfsResults",
+          "type": "bytes"
+        }
+      ],
+      "name": "JobCompleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x60606040526004805460a060020a60ff0219169055341561001f57600080fd5b60405160808061069a833981016040528080519190602001805191906020018051919060200180519150505b5b5b60008054600160a060020a03191633600160a060020a03161790555b5b60048054600160a060020a03808716600160a060020a031992831617909255600180548684169083161790556002805485841690831617905560038054928416929091169190911790555b505050505b6105d1806100c96000396000f300606060405236156100c25763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166302b728ab81146100c75780630b832cb2146100f65780631a0bc5961461010b578063240bf6791461013a5780635c5c91ef146101695780636936087d1461018957806383197ef0146101a45780638da5cb5b146101b95780639d9a7fe9146101e8578063d4aae0c41461020f578063eefcbfd7146100f6578063f2fde38b14610253578063f5074f4114610274575b600080fd5b34156100d257600080fd5b6100da610295565b604051600160a060020a03909116815260200160405180910390f35b341561010157600080fd5b6101096102a4565b005b341561011657600080fd5b6100da6102c3565b604051600160a060020a03909116815260200160405180910390f35b341561014557600080fd5b6100da6102d2565b604051600160a060020a03909116815260200160405180910390f35b341561017457600080fd5b61010960048035602481019101356102e1565b005b341561019457600080fd5b61010960ff60043516610400565b005b34156101af57600080fd5b610109610457565b005b34156101c457600080fd5b6100da610483565b604051600160a060020a03909116815260200160405180910390f35b34156101f357600080fd5b6101fb610492565b604051901515815260200160405180910390f35b341561021a57600080fd5b6100da6104b3565b604051600160a060020a03909116815260200160405180910390f35b341561010157600080fd5b6101096102a4565b005b341561025e57600080fd5b610109600160a060020a03600435166104e1565b005b341561027f57600080fd5b610109600160a060020a036004351661057a565b005b600254600160a060020a031681565b60035433600160a060020a039081169116146102bf57600080fd5b5b5b565b600454600160a060020a031681565b600354600160a060020a031681565b60035433600160a060020a039081169116146102fc57600080fd5b6004805474ff00000000000000000000000000000000000000001916740100000000000000000000000000000000000000001790819055600160a060020a0316635dece14c306040517c010000000000000000000000000000000000000000000000000000000063ffffffff8416028152600160a060020a039091166004820152602401600060405180830381600087803b151561039957600080fd5b6102c65a03f115156103aa57600080fd5b5050507fd0e50783259355273f423abc93e5c3132ba2046e6c71a373ee81e7d6e4180c8182826040516020808252810182905280604081018484808284378201915050935050505060405180910390a15b5b5050565b60035433600160a060020a0390811691161461041b57600080fd5b7f4f9908f926cb19b12a37b0054a7057fbe6ef464f68d2bfae5a403334a4b1cf5b8160405160ff909116815260200160405180910390a15b5b50565b60005433600160a060020a0390811691161461047257600080fd5b600054600160a060020a0316ff5b5b565b600054600160a060020a031681565b60045474010000000000000000000000000000000000000000900460ff1681565b600154600160a060020a031681565b60035433600160a060020a039081169116146102bf57600080fd5b5b5b565b60005433600160a060020a039081169116146104fc57600080fd5b600160a060020a038116151561051157600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b50565b60005433600160a060020a0390811691161461059557600080fd5b80600160a060020a0316ff5b5b505600a165627a7a723058207015c5e64ed25846ee5537506bc50cb16f208ecec6e936a305ed9dfbb398d1fa0029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1506711210300
+}

@@ -6,8 +6,8 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0x43545ba90347c0395ed17bafd4db2c832b66b758",
-      "updated_at": 1507076723938
+      "address": "0x5b89c9d17fc6643674aac37ee34fd01651438a6d",
+      "updated_at": 1507407869595
     },
     "1507059409337": {
       "events": {},
@@ -17,5 +17,5 @@
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1507077628499
+  "updated_at": 1507407869595
 }

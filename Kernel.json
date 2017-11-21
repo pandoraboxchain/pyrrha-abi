@@ -281,8 +281,49 @@
       "links": {},
       "address": "0x3c9e80032b07c4fb48ae80486ef86da267ce5aed",
       "updated_at": 1507543909353
+    },
+    "1507629884476": {
+      "events": {
+        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "oldPrice",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "newPrice",
+              "type": "uint256"
+            }
+          ],
+          "name": "PriceUpdated",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xc8ccc28befbc94048c2ea794e1de4bf3daa764ac",
+      "updated_at": 1507629924722
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1507543909353
+  "updated_at": 1507629924722
 }

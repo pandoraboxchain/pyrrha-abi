@@ -1,5 +1,5 @@
 {
-  "contract_name": "Kernel",
+  "contractName": "Kernel",
   "abi": [
     {
       "constant": true,
@@ -12,6 +12,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -20,6 +21,7 @@
       "name": "withdrawBalance",
       "outputs": [],
       "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -33,6 +35,7 @@
       "name": "updatePrice",
       "outputs": [],
       "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -46,6 +49,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -59,6 +63,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -72,6 +77,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -85,6 +91,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -98,6 +105,7 @@
       "name": "transferOwnership",
       "outputs": [],
       "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -120,6 +128,7 @@
         }
       ],
       "payable": false,
+      "stateMutability": "nonpayable",
       "type": "constructor"
     },
     {
@@ -157,296 +166,399 @@
       "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000f57600080fd5b6040516105893803806105898339810160405280805182019190602001805191906020018051919060200180519150505b8383825b5b60008054600160a060020a03191633600160a060020a03161790555b60028290556001838051610079929160200190610092565b5060038190555b50505060048290555b50505050610132565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100d357805160ff1916838001178555610100565b82800160010185558215610100579182015b828111156101005782518255916020019190600101906100e5565b5b5061010d929150610111565b5090565b61012f91905b8082111561010d5760008155600101610117565b5090565b90565b610448806101416000396000f3006060604052361561008b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166323d5547381146100905780635fd8c710146100b55780638d6cc56d146100ca5780638da5cb5b146100e25780639d1b464a14610111578063b1f8d9ba14610136578063e1b40a761461015b578063f2fde38b146101e6575b600080fd5b341561009b57600080fd5b6100a3610207565b60405190815260200160405180910390f35b34156100c057600080fd5b6100c861020d565b005b34156100d557600080fd5b6100c8600435610265565b005b34156100ed57600080fd5b6100f56102ca565b604051600160a060020a03909116815260200160405180910390f35b341561011c57600080fd5b6100a36102d9565b60405190815260200160405180910390f35b341561014157600080fd5b6100a36102df565b60405190815260200160405180910390f35b341561016657600080fd5b61016e6102e5565b60405160208082528190810183818151815260200191508051906020019080838360005b838110156101ab5780820151818401525b602001610192565b50505050905090810190601f1680156101d85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156101f157600080fd5b6100c8600160a060020a0360043516610383565b005b60045481565b60005433600160a060020a0390811691161461022857600080fd5b600054600160a060020a039081169030163180156108fc0290604051600060405180830381858888f19350505050151561026157600080fd5b5b5b565b6000805433600160a060020a0390811691161461028157600080fd5b5060038054908290557f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838818360405191825260208201526040908101905180910390a15b5b5050565b600054600160a060020a031681565b60035481565b60025481565b60018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561037b5780601f106103505761010080835404028352916020019161037b565b820191906000526020600020905b81548152906001019060200180831161035e57829003601f168201915b505050505081565b60005433600160a060020a0390811691161461039e57600080fd5b600160a060020a03811615156103b357600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b505600a165627a7a7230582094fcd94a6ca3c4e6805fd995124459c14059a57425ce19efe83a0f4d10a98f080029",
+  "bytecode": "0x6060604052341561000f57600080fd5b6040516107b13803806107b183398101604052808051820191906020018051906020019091908051906020019091908051906020019091905050838382336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508160028190555082600190805190602001906100a99291906100c4565b50806003819055505050508160048190555050505050610169565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061010557805160ff1916838001178555610133565b82800160010185558215610133579182015b82811115610132578251825591602001919060010190610117565b5b5090506101409190610144565b5090565b61016691905b8082111561016257600081600090555060010161014a565b5090565b90565b610639806101786000396000f30060606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806323d55473146100935780635fd8c710146100bc5780638d6cc56d146100d15780638da5cb5b146100f45780639d1b464a14610149578063b1f8d9ba14610172578063e1b40a761461019b578063f2fde38b14610229575b600080fd5b341561009e57600080fd5b6100a6610262565b6040518082815260200191505060405180910390f35b34156100c757600080fd5b6100cf610268565b005b34156100dc57600080fd5b6100f2600480803590602001909190505061033d565b005b34156100ff57600080fd5b6101076103e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561015457600080fd5b61015c61040e565b6040518082815260200191505060405180910390f35b341561017d57600080fd5b610185610414565b6040518082815260200191505060405180910390f35b34156101a657600080fd5b6101ae61041a565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101ee5780820151818401526020810190506101d3565b50505050905090810190601f16801561021b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561023457600080fd5b610260600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104b8565b005b60045481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102c357600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033b57600080fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561039a57600080fd5b6003549050816003819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60025481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104b05780601f10610485576101008083540402835291602001916104b0565b820191906000526020600020905b81548152906001019060200180831161049357829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561051357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561054f57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a7230582048a977a7328f842b278536011fee2bc7a991c2b32634c851080298de5543e0310029",
+  "deployedBytecode": "0x60606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806323d55473146100935780635fd8c710146100bc5780638d6cc56d146100d15780638da5cb5b146100f45780639d1b464a14610149578063b1f8d9ba14610172578063e1b40a761461019b578063f2fde38b14610229575b600080fd5b341561009e57600080fd5b6100a6610262565b6040518082815260200191505060405180910390f35b34156100c757600080fd5b6100cf610268565b005b34156100dc57600080fd5b6100f2600480803590602001909190505061033d565b005b34156100ff57600080fd5b6101076103e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561015457600080fd5b61015c61040e565b6040518082815260200191505060405180910390f35b341561017d57600080fd5b610185610414565b6040518082815260200191505060405180910390f35b34156101a657600080fd5b6101ae61041a565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101ee5780820151818401526020810190506101d3565b50505050905090810190601f16801561021b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561023457600080fd5b610260600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104b8565b005b60045481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102c357600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033b57600080fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561039a57600080fd5b6003549050816003819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60025481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104b05780601f10610485576101008083540402835291602001916104b0565b820191906000526020600020905b81548152906001019060200180831161049357829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561051357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561054f57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a7230582048a977a7328f842b278536011fee2bc7a991c2b32634c851080298de5543e0310029",
+  "sourceMap": "334:298:3:-;;;402:228;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;550:12;564:8;574:13;509:10:15;501:5;;:18;;;;;;;;;;;;;;;;;;1419:8:1;1409:7;:18;;;;1451:12;1437:11;:26;;;;;;;;;;;;:::i;:::-;;1488:13;1473:12;:28;;;;1287:221;;;612:11:3;599:10;:24;;;;402:228;;;;334:298;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "334:298:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;370:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1842:167:1;;;;;;;;;;;;;;1514:212;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1146:27:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1036:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;700:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;834:169:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;370:25:3;;;;:::o;1842:167:1:-;654:5:15;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1974:5:1;;;;;;;;;;;:14;;:28;1989:4;:12;;;1974:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1842:167::o;1514:212::-;1610:16;654:5:15;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1629:12:1;;1610:31;;1666:9;1651:12;:24;;;;1686:33;1699:8;1709:9;1686:33;;;;;;;;;;;;;;;;;;;;;;;;1514:212;;:::o;238:20:15:-;;;;;;;;;;;;;:::o;1146:27:1:-;;;;:::o;1036:22::-;;;;:::o;700:24::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;834:169:15:-;654:5;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;930:1;910:22;;:8;:22;;;;902:31;;;;;;;;967:8;939:37;;960:5;;;;;;;;;;;939:37;;;;;;;;;;;;990:8;982:5;;:16;;;;;;;;;;;;;;;;;;834:169;:::o",
+  "source": "pragma solidity ^0.4.15;\n\n/*\n  Kernel Contract represents information about specific fixed machine learning kernel\n  (trained model saved on IPFS and identified by its file id)\n\n  Kernels are transferrable\n  Kernel model data are updatable (but update simple creates new kernel)\n  Price can be edited\n */\n\nimport './DataEntity.sol';\n\ncontract Kernel is DataEntity {\n    uint256 public complexity;\n\n    function Kernel (\n        bytes _ipfsAddress,\n        uint256 _dataDim,\n        uint256 _complexity,\n        uint256 _initialPrice\n    ) DataEntity(_ipfsAddress, _dataDim, _initialPrice) {\n        complexity = _complexity;\n    }\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/Kernel.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/Kernel.sol",
+      "exportedSymbols": {
+        "Kernel": [
+          1252
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".15"
+          ]
+        },
+        "id": 1225,
+        "name": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1187,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/DataEntity.sol",
+          "file": "./DataEntity.sol",
+          "scope": 1253,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1226,
+        "name": "ImportDirective",
+        "src": "306:26:3"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            1186,
+            3232
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1252,
+            1186,
+            3232
+          ],
+          "name": "Kernel",
+          "scope": 1253
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "DataEntity",
+                  "referencedDeclaration": 1186,
+                  "type": "contract DataEntity"
+                },
+                "id": 1227,
+                "name": "UserDefinedTypeName",
+                "src": "353:10:3"
+              }
+            ],
+            "id": 1228,
+            "name": "InheritanceSpecifier",
+            "src": "353:10:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "complexity",
+              "scope": 1252,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 1229,
+                "name": "ElementaryTypeName",
+                "src": "370:7:3"
+              }
+            ],
+            "id": 1230,
+            "name": "VariableDeclaration",
+            "src": "370:25:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "name": "Kernel",
+              "payable": false,
+              "scope": 1252,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsAddress",
+                      "scope": 1251,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 1231,
+                        "name": "ElementaryTypeName",
+                        "src": "428:5:3"
+                      }
+                    ],
+                    "id": 1232,
+                    "name": "VariableDeclaration",
+                    "src": "428:18:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_dataDim",
+                      "scope": 1251,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1233,
+                        "name": "ElementaryTypeName",
+                        "src": "456:7:3"
+                      }
+                    ],
+                    "id": 1234,
+                    "name": "VariableDeclaration",
+                    "src": "456:16:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_complexity",
+                      "scope": 1251,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1235,
+                        "name": "ElementaryTypeName",
+                        "src": "482:7:3"
+                      }
+                    ],
+                    "id": 1236,
+                    "name": "VariableDeclaration",
+                    "src": "482:19:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_initialPrice",
+                      "scope": 1251,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1237,
+                        "name": "ElementaryTypeName",
+                        "src": "511:7:3"
+                      }
+                    ],
+                    "id": 1238,
+                    "name": "VariableDeclaration",
+                    "src": "511:21:3"
+                  }
+                ],
+                "id": 1239,
+                "name": "ParameterList",
+                "src": "418:120:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1245,
+                "name": "ParameterList",
+                "src": "589:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1186,
+                      "type": "type(contract DataEntity)",
+                      "value": "DataEntity"
+                    },
+                    "id": 1240,
+                    "name": "Identifier",
+                    "src": "539:10:3"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1232,
+                      "type": "bytes memory",
+                      "value": "_ipfsAddress"
+                    },
+                    "id": 1241,
+                    "name": "Identifier",
+                    "src": "550:12:3"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1234,
+                      "type": "uint256",
+                      "value": "_dataDim"
+                    },
+                    "id": 1242,
+                    "name": "Identifier",
+                    "src": "564:8:3"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1238,
+                      "type": "uint256",
+                      "value": "_initialPrice"
+                    },
+                    "id": 1243,
+                    "name": "Identifier",
+                    "src": "574:13:3"
+                  }
+                ],
+                "id": 1244,
+                "name": "ModifierInvocation",
+                "src": "539:49:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1230,
+                              "type": "uint256",
+                              "value": "complexity"
+                            },
+                            "id": 1246,
+                            "name": "Identifier",
+                            "src": "599:10:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1236,
+                              "type": "uint256",
+                              "value": "_complexity"
+                            },
+                            "id": 1247,
+                            "name": "Identifier",
+                            "src": "612:11:3"
+                          }
+                        ],
+                        "id": 1248,
+                        "name": "Assignment",
+                        "src": "599:24:3"
+                      }
+                    ],
+                    "id": 1249,
+                    "name": "ExpressionStatement",
+                    "src": "599:24:3"
+                  }
+                ],
+                "id": 1250,
+                "name": "Block",
+                "src": "589:41:3"
+              }
+            ],
+            "id": 1251,
+            "name": "FunctionDefinition",
+            "src": "402:228:3"
+          }
+        ],
+        "id": 1252,
+        "name": "ContractDefinition",
+        "src": "334:298:3"
+      }
+    ],
+    "id": 1253,
+    "name": "SourceUnit",
+    "src": "0:633:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
   "networks": {
-    "3": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
+    "5777": {
+      "events": {},
       "links": {},
-      "address": "0x3194164cfa267ddfa138508bf99c01efbf0262f4",
-      "updated_at": 1512856154266
-    },
-    "1507059409337": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xfbd7621c47cf0022aa05db97ab1124db82b5d8e5",
-      "updated_at": 1507067390997
-    },
-    "1507543867581": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x3c9e80032b07c4fb48ae80486ef86da267ce5aed",
-      "updated_at": 1507543909353
-    },
-    "1507629884476": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xc8ccc28befbc94048c2ea794e1de4bf3daa764ac",
-      "updated_at": 1507629924722
-    },
-    "1512852287325": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xb8789f6da44d7c1ebe8274a3b8fefe05d21a8111",
-      "updated_at": 1512853373906
-    },
-    "1512853654280": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x8618acbf77f812ba3fb53be39427e8a63e60c609",
-      "updated_at": 1512854383719
-    },
-    "1512854531833": {
-      "events": {
-        "0x945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd696838": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "oldPrice",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "newPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "PriceUpdated",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x89972a51654f4251db6d4afabede145f2f4a7c88",
-      "updated_at": 1512858267168
+      "address": "0x383864fd16afa0af2c5516e73753e4e07e1de704"
     }
   },
-  "schema_version": "0.0.5",
-  "updated_at": 1512860214545
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-11T13:57:57.712Z"
 }

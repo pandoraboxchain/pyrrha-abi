@@ -1,51 +1,3622 @@
 {
-  "contract_name": "StateMachineLib",
+  "contractName": "StateMachineLib",
   "abi": [],
-  "unlinked_binary": "0x60606040523415600e57600080fd5b5b603680601c6000396000f30060606040525b600080fd00a165627a7a7230582088e88ebcb2fcfc95732fec0723f82887b202d23e2b70b831bf4f176e13efa02f0029",
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820f65d2b05fdea2213bc299b133b4cf8553ff5427272817f20ee0613e32f0de59a0029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820f65d2b05fdea2213bc299b133b4cf8553ff5427272817f20ee0613e32f0de59a0029",
+  "sourceMap": "27:2592:10:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "27:2592:10:-;;;;;",
+  "source": "pragma solidity ^0.4.15;\n\n\nlibrary StateMachineLib {\n    struct StateMachine {\n        bool initialized;\n        uint8 currentState;\n        mapping(uint8 => uint8[]) transitionTable;\n    }\n\n    function transitionToState(\n        StateMachine storage _machine,\n        uint8 _newState\n    ) internal {\n        // Should not happen\n        assert(_machine.currentState != 0xFF);\n\n        // Checking if the state transition is allowed\n        bool transitionAllowed = false;\n        uint8[] storage allowedStates = _machine.transitionTable[uint8(_machine.currentState)];\n        for (uint no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _newState) {\n                transitionAllowed = true;\n            }\n        }\n\n        require(transitionAllowed == true);\n    }\n\n    function transitionThroughState(\n        StateMachine storage _machine,\n        uint8 _transitionState\n    ) internal {\n        // Should not happen\n        assert(_machine.currentState != 0xFF);\n\n        // Checking if the state transitions are allowed\n\n        bool firstTransitionAllowed = false;\n        uint8[] storage allowedStates = _machine.transitionTable[uint8(_machine.currentState)];\n        for (uint no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _transitionState) {\n                firstTransitionAllowed = true;\n                break;\n            }\n        }\n        require(firstTransitionAllowed == true);\n\n        bool secondTransitionAllowed = false;\n        allowedStates = _machine.transitionTable[uint8(_transitionState)];\n        for (no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _machine.currentState) {\n                secondTransitionAllowed = true;\n                break;\n            }\n        }\n        require(secondTransitionAllowed == true);\n\n        _machine.currentState = _transitionState;\n    }\n\n    function requireStates2(\n        StateMachine storage _machine,\n        uint8 _requiredState1,\n        uint8 _requiredState2\n    ) internal {\n        bool properState = false;\n        var _requiredStates = [_requiredState1, _requiredState2];\n        for (uint no = 0; no < _requiredStates.length; no++) {\n            if (_requiredStates[no] == _machine.currentState) {\n                properState = true;\n                break;\n            }\n        }\n        require(properState == true);\n    }\n\n    function initStateMachine(\n        StateMachine storage _machine\n    ) internal {\n        require(_machine.initialized == false);\n        _machine.currentState = 1;\n        _machine.initialized = true;\n    }\n\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/libraries/StateMachineLib.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/libraries/StateMachineLib.sol",
+      "exportedSymbols": {
+        "StateMachineLib": [
+          2996
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".15"
+          ]
+        },
+        "id": 2735,
+        "name": "PragmaDirective",
+        "src": "0:24:10"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2996
+          ],
+          "name": "StateMachineLib",
+          "scope": 2997
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "StateMachineLib.StateMachine",
+              "name": "StateMachine",
+              "scope": 2996,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "initialized",
+                  "scope": 2745,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 2736,
+                    "name": "ElementaryTypeName",
+                    "src": "87:4:10"
+                  }
+                ],
+                "id": 2737,
+                "name": "VariableDeclaration",
+                "src": "87:16:10"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "currentState",
+                  "scope": 2745,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint8",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint8",
+                      "type": "uint8"
+                    },
+                    "id": 2738,
+                    "name": "ElementaryTypeName",
+                    "src": "113:5:10"
+                  }
+                ],
+                "id": 2739,
+                "name": "VariableDeclaration",
+                "src": "113:18:10"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "transitionTable",
+                  "scope": 2745,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "mapping(uint8 => uint8[] storage ref)",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "type": "mapping(uint8 => uint8[] storage ref)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 2740,
+                        "name": "ElementaryTypeName",
+                        "src": "149:5:10"
+                      },
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "uint8[] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint8",
+                              "type": "uint8"
+                            },
+                            "id": 2741,
+                            "name": "ElementaryTypeName",
+                            "src": "158:5:10"
+                          }
+                        ],
+                        "id": 2742,
+                        "name": "ArrayTypeName",
+                        "src": "158:7:10"
+                      }
+                    ],
+                    "id": 2743,
+                    "name": "Mapping",
+                    "src": "141:25:10"
+                  }
+                ],
+                "id": 2744,
+                "name": "VariableDeclaration",
+                "src": "141:41:10"
+              }
+            ],
+            "id": 2745,
+            "name": "StructDefinition",
+            "src": "57:132:10"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "transitionToState",
+              "payable": false,
+              "scope": 2996,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_machine",
+                      "scope": 2806,
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StateMachine",
+                          "referencedDeclaration": 2745,
+                          "type": "struct StateMachineLib.StateMachine storage pointer"
+                        },
+                        "id": 2746,
+                        "name": "UserDefinedTypeName",
+                        "src": "231:12:10"
+                      }
+                    ],
+                    "id": 2747,
+                    "name": "VariableDeclaration",
+                    "src": "231:29:10"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_newState",
+                      "scope": 2806,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 2748,
+                        "name": "ElementaryTypeName",
+                        "src": "270:5:10"
+                      }
+                    ],
+                    "id": 2749,
+                    "name": "VariableDeclaration",
+                    "src": "270:15:10"
+                  }
+                ],
+                "id": 2750,
+                "name": "ParameterList",
+                "src": "221:70:10"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2751,
+                "name": "ParameterList",
+                "src": "301:0:10"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3639,
+                              "type": "function (bool) pure",
+                              "value": "assert"
+                            },
+                            "id": 2752,
+                            "name": "Identifier",
+                            "src": "340:6:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "currentState",
+                                  "referencedDeclaration": 2739,
+                                  "type": "uint8"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2747,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2753,
+                                    "name": "Identifier",
+                                    "src": "347:8:10"
+                                  }
+                                ],
+                                "id": 2754,
+                                "name": "MemberAccess",
+                                "src": "347:21:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30784646",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 255",
+                                  "value": "0xFF"
+                                },
+                                "id": 2755,
+                                "name": "Literal",
+                                "src": "372:4:10"
+                              }
+                            ],
+                            "id": 2756,
+                            "name": "BinaryOperation",
+                            "src": "347:29:10"
+                          }
+                        ],
+                        "id": 2757,
+                        "name": "FunctionCall",
+                        "src": "340:37:10"
+                      }
+                    ],
+                    "id": 2758,
+                    "name": "ExpressionStatement",
+                    "src": "340:37:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2760
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "transitionAllowed",
+                          "scope": 2806,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bool",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bool",
+                              "type": "bool"
+                            },
+                            "id": 2759,
+                            "name": "ElementaryTypeName",
+                            "src": "443:4:10"
+                          }
+                        ],
+                        "id": 2760,
+                        "name": "VariableDeclaration",
+                        "src": "443:22:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "66616c7365",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "false"
+                        },
+                        "id": 2761,
+                        "name": "Literal",
+                        "src": "468:5:10"
+                      }
+                    ],
+                    "id": 2762,
+                    "name": "VariableDeclarationStatement",
+                    "src": "443:30:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2766
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "allowedStates",
+                          "scope": 2806,
+                          "stateVariable": false,
+                          "storageLocation": "storage",
+                          "type": "uint8[] storage pointer",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "length": null,
+                              "type": "uint8[] storage pointer"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint8",
+                                  "type": "uint8"
+                                },
+                                "id": 2764,
+                                "name": "ElementaryTypeName",
+                                "src": "483:5:10"
+                              }
+                            ],
+                            "id": 2765,
+                            "name": "ArrayTypeName",
+                            "src": "483:7:10"
+                          }
+                        ],
+                        "id": 2766,
+                        "name": "VariableDeclaration",
+                        "src": "483:29:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint8[] storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transitionTable",
+                              "referencedDeclaration": 2744,
+                              "type": "mapping(uint8 => uint8[] storage ref)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2747,
+                                  "type": "struct StateMachineLib.StateMachine storage pointer",
+                                  "value": "_machine"
+                                },
+                                "id": 2767,
+                                "name": "Identifier",
+                                "src": "515:8:10"
+                              }
+                            ],
+                            "id": 2768,
+                            "name": "MemberAccess",
+                            "src": "515:24:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "uint8",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_uint8",
+                                      "typeString": "uint8"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(uint8)",
+                                  "value": "uint8"
+                                },
+                                "id": 2769,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "540:5:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "currentState",
+                                  "referencedDeclaration": 2739,
+                                  "type": "uint8"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2747,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2770,
+                                    "name": "Identifier",
+                                    "src": "546:8:10"
+                                  }
+                                ],
+                                "id": 2771,
+                                "name": "MemberAccess",
+                                "src": "546:21:10"
+                              }
+                            ],
+                            "id": 2772,
+                            "name": "FunctionCall",
+                            "src": "540:28:10"
+                          }
+                        ],
+                        "id": 2773,
+                        "name": "IndexAccess",
+                        "src": "515:54:10"
+                      }
+                    ],
+                    "id": 2774,
+                    "name": "VariableDeclarationStatement",
+                    "src": "483:86:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            2776
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "name": "no",
+                              "scope": 2806,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint256",
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint",
+                                  "type": "uint256"
+                                },
+                                "id": 2775,
+                                "name": "ElementaryTypeName",
+                                "src": "584:4:10"
+                              }
+                            ],
+                            "id": 2776,
+                            "name": "VariableDeclaration",
+                            "src": "584:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 2777,
+                            "name": "Literal",
+                            "src": "594:1:10"
+                          }
+                        ],
+                        "id": 2778,
+                        "name": "VariableDeclarationStatement",
+                        "src": "584:11:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2776,
+                              "type": "uint256",
+                              "value": "no"
+                            },
+                            "id": 2779,
+                            "name": "Identifier",
+                            "src": "597:2:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2766,
+                                  "type": "uint8[] storage pointer",
+                                  "value": "allowedStates"
+                                },
+                                "id": 2780,
+                                "name": "Identifier",
+                                "src": "602:13:10"
+                              }
+                            ],
+                            "id": 2781,
+                            "name": "MemberAccess",
+                            "src": "602:20:10"
+                          }
+                        ],
+                        "id": 2782,
+                        "name": "BinaryOperation",
+                        "src": "597:25:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2776,
+                                  "type": "uint256",
+                                  "value": "no"
+                                },
+                                "id": 2783,
+                                "name": "Identifier",
+                                "src": "624:2:10"
+                              }
+                            ],
+                            "id": 2784,
+                            "name": "UnaryOperation",
+                            "src": "624:4:10"
+                          }
+                        ],
+                        "id": 2785,
+                        "name": "ExpressionStatement",
+                        "src": "624:4:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "falseBody": null
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint8",
+                                    "typeString": "uint8"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "==",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2766,
+                                          "type": "uint8[] storage pointer",
+                                          "value": "allowedStates"
+                                        },
+                                        "id": 2786,
+                                        "name": "Identifier",
+                                        "src": "648:13:10"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2776,
+                                          "type": "uint256",
+                                          "value": "no"
+                                        },
+                                        "id": 2787,
+                                        "name": "Identifier",
+                                        "src": "662:2:10"
+                                      }
+                                    ],
+                                    "id": 2788,
+                                    "name": "IndexAccess",
+                                    "src": "648:17:10"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2749,
+                                      "type": "uint8",
+                                      "value": "_newState"
+                                    },
+                                    "id": 2789,
+                                    "name": "Identifier",
+                                    "src": "669:9:10"
+                                  }
+                                ],
+                                "id": 2790,
+                                "name": "BinaryOperation",
+                                "src": "648:30:10"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "operator": "=",
+                                          "type": "bool"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 2760,
+                                              "type": "bool",
+                                              "value": "transitionAllowed"
+                                            },
+                                            "id": 2791,
+                                            "name": "Identifier",
+                                            "src": "698:17:10"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "74727565",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "bool",
+                                              "type": "bool",
+                                              "value": "true"
+                                            },
+                                            "id": 2792,
+                                            "name": "Literal",
+                                            "src": "718:4:10"
+                                          }
+                                        ],
+                                        "id": 2793,
+                                        "name": "Assignment",
+                                        "src": "698:24:10"
+                                      }
+                                    ],
+                                    "id": 2794,
+                                    "name": "ExpressionStatement",
+                                    "src": "698:24:10"
+                                  }
+                                ],
+                                "id": 2795,
+                                "name": "Block",
+                                "src": "680:57:10"
+                              }
+                            ],
+                            "id": 2796,
+                            "name": "IfStatement",
+                            "src": "644:93:10"
+                          }
+                        ],
+                        "id": 2797,
+                        "name": "Block",
+                        "src": "630:117:10"
+                      }
+                    ],
+                    "id": 2798,
+                    "name": "ForStatement",
+                    "src": "579:168:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3651,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2799,
+                            "name": "Identifier",
+                            "src": "757:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2760,
+                                  "type": "bool",
+                                  "value": "transitionAllowed"
+                                },
+                                "id": 2800,
+                                "name": "Identifier",
+                                "src": "765:17:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 2801,
+                                "name": "Literal",
+                                "src": "786:4:10"
+                              }
+                            ],
+                            "id": 2802,
+                            "name": "BinaryOperation",
+                            "src": "765:25:10"
+                          }
+                        ],
+                        "id": 2803,
+                        "name": "FunctionCall",
+                        "src": "757:34:10"
+                      }
+                    ],
+                    "id": 2804,
+                    "name": "ExpressionStatement",
+                    "src": "757:34:10"
+                  }
+                ],
+                "id": 2805,
+                "name": "Block",
+                "src": "301:497:10"
+              }
+            ],
+            "id": 2806,
+            "name": "FunctionDefinition",
+            "src": "195:603:10"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "transitionThroughState",
+              "payable": false,
+              "scope": 2996,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_machine",
+                      "scope": 2919,
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StateMachine",
+                          "referencedDeclaration": 2745,
+                          "type": "struct StateMachineLib.StateMachine storage pointer"
+                        },
+                        "id": 2807,
+                        "name": "UserDefinedTypeName",
+                        "src": "845:12:10"
+                      }
+                    ],
+                    "id": 2808,
+                    "name": "VariableDeclaration",
+                    "src": "845:29:10"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_transitionState",
+                      "scope": 2919,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 2809,
+                        "name": "ElementaryTypeName",
+                        "src": "884:5:10"
+                      }
+                    ],
+                    "id": 2810,
+                    "name": "VariableDeclaration",
+                    "src": "884:22:10"
+                  }
+                ],
+                "id": 2811,
+                "name": "ParameterList",
+                "src": "835:77:10"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2812,
+                "name": "ParameterList",
+                "src": "922:0:10"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3639,
+                              "type": "function (bool) pure",
+                              "value": "assert"
+                            },
+                            "id": 2813,
+                            "name": "Identifier",
+                            "src": "961:6:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "currentState",
+                                  "referencedDeclaration": 2739,
+                                  "type": "uint8"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2808,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2814,
+                                    "name": "Identifier",
+                                    "src": "968:8:10"
+                                  }
+                                ],
+                                "id": 2815,
+                                "name": "MemberAccess",
+                                "src": "968:21:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30784646",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 255",
+                                  "value": "0xFF"
+                                },
+                                "id": 2816,
+                                "name": "Literal",
+                                "src": "993:4:10"
+                              }
+                            ],
+                            "id": 2817,
+                            "name": "BinaryOperation",
+                            "src": "968:29:10"
+                          }
+                        ],
+                        "id": 2818,
+                        "name": "FunctionCall",
+                        "src": "961:37:10"
+                      }
+                    ],
+                    "id": 2819,
+                    "name": "ExpressionStatement",
+                    "src": "961:37:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2821
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "firstTransitionAllowed",
+                          "scope": 2919,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bool",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bool",
+                              "type": "bool"
+                            },
+                            "id": 2820,
+                            "name": "ElementaryTypeName",
+                            "src": "1067:4:10"
+                          }
+                        ],
+                        "id": 2821,
+                        "name": "VariableDeclaration",
+                        "src": "1067:27:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "66616c7365",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "false"
+                        },
+                        "id": 2822,
+                        "name": "Literal",
+                        "src": "1097:5:10"
+                      }
+                    ],
+                    "id": 2823,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1067:35:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2827
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "allowedStates",
+                          "scope": 2919,
+                          "stateVariable": false,
+                          "storageLocation": "storage",
+                          "type": "uint8[] storage pointer",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "length": null,
+                              "type": "uint8[] storage pointer"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint8",
+                                  "type": "uint8"
+                                },
+                                "id": 2825,
+                                "name": "ElementaryTypeName",
+                                "src": "1112:5:10"
+                              }
+                            ],
+                            "id": 2826,
+                            "name": "ArrayTypeName",
+                            "src": "1112:7:10"
+                          }
+                        ],
+                        "id": 2827,
+                        "name": "VariableDeclaration",
+                        "src": "1112:29:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint8[] storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transitionTable",
+                              "referencedDeclaration": 2744,
+                              "type": "mapping(uint8 => uint8[] storage ref)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2808,
+                                  "type": "struct StateMachineLib.StateMachine storage pointer",
+                                  "value": "_machine"
+                                },
+                                "id": 2828,
+                                "name": "Identifier",
+                                "src": "1144:8:10"
+                              }
+                            ],
+                            "id": 2829,
+                            "name": "MemberAccess",
+                            "src": "1144:24:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "uint8",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_uint8",
+                                      "typeString": "uint8"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(uint8)",
+                                  "value": "uint8"
+                                },
+                                "id": 2830,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1169:5:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "currentState",
+                                  "referencedDeclaration": 2739,
+                                  "type": "uint8"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2808,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2831,
+                                    "name": "Identifier",
+                                    "src": "1175:8:10"
+                                  }
+                                ],
+                                "id": 2832,
+                                "name": "MemberAccess",
+                                "src": "1175:21:10"
+                              }
+                            ],
+                            "id": 2833,
+                            "name": "FunctionCall",
+                            "src": "1169:28:10"
+                          }
+                        ],
+                        "id": 2834,
+                        "name": "IndexAccess",
+                        "src": "1144:54:10"
+                      }
+                    ],
+                    "id": 2835,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1112:86:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            2837
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "name": "no",
+                              "scope": 2919,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint256",
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint",
+                                  "type": "uint256"
+                                },
+                                "id": 2836,
+                                "name": "ElementaryTypeName",
+                                "src": "1213:4:10"
+                              }
+                            ],
+                            "id": 2837,
+                            "name": "VariableDeclaration",
+                            "src": "1213:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 2838,
+                            "name": "Literal",
+                            "src": "1223:1:10"
+                          }
+                        ],
+                        "id": 2839,
+                        "name": "VariableDeclarationStatement",
+                        "src": "1213:11:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2837,
+                              "type": "uint256",
+                              "value": "no"
+                            },
+                            "id": 2840,
+                            "name": "Identifier",
+                            "src": "1226:2:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2827,
+                                  "type": "uint8[] storage pointer",
+                                  "value": "allowedStates"
+                                },
+                                "id": 2841,
+                                "name": "Identifier",
+                                "src": "1231:13:10"
+                              }
+                            ],
+                            "id": 2842,
+                            "name": "MemberAccess",
+                            "src": "1231:20:10"
+                          }
+                        ],
+                        "id": 2843,
+                        "name": "BinaryOperation",
+                        "src": "1226:25:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2837,
+                                  "type": "uint256",
+                                  "value": "no"
+                                },
+                                "id": 2844,
+                                "name": "Identifier",
+                                "src": "1253:2:10"
+                              }
+                            ],
+                            "id": 2845,
+                            "name": "UnaryOperation",
+                            "src": "1253:4:10"
+                          }
+                        ],
+                        "id": 2846,
+                        "name": "ExpressionStatement",
+                        "src": "1253:4:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "falseBody": null
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint8",
+                                    "typeString": "uint8"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "==",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2827,
+                                          "type": "uint8[] storage pointer",
+                                          "value": "allowedStates"
+                                        },
+                                        "id": 2847,
+                                        "name": "Identifier",
+                                        "src": "1277:13:10"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2837,
+                                          "type": "uint256",
+                                          "value": "no"
+                                        },
+                                        "id": 2848,
+                                        "name": "Identifier",
+                                        "src": "1291:2:10"
+                                      }
+                                    ],
+                                    "id": 2849,
+                                    "name": "IndexAccess",
+                                    "src": "1277:17:10"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2810,
+                                      "type": "uint8",
+                                      "value": "_transitionState"
+                                    },
+                                    "id": 2850,
+                                    "name": "Identifier",
+                                    "src": "1298:16:10"
+                                  }
+                                ],
+                                "id": 2851,
+                                "name": "BinaryOperation",
+                                "src": "1277:37:10"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "operator": "=",
+                                          "type": "bool"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 2821,
+                                              "type": "bool",
+                                              "value": "firstTransitionAllowed"
+                                            },
+                                            "id": 2852,
+                                            "name": "Identifier",
+                                            "src": "1334:22:10"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "74727565",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "bool",
+                                              "type": "bool",
+                                              "value": "true"
+                                            },
+                                            "id": 2853,
+                                            "name": "Literal",
+                                            "src": "1359:4:10"
+                                          }
+                                        ],
+                                        "id": 2854,
+                                        "name": "Assignment",
+                                        "src": "1334:29:10"
+                                      }
+                                    ],
+                                    "id": 2855,
+                                    "name": "ExpressionStatement",
+                                    "src": "1334:29:10"
+                                  },
+                                  {
+                                    "id": 2856,
+                                    "name": "Break",
+                                    "src": "1381:5:10"
+                                  }
+                                ],
+                                "id": 2857,
+                                "name": "Block",
+                                "src": "1316:85:10"
+                              }
+                            ],
+                            "id": 2858,
+                            "name": "IfStatement",
+                            "src": "1273:128:10"
+                          }
+                        ],
+                        "id": 2859,
+                        "name": "Block",
+                        "src": "1259:152:10"
+                      }
+                    ],
+                    "id": 2860,
+                    "name": "ForStatement",
+                    "src": "1208:203:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3651,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2861,
+                            "name": "Identifier",
+                            "src": "1420:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2821,
+                                  "type": "bool",
+                                  "value": "firstTransitionAllowed"
+                                },
+                                "id": 2862,
+                                "name": "Identifier",
+                                "src": "1428:22:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 2863,
+                                "name": "Literal",
+                                "src": "1454:4:10"
+                              }
+                            ],
+                            "id": 2864,
+                            "name": "BinaryOperation",
+                            "src": "1428:30:10"
+                          }
+                        ],
+                        "id": 2865,
+                        "name": "FunctionCall",
+                        "src": "1420:39:10"
+                      }
+                    ],
+                    "id": 2866,
+                    "name": "ExpressionStatement",
+                    "src": "1420:39:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2868
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "secondTransitionAllowed",
+                          "scope": 2919,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bool",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bool",
+                              "type": "bool"
+                            },
+                            "id": 2867,
+                            "name": "ElementaryTypeName",
+                            "src": "1470:4:10"
+                          }
+                        ],
+                        "id": 2868,
+                        "name": "VariableDeclaration",
+                        "src": "1470:28:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "66616c7365",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "false"
+                        },
+                        "id": 2869,
+                        "name": "Literal",
+                        "src": "1501:5:10"
+                      }
+                    ],
+                    "id": 2870,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1470:36:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8[] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2827,
+                              "type": "uint8[] storage pointer",
+                              "value": "allowedStates"
+                            },
+                            "id": 2871,
+                            "name": "Identifier",
+                            "src": "1516:13:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "uint8[] storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "transitionTable",
+                                  "referencedDeclaration": 2744,
+                                  "type": "mapping(uint8 => uint8[] storage ref)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2808,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2872,
+                                    "name": "Identifier",
+                                    "src": "1532:8:10"
+                                  }
+                                ],
+                                "id": 2873,
+                                "name": "MemberAccess",
+                                "src": "1532:24:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "uint8",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint8",
+                                          "typeString": "uint8"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(uint8)",
+                                      "value": "uint8"
+                                    },
+                                    "id": 2874,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "1557:5:10"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2810,
+                                      "type": "uint8",
+                                      "value": "_transitionState"
+                                    },
+                                    "id": 2875,
+                                    "name": "Identifier",
+                                    "src": "1563:16:10"
+                                  }
+                                ],
+                                "id": 2876,
+                                "name": "FunctionCall",
+                                "src": "1557:23:10"
+                              }
+                            ],
+                            "id": 2877,
+                            "name": "IndexAccess",
+                            "src": "1532:49:10"
+                          }
+                        ],
+                        "id": 2878,
+                        "name": "Assignment",
+                        "src": "1516:65:10"
+                      }
+                    ],
+                    "id": 2879,
+                    "name": "ExpressionStatement",
+                    "src": "1516:65:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "=",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2837,
+                                  "type": "uint256",
+                                  "value": "no"
+                                },
+                                "id": 2880,
+                                "name": "Identifier",
+                                "src": "1596:2:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 2881,
+                                "name": "Literal",
+                                "src": "1601:1:10"
+                              }
+                            ],
+                            "id": 2882,
+                            "name": "Assignment",
+                            "src": "1596:6:10"
+                          }
+                        ],
+                        "id": 2883,
+                        "name": "ExpressionStatement",
+                        "src": "1596:6:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2837,
+                              "type": "uint256",
+                              "value": "no"
+                            },
+                            "id": 2884,
+                            "name": "Identifier",
+                            "src": "1604:2:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2827,
+                                  "type": "uint8[] storage pointer",
+                                  "value": "allowedStates"
+                                },
+                                "id": 2885,
+                                "name": "Identifier",
+                                "src": "1609:13:10"
+                              }
+                            ],
+                            "id": 2886,
+                            "name": "MemberAccess",
+                            "src": "1609:20:10"
+                          }
+                        ],
+                        "id": 2887,
+                        "name": "BinaryOperation",
+                        "src": "1604:25:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2837,
+                                  "type": "uint256",
+                                  "value": "no"
+                                },
+                                "id": 2888,
+                                "name": "Identifier",
+                                "src": "1631:2:10"
+                              }
+                            ],
+                            "id": 2889,
+                            "name": "UnaryOperation",
+                            "src": "1631:4:10"
+                          }
+                        ],
+                        "id": 2890,
+                        "name": "ExpressionStatement",
+                        "src": "1631:4:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "falseBody": null
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint8",
+                                    "typeString": "uint8"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "==",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2827,
+                                          "type": "uint8[] storage pointer",
+                                          "value": "allowedStates"
+                                        },
+                                        "id": 2891,
+                                        "name": "Identifier",
+                                        "src": "1655:13:10"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2837,
+                                          "type": "uint256",
+                                          "value": "no"
+                                        },
+                                        "id": 2892,
+                                        "name": "Identifier",
+                                        "src": "1669:2:10"
+                                      }
+                                    ],
+                                    "id": 2893,
+                                    "name": "IndexAccess",
+                                    "src": "1655:17:10"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "currentState",
+                                      "referencedDeclaration": 2739,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2808,
+                                          "type": "struct StateMachineLib.StateMachine storage pointer",
+                                          "value": "_machine"
+                                        },
+                                        "id": 2894,
+                                        "name": "Identifier",
+                                        "src": "1676:8:10"
+                                      }
+                                    ],
+                                    "id": 2895,
+                                    "name": "MemberAccess",
+                                    "src": "1676:21:10"
+                                  }
+                                ],
+                                "id": 2896,
+                                "name": "BinaryOperation",
+                                "src": "1655:42:10"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "operator": "=",
+                                          "type": "bool"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 2868,
+                                              "type": "bool",
+                                              "value": "secondTransitionAllowed"
+                                            },
+                                            "id": 2897,
+                                            "name": "Identifier",
+                                            "src": "1717:23:10"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "74727565",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "bool",
+                                              "type": "bool",
+                                              "value": "true"
+                                            },
+                                            "id": 2898,
+                                            "name": "Literal",
+                                            "src": "1743:4:10"
+                                          }
+                                        ],
+                                        "id": 2899,
+                                        "name": "Assignment",
+                                        "src": "1717:30:10"
+                                      }
+                                    ],
+                                    "id": 2900,
+                                    "name": "ExpressionStatement",
+                                    "src": "1717:30:10"
+                                  },
+                                  {
+                                    "id": 2901,
+                                    "name": "Break",
+                                    "src": "1765:5:10"
+                                  }
+                                ],
+                                "id": 2902,
+                                "name": "Block",
+                                "src": "1699:86:10"
+                              }
+                            ],
+                            "id": 2903,
+                            "name": "IfStatement",
+                            "src": "1651:134:10"
+                          }
+                        ],
+                        "id": 2904,
+                        "name": "Block",
+                        "src": "1637:158:10"
+                      }
+                    ],
+                    "id": 2905,
+                    "name": "ForStatement",
+                    "src": "1591:204:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3651,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2906,
+                            "name": "Identifier",
+                            "src": "1804:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2868,
+                                  "type": "bool",
+                                  "value": "secondTransitionAllowed"
+                                },
+                                "id": 2907,
+                                "name": "Identifier",
+                                "src": "1812:23:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 2908,
+                                "name": "Literal",
+                                "src": "1839:4:10"
+                              }
+                            ],
+                            "id": 2909,
+                            "name": "BinaryOperation",
+                            "src": "1812:31:10"
+                          }
+                        ],
+                        "id": 2910,
+                        "name": "FunctionCall",
+                        "src": "1804:40:10"
+                      }
+                    ],
+                    "id": 2911,
+                    "name": "ExpressionStatement",
+                    "src": "1804:40:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 2739,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2808,
+                                  "type": "struct StateMachineLib.StateMachine storage pointer",
+                                  "value": "_machine"
+                                },
+                                "id": 2912,
+                                "name": "Identifier",
+                                "src": "1855:8:10"
+                              }
+                            ],
+                            "id": 2914,
+                            "name": "MemberAccess",
+                            "src": "1855:21:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2810,
+                              "type": "uint8",
+                              "value": "_transitionState"
+                            },
+                            "id": 2915,
+                            "name": "Identifier",
+                            "src": "1879:16:10"
+                          }
+                        ],
+                        "id": 2916,
+                        "name": "Assignment",
+                        "src": "1855:40:10"
+                      }
+                    ],
+                    "id": 2917,
+                    "name": "ExpressionStatement",
+                    "src": "1855:40:10"
+                  }
+                ],
+                "id": 2918,
+                "name": "Block",
+                "src": "922:980:10"
+              }
+            ],
+            "id": 2919,
+            "name": "FunctionDefinition",
+            "src": "804:1098:10"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "requireStates2",
+              "payable": false,
+              "scope": 2996,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_machine",
+                      "scope": 2970,
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StateMachine",
+                          "referencedDeclaration": 2745,
+                          "type": "struct StateMachineLib.StateMachine storage pointer"
+                        },
+                        "id": 2920,
+                        "name": "UserDefinedTypeName",
+                        "src": "1941:12:10"
+                      }
+                    ],
+                    "id": 2921,
+                    "name": "VariableDeclaration",
+                    "src": "1941:29:10"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_requiredState1",
+                      "scope": 2970,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 2922,
+                        "name": "ElementaryTypeName",
+                        "src": "1980:5:10"
+                      }
+                    ],
+                    "id": 2923,
+                    "name": "VariableDeclaration",
+                    "src": "1980:21:10"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_requiredState2",
+                      "scope": 2970,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 2924,
+                        "name": "ElementaryTypeName",
+                        "src": "2011:5:10"
+                      }
+                    ],
+                    "id": 2925,
+                    "name": "VariableDeclaration",
+                    "src": "2011:21:10"
+                  }
+                ],
+                "id": 2926,
+                "name": "ParameterList",
+                "src": "1931:107:10"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2927,
+                "name": "ParameterList",
+                "src": "2048:0:10"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2929
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "properState",
+                          "scope": 2970,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bool",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bool",
+                              "type": "bool"
+                            },
+                            "id": 2928,
+                            "name": "ElementaryTypeName",
+                            "src": "2058:4:10"
+                          }
+                        ],
+                        "id": 2929,
+                        "name": "VariableDeclaration",
+                        "src": "2058:16:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "66616c7365",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "false"
+                        },
+                        "id": 2930,
+                        "name": "Literal",
+                        "src": "2077:5:10"
+                      }
+                    ],
+                    "id": 2931,
+                    "name": "VariableDeclarationStatement",
+                    "src": "2058:24:10"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2932
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "_requiredStates",
+                          "scope": 2970,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint8[2] memory",
+                          "typeName": null,
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [],
+                        "id": 2932,
+                        "name": "VariableDeclaration",
+                        "src": "2092:19:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": true,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint8[2] memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2923,
+                              "type": "uint8",
+                              "value": "_requiredState1"
+                            },
+                            "id": 2933,
+                            "name": "Identifier",
+                            "src": "2115:15:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2925,
+                              "type": "uint8",
+                              "value": "_requiredState2"
+                            },
+                            "id": 2934,
+                            "name": "Identifier",
+                            "src": "2132:15:10"
+                          }
+                        ],
+                        "id": 2935,
+                        "name": "TupleExpression",
+                        "src": "2114:34:10"
+                      }
+                    ],
+                    "id": 2936,
+                    "name": "VariableDeclarationStatement",
+                    "src": "2092:56:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            2938
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "name": "no",
+                              "scope": 2970,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint256",
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint",
+                                  "type": "uint256"
+                                },
+                                "id": 2937,
+                                "name": "ElementaryTypeName",
+                                "src": "2163:4:10"
+                              }
+                            ],
+                            "id": 2938,
+                            "name": "VariableDeclaration",
+                            "src": "2163:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 2939,
+                            "name": "Literal",
+                            "src": "2173:1:10"
+                          }
+                        ],
+                        "id": 2940,
+                        "name": "VariableDeclarationStatement",
+                        "src": "2163:11:10"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2938,
+                              "type": "uint256",
+                              "value": "no"
+                            },
+                            "id": 2941,
+                            "name": "Identifier",
+                            "src": "2176:2:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2932,
+                                  "type": "uint8[2] memory",
+                                  "value": "_requiredStates"
+                                },
+                                "id": 2942,
+                                "name": "Identifier",
+                                "src": "2181:15:10"
+                              }
+                            ],
+                            "id": 2943,
+                            "name": "MemberAccess",
+                            "src": "2181:22:10"
+                          }
+                        ],
+                        "id": 2944,
+                        "name": "BinaryOperation",
+                        "src": "2176:27:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2938,
+                                  "type": "uint256",
+                                  "value": "no"
+                                },
+                                "id": 2945,
+                                "name": "Identifier",
+                                "src": "2205:2:10"
+                              }
+                            ],
+                            "id": 2946,
+                            "name": "UnaryOperation",
+                            "src": "2205:4:10"
+                          }
+                        ],
+                        "id": 2947,
+                        "name": "ExpressionStatement",
+                        "src": "2205:4:10"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "falseBody": null
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint8",
+                                    "typeString": "uint8"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "==",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2932,
+                                          "type": "uint8[2] memory",
+                                          "value": "_requiredStates"
+                                        },
+                                        "id": 2948,
+                                        "name": "Identifier",
+                                        "src": "2229:15:10"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2938,
+                                          "type": "uint256",
+                                          "value": "no"
+                                        },
+                                        "id": 2949,
+                                        "name": "Identifier",
+                                        "src": "2245:2:10"
+                                      }
+                                    ],
+                                    "id": 2950,
+                                    "name": "IndexAccess",
+                                    "src": "2229:19:10"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "currentState",
+                                      "referencedDeclaration": 2739,
+                                      "type": "uint8"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2921,
+                                          "type": "struct StateMachineLib.StateMachine storage pointer",
+                                          "value": "_machine"
+                                        },
+                                        "id": 2951,
+                                        "name": "Identifier",
+                                        "src": "2252:8:10"
+                                      }
+                                    ],
+                                    "id": 2952,
+                                    "name": "MemberAccess",
+                                    "src": "2252:21:10"
+                                  }
+                                ],
+                                "id": 2953,
+                                "name": "BinaryOperation",
+                                "src": "2229:44:10"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "operator": "=",
+                                          "type": "bool"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 2929,
+                                              "type": "bool",
+                                              "value": "properState"
+                                            },
+                                            "id": 2954,
+                                            "name": "Identifier",
+                                            "src": "2293:11:10"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "74727565",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "bool",
+                                              "type": "bool",
+                                              "value": "true"
+                                            },
+                                            "id": 2955,
+                                            "name": "Literal",
+                                            "src": "2307:4:10"
+                                          }
+                                        ],
+                                        "id": 2956,
+                                        "name": "Assignment",
+                                        "src": "2293:18:10"
+                                      }
+                                    ],
+                                    "id": 2957,
+                                    "name": "ExpressionStatement",
+                                    "src": "2293:18:10"
+                                  },
+                                  {
+                                    "id": 2958,
+                                    "name": "Break",
+                                    "src": "2329:5:10"
+                                  }
+                                ],
+                                "id": 2959,
+                                "name": "Block",
+                                "src": "2275:74:10"
+                              }
+                            ],
+                            "id": 2960,
+                            "name": "IfStatement",
+                            "src": "2225:124:10"
+                          }
+                        ],
+                        "id": 2961,
+                        "name": "Block",
+                        "src": "2211:148:10"
+                      }
+                    ],
+                    "id": 2962,
+                    "name": "ForStatement",
+                    "src": "2158:201:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3651,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2963,
+                            "name": "Identifier",
+                            "src": "2368:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2929,
+                                  "type": "bool",
+                                  "value": "properState"
+                                },
+                                "id": 2964,
+                                "name": "Identifier",
+                                "src": "2376:11:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 2965,
+                                "name": "Literal",
+                                "src": "2391:4:10"
+                              }
+                            ],
+                            "id": 2966,
+                            "name": "BinaryOperation",
+                            "src": "2376:19:10"
+                          }
+                        ],
+                        "id": 2967,
+                        "name": "FunctionCall",
+                        "src": "2368:28:10"
+                      }
+                    ],
+                    "id": 2968,
+                    "name": "ExpressionStatement",
+                    "src": "2368:28:10"
+                  }
+                ],
+                "id": 2969,
+                "name": "Block",
+                "src": "2048:355:10"
+              }
+            ],
+            "id": 2970,
+            "name": "FunctionDefinition",
+            "src": "1908:495:10"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "initStateMachine",
+              "payable": false,
+              "scope": 2996,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_machine",
+                      "scope": 2995,
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StateMachine",
+                          "referencedDeclaration": 2745,
+                          "type": "struct StateMachineLib.StateMachine storage pointer"
+                        },
+                        "id": 2971,
+                        "name": "UserDefinedTypeName",
+                        "src": "2444:12:10"
+                      }
+                    ],
+                    "id": 2972,
+                    "name": "VariableDeclaration",
+                    "src": "2444:29:10"
+                  }
+                ],
+                "id": 2973,
+                "name": "ParameterList",
+                "src": "2434:45:10"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2974,
+                "name": "ParameterList",
+                "src": "2489:0:10"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3651,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2975,
+                            "name": "Identifier",
+                            "src": "2499:7:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "initialized",
+                                  "referencedDeclaration": 2737,
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2972,
+                                      "type": "struct StateMachineLib.StateMachine storage pointer",
+                                      "value": "_machine"
+                                    },
+                                    "id": 2976,
+                                    "name": "Identifier",
+                                    "src": "2507:8:10"
+                                  }
+                                ],
+                                "id": 2977,
+                                "name": "MemberAccess",
+                                "src": "2507:20:10"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "66616c7365",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "false"
+                                },
+                                "id": 2978,
+                                "name": "Literal",
+                                "src": "2531:5:10"
+                              }
+                            ],
+                            "id": 2979,
+                            "name": "BinaryOperation",
+                            "src": "2507:29:10"
+                          }
+                        ],
+                        "id": 2980,
+                        "name": "FunctionCall",
+                        "src": "2499:38:10"
+                      }
+                    ],
+                    "id": 2981,
+                    "name": "ExpressionStatement",
+                    "src": "2499:38:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 2739,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2972,
+                                  "type": "struct StateMachineLib.StateMachine storage pointer",
+                                  "value": "_machine"
+                                },
+                                "id": 2982,
+                                "name": "Identifier",
+                                "src": "2547:8:10"
+                              }
+                            ],
+                            "id": 2984,
+                            "name": "MemberAccess",
+                            "src": "2547:21:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 1",
+                              "value": "1"
+                            },
+                            "id": 2985,
+                            "name": "Literal",
+                            "src": "2571:1:10"
+                          }
+                        ],
+                        "id": 2986,
+                        "name": "Assignment",
+                        "src": "2547:25:10"
+                      }
+                    ],
+                    "id": 2987,
+                    "name": "ExpressionStatement",
+                    "src": "2547:25:10"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "initialized",
+                              "referencedDeclaration": 2737,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2972,
+                                  "type": "struct StateMachineLib.StateMachine storage pointer",
+                                  "value": "_machine"
+                                },
+                                "id": 2988,
+                                "name": "Identifier",
+                                "src": "2582:8:10"
+                              }
+                            ],
+                            "id": 2990,
+                            "name": "MemberAccess",
+                            "src": "2582:20:10"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 2991,
+                            "name": "Literal",
+                            "src": "2605:4:10"
+                          }
+                        ],
+                        "id": 2992,
+                        "name": "Assignment",
+                        "src": "2582:27:10"
+                      }
+                    ],
+                    "id": 2993,
+                    "name": "ExpressionStatement",
+                    "src": "2582:27:10"
+                  }
+                ],
+                "id": 2994,
+                "name": "Block",
+                "src": "2489:127:10"
+              }
+            ],
+            "id": 2995,
+            "name": "FunctionDefinition",
+            "src": "2409:207:10"
+          }
+        ],
+        "id": 2996,
+        "name": "ContractDefinition",
+        "src": "27:2592:10"
+      }
+    ],
+    "id": 2997,
+    "name": "SourceUnit",
+    "src": "0:2620:10"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
   "networks": {
-    "3": {
+    "5777": {
       "events": {},
       "links": {},
-      "address": "0x65809a7cff2919c75c9b15f7952f4c48daba948f",
-      "updated_at": 1512860425430
-    },
-    "1507059409337": {
-      "events": {},
-      "links": {},
-      "address": "0xb4000752b7f102a3548bd444533561b362319b05",
-      "updated_at": 1507067390996
-    },
-    "1507543867581": {
-      "events": {},
-      "links": {},
-      "address": "0x9506e337496046ff67ae2ebf42acf336dd684481",
-      "updated_at": 1507544097922
-    },
-    "1507629884476": {
-      "events": {},
-      "links": {},
-      "address": "0x2ad21f2c55a3a3a871bebd0fea920737e549bded",
-      "updated_at": 1507629928122
-    },
-    "1512852287325": {
-      "events": {},
-      "links": {},
-      "address": "0x451bf422b4f27db5d501f8e884fe74e1c8f1aa63",
-      "updated_at": 1512853374340
-    },
-    "1512853654280": {
-      "events": {},
-      "links": {},
-      "address": "0x813434c33a372e2d9aaa39b91bb0ccb34e26b5e3",
-      "updated_at": 1512854384057
-    },
-    "1512854531833": {
-      "events": {},
-      "links": {},
-      "address": "0x16084806e00761a5e92ffc481875b4a88cc1df6b",
-      "updated_at": 1512858268979
+      "address": "0xa43bd34038ca13e7115e16770d722e62ea706212"
     }
   },
-  "schema_version": "0.0.5",
-  "updated_at": 1512860425430
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-11T13:57:57.312Z"
 }

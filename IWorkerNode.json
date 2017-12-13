@@ -1,0 +1,1658 @@
+{
+  "contractName": "IWorkerNode",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "processToCognition",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "pandora",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "declineValidData",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Uninitialized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Computing",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ReadyForComputing",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "reportInvalidData",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "ipfs",
+          "type": "bytes"
+        }
+      ],
+      "name": "provideResults",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "maxPenalty",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "resetReputation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "acceptValidData",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "withdrawBalance",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ValidatingData",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "alive",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "processToDataValidation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Offline",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "job",
+          "type": "address"
+        }
+      ],
+      "name": "assignJob",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "activeJob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "UnderPenalty",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "deathPenalty",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "decreaseReputation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Idle",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "cancelJob",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "declineAssignment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "reputation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ReadyForDataValidation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Destroyed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "acceptAssignment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "increaseReputation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "InsufficientStake",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Assigned",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "WorkerDestroyed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "oldState",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "StateChanged",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport 'zeppelin-solidity/contracts/ownership/Ownable.sol';\n\nimport '../libraries/IStateMachine.sol';\nimport '../pandora/IPandora.sol';\nimport '../jobs/IComputingJob.sol';\nimport './WorkerNodeStates.sol';\n\ncontract IWorkerNode is IStateMachine, Ownable, WorkerNodeStates {\n    /// @notice Defines possible cases for penaltize worker nodes. Used in `WorkerNodeManager.penaltizeWorkerNode`\n    enum Penalties {\n        OfflineWhileGathering,\n        DeclinesJob,\n        OfflineWhileDataValidation,\n        FalseReportInvalidData,\n        OfflineWhileCognition\n    }\n\n    function destroy() external;\n\n    IPandora public pandora;\n    IComputingJob public activeJob;\n    uint256 public reputation;\n\n    function alive() external;\n    function assignJob(IComputingJob job) external;\n    function cancelJob() external;\n    function acceptAssignment() external;\n    function declineAssignment() external;\n    function processToDataValidation() external;\n    function acceptValidData() external;\n    function declineValidData() external;\n    function reportInvalidData() external;\n    function processToCognition() external;\n    function provideResults(bytes ipfs) external;\n    function increaseReputation() external;\n    function decreaseReputation() external;\n    function resetReputation() external;\n    function maxPenalty() external;\n    function deathPenalty() external;\n    function withdrawBalance() external;\n\n    event WorkerDestroyed();\n}\n\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/IWorkerNode.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/IWorkerNode.sol",
+      "exportedSymbols": {
+        "IWorkerNode": [
+          5023
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 4939,
+        "name": "PragmaDirective",
+        "src": "0:24:28"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 7009,
+          "absolutePath": "zeppelin-solidity/contracts/ownership/Ownable.sol",
+          "file": "zeppelin-solidity/contracts/ownership/Ownable.sol",
+          "scope": 5024,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4940,
+        "name": "ImportDirective",
+        "src": "26:59:28"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4465,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+          "file": "../libraries/IStateMachine.sol",
+          "scope": 5024,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4941,
+        "name": "ImportDirective",
+        "src": "87:40:28"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 5652,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/IPandora.sol",
+          "file": "../pandora/IPandora.sol",
+          "scope": 5024,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4942,
+        "name": "ImportDirective",
+        "src": "128:33:28"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4421,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/jobs/IComputingJob.sol",
+          "file": "../jobs/IComputingJob.sol",
+          "scope": 5024,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4943,
+        "name": "ImportDirective",
+        "src": "162:35:28"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 5638,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/WorkerNodeStates.sol",
+          "file": "./WorkerNodeStates.sol",
+          "scope": 5024,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4944,
+        "name": "ImportDirective",
+        "src": "198:32:28"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            4464,
+            5637,
+            7008
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            5023,
+            5637,
+            7008,
+            4464
+          ],
+          "name": "IWorkerNode",
+          "scope": 5024
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IStateMachine",
+                  "referencedDeclaration": 4464,
+                  "type": "contract IStateMachine"
+                },
+                "id": 4945,
+                "name": "UserDefinedTypeName",
+                "src": "256:13:28"
+              }
+            ],
+            "id": 4946,
+            "name": "InheritanceSpecifier",
+            "src": "256:13:28"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Ownable",
+                  "referencedDeclaration": 7008,
+                  "type": "contract Ownable"
+                },
+                "id": 4947,
+                "name": "UserDefinedTypeName",
+                "src": "271:7:28"
+              }
+            ],
+            "id": 4948,
+            "name": "InheritanceSpecifier",
+            "src": "271:7:28"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "WorkerNodeStates",
+                  "referencedDeclaration": 5637,
+                  "type": "contract WorkerNodeStates"
+                },
+                "id": 4949,
+                "name": "UserDefinedTypeName",
+                "src": "280:16:28"
+              }
+            ],
+            "id": 4950,
+            "name": "InheritanceSpecifier",
+            "src": "280:16:28"
+          },
+          {
+            "attributes": {
+              "canonicalName": "IWorkerNode.Penalties",
+              "name": "Penalties"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "OfflineWhileGathering"
+                },
+                "id": 4951,
+                "name": "EnumValue",
+                "src": "443:21:28"
+              },
+              {
+                "attributes": {
+                  "name": "DeclinesJob"
+                },
+                "id": 4952,
+                "name": "EnumValue",
+                "src": "474:11:28"
+              },
+              {
+                "attributes": {
+                  "name": "OfflineWhileDataValidation"
+                },
+                "id": 4953,
+                "name": "EnumValue",
+                "src": "495:26:28"
+              },
+              {
+                "attributes": {
+                  "name": "FalseReportInvalidData"
+                },
+                "id": 4954,
+                "name": "EnumValue",
+                "src": "531:22:28"
+              },
+              {
+                "attributes": {
+                  "name": "OfflineWhileCognition"
+                },
+                "id": 4955,
+                "name": "EnumValue",
+                "src": "563:21:28"
+              }
+            ],
+            "id": 4956,
+            "name": "EnumDefinition",
+            "src": "418:172:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "destroy",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4957,
+                "name": "ParameterList",
+                "src": "612:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4958,
+                "name": "ParameterList",
+                "src": "623:0:28"
+              }
+            ],
+            "id": 4959,
+            "name": "FunctionDefinition",
+            "src": "596:28:28"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "pandora",
+              "scope": 5023,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IPandora",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IPandora",
+                  "referencedDeclaration": 5651,
+                  "type": "contract IPandora"
+                },
+                "id": 4960,
+                "name": "UserDefinedTypeName",
+                "src": "630:8:28"
+              }
+            ],
+            "id": 4961,
+            "name": "VariableDeclaration",
+            "src": "630:23:28"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "activeJob",
+              "scope": 5023,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IComputingJob",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IComputingJob",
+                  "referencedDeclaration": 4420,
+                  "type": "contract IComputingJob"
+                },
+                "id": 4962,
+                "name": "UserDefinedTypeName",
+                "src": "659:13:28"
+              }
+            ],
+            "id": 4963,
+            "name": "VariableDeclaration",
+            "src": "659:30:28"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "reputation",
+              "scope": 5023,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 4964,
+                "name": "ElementaryTypeName",
+                "src": "695:7:28"
+              }
+            ],
+            "id": 4965,
+            "name": "VariableDeclaration",
+            "src": "695:25:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "alive",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4966,
+                "name": "ParameterList",
+                "src": "741:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4967,
+                "name": "ParameterList",
+                "src": "752:0:28"
+              }
+            ],
+            "id": 4968,
+            "name": "FunctionDefinition",
+            "src": "727:26:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "assignJob",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "job",
+                      "scope": 4973,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IComputingJob",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IComputingJob",
+                          "referencedDeclaration": 4420,
+                          "type": "contract IComputingJob"
+                        },
+                        "id": 4969,
+                        "name": "UserDefinedTypeName",
+                        "src": "777:13:28"
+                      }
+                    ],
+                    "id": 4970,
+                    "name": "VariableDeclaration",
+                    "src": "777:17:28"
+                  }
+                ],
+                "id": 4971,
+                "name": "ParameterList",
+                "src": "776:19:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4972,
+                "name": "ParameterList",
+                "src": "804:0:28"
+              }
+            ],
+            "id": 4973,
+            "name": "FunctionDefinition",
+            "src": "758:47:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "cancelJob",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4974,
+                "name": "ParameterList",
+                "src": "828:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4975,
+                "name": "ParameterList",
+                "src": "839:0:28"
+              }
+            ],
+            "id": 4976,
+            "name": "FunctionDefinition",
+            "src": "810:30:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "acceptAssignment",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4977,
+                "name": "ParameterList",
+                "src": "870:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4978,
+                "name": "ParameterList",
+                "src": "881:0:28"
+              }
+            ],
+            "id": 4979,
+            "name": "FunctionDefinition",
+            "src": "845:37:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "declineAssignment",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4980,
+                "name": "ParameterList",
+                "src": "913:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4981,
+                "name": "ParameterList",
+                "src": "924:0:28"
+              }
+            ],
+            "id": 4982,
+            "name": "FunctionDefinition",
+            "src": "887:38:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "processToDataValidation",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4983,
+                "name": "ParameterList",
+                "src": "962:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4984,
+                "name": "ParameterList",
+                "src": "973:0:28"
+              }
+            ],
+            "id": 4985,
+            "name": "FunctionDefinition",
+            "src": "930:44:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "acceptValidData",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4986,
+                "name": "ParameterList",
+                "src": "1003:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4987,
+                "name": "ParameterList",
+                "src": "1014:0:28"
+              }
+            ],
+            "id": 4988,
+            "name": "FunctionDefinition",
+            "src": "979:36:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "declineValidData",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4989,
+                "name": "ParameterList",
+                "src": "1045:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4990,
+                "name": "ParameterList",
+                "src": "1056:0:28"
+              }
+            ],
+            "id": 4991,
+            "name": "FunctionDefinition",
+            "src": "1020:37:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "reportInvalidData",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4992,
+                "name": "ParameterList",
+                "src": "1088:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4993,
+                "name": "ParameterList",
+                "src": "1099:0:28"
+              }
+            ],
+            "id": 4994,
+            "name": "FunctionDefinition",
+            "src": "1062:38:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "processToCognition",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4995,
+                "name": "ParameterList",
+                "src": "1132:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4996,
+                "name": "ParameterList",
+                "src": "1143:0:28"
+              }
+            ],
+            "id": 4997,
+            "name": "FunctionDefinition",
+            "src": "1105:39:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "provideResults",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ipfs",
+                      "scope": 5002,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes calldata",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 4998,
+                        "name": "ElementaryTypeName",
+                        "src": "1173:5:28"
+                      }
+                    ],
+                    "id": 4999,
+                    "name": "VariableDeclaration",
+                    "src": "1173:10:28"
+                  }
+                ],
+                "id": 5000,
+                "name": "ParameterList",
+                "src": "1172:12:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5001,
+                "name": "ParameterList",
+                "src": "1193:0:28"
+              }
+            ],
+            "id": 5002,
+            "name": "FunctionDefinition",
+            "src": "1149:45:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "increaseReputation",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5003,
+                "name": "ParameterList",
+                "src": "1226:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5004,
+                "name": "ParameterList",
+                "src": "1237:0:28"
+              }
+            ],
+            "id": 5005,
+            "name": "FunctionDefinition",
+            "src": "1199:39:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "decreaseReputation",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5006,
+                "name": "ParameterList",
+                "src": "1270:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5007,
+                "name": "ParameterList",
+                "src": "1281:0:28"
+              }
+            ],
+            "id": 5008,
+            "name": "FunctionDefinition",
+            "src": "1243:39:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "resetReputation",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5009,
+                "name": "ParameterList",
+                "src": "1311:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5010,
+                "name": "ParameterList",
+                "src": "1322:0:28"
+              }
+            ],
+            "id": 5011,
+            "name": "FunctionDefinition",
+            "src": "1287:36:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "maxPenalty",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5012,
+                "name": "ParameterList",
+                "src": "1347:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5013,
+                "name": "ParameterList",
+                "src": "1358:0:28"
+              }
+            ],
+            "id": 5014,
+            "name": "FunctionDefinition",
+            "src": "1328:31:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "deathPenalty",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5015,
+                "name": "ParameterList",
+                "src": "1385:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5016,
+                "name": "ParameterList",
+                "src": "1396:0:28"
+              }
+            ],
+            "id": 5017,
+            "name": "FunctionDefinition",
+            "src": "1364:33:28"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "withdrawBalance",
+              "payable": false,
+              "scope": 5023,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5018,
+                "name": "ParameterList",
+                "src": "1426:2:28"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5019,
+                "name": "ParameterList",
+                "src": "1437:0:28"
+              }
+            ],
+            "id": 5020,
+            "name": "FunctionDefinition",
+            "src": "1402:36:28"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "WorkerDestroyed"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 5021,
+                "name": "ParameterList",
+                "src": "1465:2:28"
+              }
+            ],
+            "id": 5022,
+            "name": "EventDefinition",
+            "src": "1444:24:28"
+          }
+        ],
+        "id": 5023,
+        "name": "ContractDefinition",
+        "src": "232:1238:28"
+      }
+    ],
+    "id": 5024,
+    "name": "SourceUnit",
+    "src": "0:1472:28"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-13T18:09:34.153Z"
+}

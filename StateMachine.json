@@ -1,0 +1,1936 @@
+{
+  "contractName": "StateMachine",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "oldState",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "StateChanged",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x606060405260b6806100126000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630c3f6acf146044575b600080fd5b3415604e57600080fd5b60546070565b604051808260ff1660ff16815260200191505060405180910390f35b6000600160000160019054906101000a900460ff169050905600a165627a7a72305820e8bc948f1d9d090f9b0423f197d79745f6e795df88a9fcceb08b080831b0c0e10029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630c3f6acf146044575b600080fd5b3415604e57600080fd5b60546070565b604051808260ff1660ff16815260200191505060405180910390f35b6000600160000160019054906101000a900460ff169050905600a165627a7a72305820e8bc948f1d9d090f9b0423f197d79745f6e795df88a9fcceb08b080831b0c0e10029",
+  "sourceMap": "165:3046:24:-;;;;;;;;;",
+  "deployedSourceMap": "165:3046:24:-;;;;;;;;;;;;;;;;;;;;;;;;608:133;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;662:5;709:12;:25;;;;;;;;;;;;702:32;;608:133;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport './IStateMachine.sol';\nimport '../lifecycle/OnlyOnce.sol';\nimport {StateMachineLib as SM} from '../libraries/StateMachineLib.sol';\n\ncontract StateMachine is IStateMachine, OnlyOnce {\n    /**\n     * ## State Machine implementation\n     */\n\n    using SM for SM.StateMachine;\n\n    /// @dev Structure holding the state of the contract\n    SM.StateMachine internal stateMachine;\n\n    event StateChanged(uint8 oldState, uint8 newState);\n\n    /// @notice Returns current state of the contract state machine\n    /// @dev Shortcut to receive current state from external contracts\n    function currentState() public view returns (\n        uint8 /// Current state\n    ) {\n        return stateMachine.currentState;\n    }\n\n    /// @dev State transition function from StateMachineLib put into modifier form.\n    /// **Important:** state transition happens _after_ the main code of the calling function.\n    modifier transitionToState(\n        uint8 _newState /// New state to transition into\n    ) {\n        uint8 oldState = stateMachine.currentState;\n        stateMachine.transitionToState(_newState);\n        _;\n        stateMachine.currentState = _newState;\n        StateChanged(oldState, stateMachine.currentState);\n        _fireStateEvent();\n    }\n\n    /// @dev State transition function from StateMachineLib put into modifier form.\n    /// **Important:** state transition happens _before_ the main code of the calling function, and _after_ the\n    /// execution contract is returned to the original state.\n    modifier transitionThroughState(\n        uint8 _transitionState /// Intermediary state to transition through\n    ) {\n        var initialState = stateMachine.currentState;\n        stateMachine.transitionThroughState(_transitionState);\n        StateChanged(initialState, stateMachine.currentState);\n        _fireStateEvent();\n        _;\n        stateMachine.currentState = initialState;\n        StateChanged(_transitionState, stateMachine.currentState);\n        _fireStateEvent();\n    }\n\n    /// @dev Modifier requiring contract to be present in certain state; otherwise the exception is generated and the\n    /// function does not execute\n    modifier requireState(\n        uint8 _requiredState /// Required state\n    ) {\n        require(stateMachine.currentState == _requiredState);\n        _;\n    }\n\n    /// @dev Modifier requiring contract to be present in one of two certain states; otherwise an exception is\n    /// generated and the function does not execute\n    modifier requireStates2(\n        uint8 _requiredState1, /// Required state, option 1\n        uint8 _requiredState2 /// Required state, option 2\n    ) {\n        stateMachine.requireStates2(_requiredState1, _requiredState2);\n        _;\n    }\n\n    /// @dev Private method initializing state machine. Must be called only once from the contract constructor\n    function _initStateMachine() internal onlyOnce('_initStateMachine') {\n        // Initializing state machine via library code\n        stateMachine.initStateMachine();\n    }\n\n    /// @dev Hook for inherited contracts to fire contract-specific state change events\n    function _fireStateEvent() internal {\n        // Implemented by child contracts\n    }\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/StateMachine.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/StateMachine.sol",
+      "exportedSymbols": {
+        "StateMachine": [
+          4611
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 4466,
+        "name": "PragmaDirective",
+        "src": "0:24:24"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4465,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+          "file": "./IStateMachine.sol",
+          "scope": 4612,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4467,
+        "name": "ImportDirective",
+        "src": "26:29:24"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4938,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/lifecycle/OnlyOnce.sol",
+          "file": "../lifecycle/OnlyOnce.sol",
+          "scope": 4612,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4468,
+        "name": "ImportDirective",
+        "src": "56:35:24"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4875,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/StateMachineLib.sol",
+          "file": "../libraries/StateMachineLib.sol",
+          "scope": 4612,
+          "symbolAliases": [
+            {
+              "foreign": 4469,
+              "local": "SM"
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 4470,
+        "name": "ImportDirective",
+        "src": "92:71:24"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            4464,
+            4937
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            4611,
+            4937,
+            4464
+          ],
+          "name": "StateMachine",
+          "scope": 4612
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IStateMachine",
+                  "referencedDeclaration": 4464,
+                  "type": "contract IStateMachine"
+                },
+                "id": 4471,
+                "name": "UserDefinedTypeName",
+                "src": "190:13:24"
+              }
+            ],
+            "id": 4472,
+            "name": "InheritanceSpecifier",
+            "src": "190:13:24"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "OnlyOnce",
+                  "referencedDeclaration": 4937,
+                  "type": "contract OnlyOnce"
+                },
+                "id": 4473,
+                "name": "UserDefinedTypeName",
+                "src": "205:8:24"
+              }
+            ],
+            "id": 4474,
+            "name": "InheritanceSpecifier",
+            "src": "205:8:24"
+          },
+          {
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "SM",
+                  "referencedDeclaration": 4874,
+                  "type": "library StateMachineLib"
+                },
+                "id": 4475,
+                "name": "UserDefinedTypeName",
+                "src": "282:2:24"
+              },
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "SM.StateMachine",
+                  "referencedDeclaration": 4623,
+                  "type": "struct StateMachineLib.StateMachine storage pointer"
+                },
+                "id": 4476,
+                "name": "UserDefinedTypeName",
+                "src": "289:15:24"
+              }
+            ],
+            "id": 4477,
+            "name": "UsingForDirective",
+            "src": "276:29:24"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "stateMachine",
+              "scope": 4611,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct StateMachineLib.StateMachine storage ref",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "SM.StateMachine",
+                  "referencedDeclaration": 4623,
+                  "type": "struct StateMachineLib.StateMachine storage pointer"
+                },
+                "id": 4478,
+                "name": "UserDefinedTypeName",
+                "src": "368:15:24"
+              }
+            ],
+            "id": 4479,
+            "name": "VariableDeclaration",
+            "src": "368:37:24"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "StateChanged"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "oldState",
+                      "scope": 4485,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4480,
+                        "name": "ElementaryTypeName",
+                        "src": "431:5:24"
+                      }
+                    ],
+                    "id": 4481,
+                    "name": "VariableDeclaration",
+                    "src": "431:14:24"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "newState",
+                      "scope": 4485,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4482,
+                        "name": "ElementaryTypeName",
+                        "src": "447:5:24"
+                      }
+                    ],
+                    "id": 4483,
+                    "name": "VariableDeclaration",
+                    "src": "447:14:24"
+                  }
+                ],
+                "id": 4484,
+                "name": "ParameterList",
+                "src": "430:32:24"
+              }
+            ],
+            "id": 4485,
+            "name": "EventDefinition",
+            "src": "412:51:24"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "currentState",
+              "payable": false,
+              "scope": 4611,
+              "stateMutability": "view",
+              "superFunction": 4457,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4486,
+                "name": "ParameterList",
+                "src": "629:2:24"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 4494,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4487,
+                        "name": "ElementaryTypeName",
+                        "src": "662:5:24"
+                      }
+                    ],
+                    "id": 4488,
+                    "name": "VariableDeclaration",
+                    "src": "662:5:24"
+                  }
+                ],
+                "id": 4489,
+                "name": "ParameterList",
+                "src": "652:39:24"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 4489
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "currentState",
+                          "referencedDeclaration": 4617,
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4479,
+                              "type": "struct StateMachineLib.StateMachine storage ref",
+                              "value": "stateMachine"
+                            },
+                            "id": 4490,
+                            "name": "Identifier",
+                            "src": "709:12:24"
+                          }
+                        ],
+                        "id": 4491,
+                        "name": "MemberAccess",
+                        "src": "709:25:24"
+                      }
+                    ],
+                    "id": 4492,
+                    "name": "Return",
+                    "src": "702:32:24"
+                  }
+                ],
+                "id": 4493,
+                "name": "Block",
+                "src": "692:49:24"
+              }
+            ],
+            "id": 4494,
+            "name": "FunctionDefinition",
+            "src": "608:133:24"
+          },
+          {
+            "attributes": {
+              "name": "transitionToState",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_newState",
+                      "scope": 4526,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4495,
+                        "name": "ElementaryTypeName",
+                        "src": "962:5:24"
+                      }
+                    ],
+                    "id": 4496,
+                    "name": "VariableDeclaration",
+                    "src": "962:15:24"
+                  }
+                ],
+                "id": 4497,
+                "name": "ParameterList",
+                "src": "952:64:24"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        4499
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "oldState",
+                          "scope": 4526,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint8",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint8",
+                              "type": "uint8"
+                            },
+                            "id": 4498,
+                            "name": "ElementaryTypeName",
+                            "src": "1027:5:24"
+                          }
+                        ],
+                        "id": 4499,
+                        "name": "VariableDeclaration",
+                        "src": "1027:14:24"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "currentState",
+                          "referencedDeclaration": 4617,
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4479,
+                              "type": "struct StateMachineLib.StateMachine storage ref",
+                              "value": "stateMachine"
+                            },
+                            "id": 4500,
+                            "name": "Identifier",
+                            "src": "1044:12:24"
+                          }
+                        ],
+                        "id": 4501,
+                        "name": "MemberAccess",
+                        "src": "1044:25:24"
+                      }
+                    ],
+                    "id": 4502,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1027:42:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transitionToState",
+                              "referencedDeclaration": 4684,
+                              "type": "function (struct StateMachineLib.StateMachine storage pointer,uint8)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4503,
+                                "name": "Identifier",
+                                "src": "1079:12:24"
+                              }
+                            ],
+                            "id": 4505,
+                            "name": "MemberAccess",
+                            "src": "1079:30:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4496,
+                              "type": "uint8",
+                              "value": "_newState"
+                            },
+                            "id": 4506,
+                            "name": "Identifier",
+                            "src": "1110:9:24"
+                          }
+                        ],
+                        "id": 4507,
+                        "name": "FunctionCall",
+                        "src": "1079:41:24"
+                      }
+                    ],
+                    "id": 4508,
+                    "name": "ExpressionStatement",
+                    "src": "1079:41:24"
+                  },
+                  {
+                    "id": 4509,
+                    "name": "PlaceholderStatement",
+                    "src": "1130:1:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 4617,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4510,
+                                "name": "Identifier",
+                                "src": "1141:12:24"
+                              }
+                            ],
+                            "id": 4512,
+                            "name": "MemberAccess",
+                            "src": "1141:25:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4496,
+                              "type": "uint8",
+                              "value": "_newState"
+                            },
+                            "id": 4513,
+                            "name": "Identifier",
+                            "src": "1169:9:24"
+                          }
+                        ],
+                        "id": 4514,
+                        "name": "Assignment",
+                        "src": "1141:37:24"
+                      }
+                    ],
+                    "id": 4515,
+                    "name": "ExpressionStatement",
+                    "src": "1141:37:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4485
+                              ],
+                              "referencedDeclaration": 4485,
+                              "type": "function (uint8,uint8)",
+                              "value": "StateChanged"
+                            },
+                            "id": 4516,
+                            "name": "Identifier",
+                            "src": "1188:12:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4499,
+                              "type": "uint8",
+                              "value": "oldState"
+                            },
+                            "id": 4517,
+                            "name": "Identifier",
+                            "src": "1201:8:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 4617,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4518,
+                                "name": "Identifier",
+                                "src": "1211:12:24"
+                              }
+                            ],
+                            "id": 4519,
+                            "name": "MemberAccess",
+                            "src": "1211:25:24"
+                          }
+                        ],
+                        "id": 4520,
+                        "name": "FunctionCall",
+                        "src": "1188:49:24"
+                      }
+                    ],
+                    "id": 4521,
+                    "name": "ExpressionStatement",
+                    "src": "1188:49:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4610,
+                              "type": "function ()",
+                              "value": "_fireStateEvent"
+                            },
+                            "id": 4522,
+                            "name": "Identifier",
+                            "src": "1247:15:24"
+                          }
+                        ],
+                        "id": 4523,
+                        "name": "FunctionCall",
+                        "src": "1247:17:24"
+                      }
+                    ],
+                    "id": 4524,
+                    "name": "ExpressionStatement",
+                    "src": "1247:17:24"
+                  }
+                ],
+                "id": 4525,
+                "name": "Block",
+                "src": "1017:254:24"
+              }
+            ],
+            "id": 4526,
+            "name": "ModifierDefinition",
+            "src": "926:345:24"
+          },
+          {
+            "attributes": {
+              "name": "transitionThroughState",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_transitionState",
+                      "scope": 4566,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4527,
+                        "name": "ElementaryTypeName",
+                        "src": "1576:5:24"
+                      }
+                    ],
+                    "id": 4528,
+                    "name": "VariableDeclaration",
+                    "src": "1576:22:24"
+                  }
+                ],
+                "id": 4529,
+                "name": "ParameterList",
+                "src": "1566:83:24"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        4530
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "initialState",
+                          "scope": 4566,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint8",
+                          "typeName": null,
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [],
+                        "id": 4530,
+                        "name": "VariableDeclaration",
+                        "src": "1660:16:24"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "currentState",
+                          "referencedDeclaration": 4617,
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4479,
+                              "type": "struct StateMachineLib.StateMachine storage ref",
+                              "value": "stateMachine"
+                            },
+                            "id": 4531,
+                            "name": "Identifier",
+                            "src": "1679:12:24"
+                          }
+                        ],
+                        "id": 4532,
+                        "name": "MemberAccess",
+                        "src": "1679:25:24"
+                      }
+                    ],
+                    "id": 4533,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1660:44:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transitionThroughState",
+                              "referencedDeclaration": 4797,
+                              "type": "function (struct StateMachineLib.StateMachine storage pointer,uint8)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4534,
+                                "name": "Identifier",
+                                "src": "1714:12:24"
+                              }
+                            ],
+                            "id": 4536,
+                            "name": "MemberAccess",
+                            "src": "1714:35:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4528,
+                              "type": "uint8",
+                              "value": "_transitionState"
+                            },
+                            "id": 4537,
+                            "name": "Identifier",
+                            "src": "1750:16:24"
+                          }
+                        ],
+                        "id": 4538,
+                        "name": "FunctionCall",
+                        "src": "1714:53:24"
+                      }
+                    ],
+                    "id": 4539,
+                    "name": "ExpressionStatement",
+                    "src": "1714:53:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4485
+                              ],
+                              "referencedDeclaration": 4485,
+                              "type": "function (uint8,uint8)",
+                              "value": "StateChanged"
+                            },
+                            "id": 4540,
+                            "name": "Identifier",
+                            "src": "1777:12:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4530,
+                              "type": "uint8",
+                              "value": "initialState"
+                            },
+                            "id": 4541,
+                            "name": "Identifier",
+                            "src": "1790:12:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 4617,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4542,
+                                "name": "Identifier",
+                                "src": "1804:12:24"
+                              }
+                            ],
+                            "id": 4543,
+                            "name": "MemberAccess",
+                            "src": "1804:25:24"
+                          }
+                        ],
+                        "id": 4544,
+                        "name": "FunctionCall",
+                        "src": "1777:53:24"
+                      }
+                    ],
+                    "id": 4545,
+                    "name": "ExpressionStatement",
+                    "src": "1777:53:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4610,
+                              "type": "function ()",
+                              "value": "_fireStateEvent"
+                            },
+                            "id": 4546,
+                            "name": "Identifier",
+                            "src": "1840:15:24"
+                          }
+                        ],
+                        "id": 4547,
+                        "name": "FunctionCall",
+                        "src": "1840:17:24"
+                      }
+                    ],
+                    "id": 4548,
+                    "name": "ExpressionStatement",
+                    "src": "1840:17:24"
+                  },
+                  {
+                    "id": 4549,
+                    "name": "PlaceholderStatement",
+                    "src": "1867:1:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 4617,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4550,
+                                "name": "Identifier",
+                                "src": "1878:12:24"
+                              }
+                            ],
+                            "id": 4552,
+                            "name": "MemberAccess",
+                            "src": "1878:25:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4530,
+                              "type": "uint8",
+                              "value": "initialState"
+                            },
+                            "id": 4553,
+                            "name": "Identifier",
+                            "src": "1906:12:24"
+                          }
+                        ],
+                        "id": 4554,
+                        "name": "Assignment",
+                        "src": "1878:40:24"
+                      }
+                    ],
+                    "id": 4555,
+                    "name": "ExpressionStatement",
+                    "src": "1878:40:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4485
+                              ],
+                              "referencedDeclaration": 4485,
+                              "type": "function (uint8,uint8)",
+                              "value": "StateChanged"
+                            },
+                            "id": 4556,
+                            "name": "Identifier",
+                            "src": "1928:12:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4528,
+                              "type": "uint8",
+                              "value": "_transitionState"
+                            },
+                            "id": 4557,
+                            "name": "Identifier",
+                            "src": "1941:16:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "currentState",
+                              "referencedDeclaration": 4617,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4558,
+                                "name": "Identifier",
+                                "src": "1959:12:24"
+                              }
+                            ],
+                            "id": 4559,
+                            "name": "MemberAccess",
+                            "src": "1959:25:24"
+                          }
+                        ],
+                        "id": 4560,
+                        "name": "FunctionCall",
+                        "src": "1928:57:24"
+                      }
+                    ],
+                    "id": 4561,
+                    "name": "ExpressionStatement",
+                    "src": "1928:57:24"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4610,
+                              "type": "function ()",
+                              "value": "_fireStateEvent"
+                            },
+                            "id": 4562,
+                            "name": "Identifier",
+                            "src": "1995:15:24"
+                          }
+                        ],
+                        "id": 4563,
+                        "name": "FunctionCall",
+                        "src": "1995:17:24"
+                      }
+                    ],
+                    "id": 4564,
+                    "name": "ExpressionStatement",
+                    "src": "1995:17:24"
+                  }
+                ],
+                "id": 4565,
+                "name": "Block",
+                "src": "1650:369:24"
+              }
+            ],
+            "id": 4566,
+            "name": "ModifierDefinition",
+            "src": "1535:484:24"
+          },
+          {
+            "attributes": {
+              "name": "requireState",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_requiredState",
+                      "scope": 4579,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4567,
+                        "name": "ElementaryTypeName",
+                        "src": "2208:5:24"
+                      }
+                    ],
+                    "id": 4568,
+                    "name": "VariableDeclaration",
+                    "src": "2208:20:24"
+                  }
+                ],
+                "id": 4569,
+                "name": "ParameterList",
+                "src": "2198:55:24"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7427,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 4570,
+                            "name": "Identifier",
+                            "src": "2264:7:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "currentState",
+                                  "referencedDeclaration": 4617,
+                                  "type": "uint8"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 4479,
+                                      "type": "struct StateMachineLib.StateMachine storage ref",
+                                      "value": "stateMachine"
+                                    },
+                                    "id": 4571,
+                                    "name": "Identifier",
+                                    "src": "2272:12:24"
+                                  }
+                                ],
+                                "id": 4572,
+                                "name": "MemberAccess",
+                                "src": "2272:25:24"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4568,
+                                  "type": "uint8",
+                                  "value": "_requiredState"
+                                },
+                                "id": 4573,
+                                "name": "Identifier",
+                                "src": "2301:14:24"
+                              }
+                            ],
+                            "id": 4574,
+                            "name": "BinaryOperation",
+                            "src": "2272:43:24"
+                          }
+                        ],
+                        "id": 4575,
+                        "name": "FunctionCall",
+                        "src": "2264:52:24"
+                      }
+                    ],
+                    "id": 4576,
+                    "name": "ExpressionStatement",
+                    "src": "2264:52:24"
+                  },
+                  {
+                    "id": 4577,
+                    "name": "PlaceholderStatement",
+                    "src": "2326:1:24"
+                  }
+                ],
+                "id": 4578,
+                "name": "Block",
+                "src": "2254:80:24"
+              }
+            ],
+            "id": 4579,
+            "name": "ModifierDefinition",
+            "src": "2177:157:24"
+          },
+          {
+            "attributes": {
+              "name": "requireStates2",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_requiredState1",
+                      "scope": 4594,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4580,
+                        "name": "ElementaryTypeName",
+                        "src": "2536:5:24"
+                      }
+                    ],
+                    "id": 4581,
+                    "name": "VariableDeclaration",
+                    "src": "2536:21:24"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_requiredState2",
+                      "scope": 4594,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4582,
+                        "name": "ElementaryTypeName",
+                        "src": "2596:5:24"
+                      }
+                    ],
+                    "id": 4583,
+                    "name": "VariableDeclaration",
+                    "src": "2596:21:24"
+                  }
+                ],
+                "id": 4584,
+                "name": "ParameterList",
+                "src": "2526:126:24"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint8",
+                                  "typeString": "uint8"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "requireStates2",
+                              "referencedDeclaration": 4848,
+                              "type": "function (struct StateMachineLib.StateMachine storage pointer,uint8,uint8) view"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4585,
+                                "name": "Identifier",
+                                "src": "2663:12:24"
+                              }
+                            ],
+                            "id": 4587,
+                            "name": "MemberAccess",
+                            "src": "2663:27:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4581,
+                              "type": "uint8",
+                              "value": "_requiredState1"
+                            },
+                            "id": 4588,
+                            "name": "Identifier",
+                            "src": "2691:15:24"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4583,
+                              "type": "uint8",
+                              "value": "_requiredState2"
+                            },
+                            "id": 4589,
+                            "name": "Identifier",
+                            "src": "2708:15:24"
+                          }
+                        ],
+                        "id": 4590,
+                        "name": "FunctionCall",
+                        "src": "2663:61:24"
+                      }
+                    ],
+                    "id": 4591,
+                    "name": "ExpressionStatement",
+                    "src": "2663:61:24"
+                  },
+                  {
+                    "id": 4592,
+                    "name": "PlaceholderStatement",
+                    "src": "2734:1:24"
+                  }
+                ],
+                "id": 4593,
+                "name": "Block",
+                "src": "2653:89:24"
+              }
+            ],
+            "id": 4594,
+            "name": "ModifierDefinition",
+            "src": "2503:239:24"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "_initStateMachine",
+              "payable": false,
+              "scope": 4611,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4595,
+                "name": "ParameterList",
+                "src": "2885:2:24"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4599,
+                "name": "ParameterList",
+                "src": "2927:0:24"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 4936,
+                      "type": "modifier (string memory)",
+                      "value": "onlyOnce"
+                    },
+                    "id": 4596,
+                    "name": "Identifier",
+                    "src": "2897:8:24"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "hexvalue": "5f696e697453746174654d616368696e65",
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "subdenomination": null,
+                      "token": "string",
+                      "type": "literal_string \"_initStateMachine\"",
+                      "value": "_initStateMachine"
+                    },
+                    "id": 4597,
+                    "name": "Literal",
+                    "src": "2906:19:24"
+                  }
+                ],
+                "id": 4598,
+                "name": "ModifierInvocation",
+                "src": "2897:29:24"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "initStateMachine",
+                              "referencedDeclaration": 4873,
+                              "type": "function (struct StateMachineLib.StateMachine storage pointer)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4479,
+                                  "type": "struct StateMachineLib.StateMachine storage ref",
+                                  "value": "stateMachine"
+                                },
+                                "id": 4600,
+                                "name": "Identifier",
+                                "src": "2992:12:24"
+                              }
+                            ],
+                            "id": 4602,
+                            "name": "MemberAccess",
+                            "src": "2992:29:24"
+                          }
+                        ],
+                        "id": 4603,
+                        "name": "FunctionCall",
+                        "src": "2992:31:24"
+                      }
+                    ],
+                    "id": 4604,
+                    "name": "ExpressionStatement",
+                    "src": "2992:31:24"
+                  }
+                ],
+                "id": 4605,
+                "name": "Block",
+                "src": "2927:103:24"
+              }
+            ],
+            "id": 4606,
+            "name": "FunctionDefinition",
+            "src": "2859:171:24"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "_fireStateEvent",
+              "payable": false,
+              "scope": 4611,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4607,
+                "name": "ParameterList",
+                "src": "3148:2:24"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4608,
+                "name": "ParameterList",
+                "src": "3160:0:24"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4609,
+                "name": "Block",
+                "src": "3160:49:24"
+              }
+            ],
+            "id": 4610,
+            "name": "FunctionDefinition",
+            "src": "3124:85:24"
+          }
+        ],
+        "id": 4611,
+        "name": "ContractDefinition",
+        "src": "165:3046:24"
+      }
+    ],
+    "id": 4612,
+    "name": "SourceUnit",
+    "src": "0:3212:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-13T18:09:34.153Z"
+}

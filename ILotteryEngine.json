@@ -1,23 +1,23 @@
 {
-  "contractName": "LotteryEngine",
+  "contractName": "ILotteryEngine",
   "abi": [
     {
-      "constant": true,
+      "constant": false,
       "inputs": [
         {
-          "name": "_max",
+          "name": "max",
           "type": "uint256"
         }
       ],
       "name": "getRandom",
       "outputs": [
         {
-          "name": "o_result",
+          "name": "",
           "type": "uint256"
         }
       ],
       "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
@@ -25,14 +25,14 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.15;\n\n\ncontract /* interface */ LotteryEngine {\n    function getRandom(uint256 _max) public constant returns (uint256 o_result);\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/lottery/LotteryEngine.sol",
+  "source": "pragma solidity ^0.4.18;\n\n\ncontract ILotteryEngine {\n    function getRandom(uint256 max) public returns (uint256);\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/lottery/ILotteryEngine.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/lottery/LotteryEngine.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/lottery/ILotteryEngine.sol",
       "exportedSymbols": {
-        "LotteryEngine": [
-          3021
+        "ILotteryEngine": [
+          5877
         ]
       }
     },
@@ -43,12 +43,12 @@
             "solidity",
             "^",
             "0.4",
-            ".15"
+            ".18"
           ]
         },
-        "id": 3013,
+        "id": 5869,
         "name": "PragmaDirective",
-        "src": "0:24:11"
+        "src": "0:24:36"
       },
       {
         "attributes": {
@@ -62,16 +62,16 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            3021
+            5877
           ],
-          "name": "LotteryEngine",
-          "scope": 3022
+          "name": "ILotteryEngine",
+          "scope": 5878
         },
         "children": [
           {
             "attributes": {
               "body": null,
-              "constant": true,
+              "constant": false,
               "implemented": false,
               "isConstructor": false,
               "modifiers": [
@@ -79,8 +79,8 @@
               ],
               "name": "getRandom",
               "payable": false,
-              "scope": 3021,
-              "stateMutability": "view",
+              "scope": 5877,
+              "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
             },
@@ -90,8 +90,8 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_max",
-                      "scope": 3020,
+                      "name": "max",
+                      "scope": 5876,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -104,27 +104,27 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 3014,
+                        "id": 5870,
                         "name": "ElementaryTypeName",
-                        "src": "91:7:11"
+                        "src": "76:7:36"
                       }
                     ],
-                    "id": 3015,
+                    "id": 5871,
                     "name": "VariableDeclaration",
-                    "src": "91:12:11"
+                    "src": "76:11:36"
                   }
                 ],
-                "id": 3016,
+                "id": 5872,
                 "name": "ParameterList",
-                "src": "90:14:11"
+                "src": "75:13:36"
               },
               {
                 "children": [
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "o_result",
-                      "scope": 3020,
+                      "name": "",
+                      "scope": 5876,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -137,34 +137,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 3017,
+                        "id": 5873,
                         "name": "ElementaryTypeName",
-                        "src": "130:7:11"
+                        "src": "105:7:36"
                       }
                     ],
-                    "id": 3018,
+                    "id": 5874,
                     "name": "VariableDeclaration",
-                    "src": "130:16:11"
+                    "src": "105:7:36"
                   }
                 ],
-                "id": 3019,
+                "id": 5875,
                 "name": "ParameterList",
-                "src": "129:18:11"
+                "src": "104:9:36"
               }
             ],
-            "id": 3020,
+            "id": 5876,
             "name": "FunctionDefinition",
-            "src": "72:76:11"
+            "src": "57:57:36"
           }
         ],
-        "id": 3021,
+        "id": 5877,
         "name": "ContractDefinition",
-        "src": "27:123:11"
+        "src": "27:89:36"
       }
     ],
-    "id": 3022,
+    "id": 5878,
     "name": "SourceUnit",
-    "src": "0:151:11"
+    "src": "0:117:36"
   },
   "compiler": {
     "name": "solc",
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.178Z"
+  "updatedAt": "2017-12-13T18:09:34.154Z"
 }

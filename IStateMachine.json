@@ -1,0 +1,238 @@
+{
+  "contractName": "IStateMachine",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "oldState",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "StateChanged",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\n\ncontract IStateMachine {\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+      "exportedSymbols": {
+        "IStateMachine": [
+          4464
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 4452,
+        "name": "PragmaDirective",
+        "src": "0:24:23"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            4464
+          ],
+          "name": "IStateMachine",
+          "scope": 4465
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "currentState",
+              "payable": false,
+              "scope": 4464,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4453,
+                "name": "ParameterList",
+                "src": "77:2:23"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 4457,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4454,
+                        "name": "ElementaryTypeName",
+                        "src": "101:5:23"
+                      }
+                    ],
+                    "id": 4455,
+                    "name": "VariableDeclaration",
+                    "src": "101:5:23"
+                  }
+                ],
+                "id": 4456,
+                "name": "ParameterList",
+                "src": "100:7:23"
+              }
+            ],
+            "id": 4457,
+            "name": "FunctionDefinition",
+            "src": "56:52:23"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "StateChanged"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "oldState",
+                      "scope": 4463,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4458,
+                        "name": "ElementaryTypeName",
+                        "src": "133:5:23"
+                      }
+                    ],
+                    "id": 4459,
+                    "name": "VariableDeclaration",
+                    "src": "133:14:23"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "newState",
+                      "scope": 4463,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 4460,
+                        "name": "ElementaryTypeName",
+                        "src": "149:5:23"
+                      }
+                    ],
+                    "id": 4461,
+                    "name": "VariableDeclaration",
+                    "src": "149:14:23"
+                  }
+                ],
+                "id": 4462,
+                "name": "ParameterList",
+                "src": "132:32:23"
+              }
+            ],
+            "id": 4463,
+            "name": "EventDefinition",
+            "src": "114:51:23"
+          }
+        ],
+        "id": 4464,
+        "name": "ContractDefinition",
+        "src": "27:140:23"
+      }
+    ],
+    "id": 4465,
+    "name": "SourceUnit",
+    "src": "0:167:23"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-13T18:09:34.152Z"
+}

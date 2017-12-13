@@ -184,18 +184,18 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60405161082338038061082383398101604052808051820191906020018051906020019091908051906020019091908051906020019091908051906020019091905050848482336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508160028190555082600190805190602001906100b29291906100e9565b50806003819055505050508260048190555081600560006101000a81548160ff021916908360ff160217905550505050505061018e565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061012a57805160ff1916838001178555610158565b82800160010185558215610158579182015b8281111561015757825182559160200191906001019061013c565b5b5090506101659190610169565b5090565b61018b91905b8082111561018757600081600090555060010161016f565b5090565b90565b6106868061019d6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60045481565b600560009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6003549050816003819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60025481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820123e0b92416fc62cd84045823bfc78cd3230e4f06e8f4b68477f85bd7e2aa83a0029",
-  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60045481565b600560009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6003549050816003819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60025481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820123e0b92416fc62cd84045823bfc78cd3230e4f06e8f4b68477f85bd7e2aa83a0029",
-  "sourceMap": "62:406:2:-;;;164:302;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:12;358:8;368:13;509:10:15;501:5;;:18;;;;;;;;;;;;;;;;;;1419:8:1;1409:7;:18;;;;1451:12;1437:11;:26;;;;;;;;;;;;:::i;:::-;;1488:13;1473:12;:28;;;;1287:221;;;408:13:2;393:12;:28;;;;446:13;431:12;;:28;;;;;;;;;;;;;;;;;;164:302;;;;;62:406;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "62:406:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1842:167:1;;;;;;;;;;;;;;99:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;132:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1514:212:1;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1146:27:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1036:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;700:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;834:169:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;1842:167:1;654:5:15;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1974:5:1;;;;;;;;;;;:14;;:28;1989:4;:12;;;1974:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1842:167::o;99:27:2:-;;;;:::o;132:25::-;;;;;;;;;;;;;:::o;1514:212:1:-;1610:16;654:5:15;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1629:12:1;;1610:31;;1666:9;1651:12;:24;;;;1686:33;1699:8;1709:9;1686:33;;;;;;;;;;;;;;;;;;;;;;;;1514:212;;:::o;238:20:15:-;;;;;;;;;;;;;:::o;1146:27:1:-;;;;:::o;1036:22::-;;;;:::o;700:24::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;834:169:15:-;654:5;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;930:1;910:22;;:8;:22;;;;902:31;;;;;;;;967:8;939:37;;960:5;;;;;;;;;;;939:37;;;;;;;;;;;;990:8;982:5;;:16;;;;;;;;;;;;;;;;;;834:169;:::o",
-  "source": "pragma solidity ^0.4.15;\n\n/*\n */\n\nimport './DataEntity.sol';\n\ncontract Dataset is DataEntity {\n    uint256 public samplesCount;\n    uint8 public batchesCount;\n\n    function Dataset (\n        bytes _ipfsAddress,\n        uint256 _dataDim,\n        uint256 _samplesCount,\n        uint8 _batchesCount,\n        uint256 _initialPrice\n    ) DataEntity(_ipfsAddress, _dataDim, _initialPrice) {\n        samplesCount = _samplesCount;\n        batchesCount = _batchesCount;\n    }\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/Dataset.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b60405161082338038061082383398101604052808051820191906020018051906020019091908051906020019091908051906020019091908051906020019091905050848482336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508160058190555082600490805190602001906100b29291906100e9565b50806006819055505050508260098190555081600a60006101000a81548160ff021916908360ff160217905550505050505061018e565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061012a57805160ff1916838001178555610158565b82800160010185558215610158579182015b8281111561015757825182559160200191906001019061013c565b5b5090506101659190610169565b5090565b61018b91905b8082111561018757600081600090555060010161016f565b5090565b90565b6106868061019d6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60095481565b600a60009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6006549050816006819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60055481565b60048054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058202870d2ad0c6feb38335ba220f6380a1f592399c7f607ce25df66e61ac9dd89630029",
+  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60095481565b600a60009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6006549050816006819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60055481565b60048054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058202870d2ad0c6feb38335ba220f6380a1f592399c7f607ce25df66e61ac9dd89630029",
+  "sourceMap": "87:431:15:-;;;199:317;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;383:12;397:8;407:13;509:10:45;501:5;;:18;;;;;;;;;;;;;;;;;;1402:8:14;1392:7;:18;;;;1434:12;1420:11;:26;;;;;;;;;;;;:::i;:::-;;1471:13;1456:12;:28;;;;1259:232;;;458:13:15;443:12;:28;;;;496:13;481:12;;:28;;;;;;;;;;;;;;;;;;199:317;;;;;87:431;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "87:431:15:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167:14;;;;;;;;;;;;;;134:27:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;167:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1497:212:14;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1118:27:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1008:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;672:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;834:169:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167:14;654:5:45;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1957:5:14;;;;;;;;;;;:14;;:28;1972:4;:12;;;1957:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167::o;134:27:15:-;;;;:::o;167:25::-;;;;;;;;;;;;;:::o;1497:212:14:-;1593:16;654:5:45;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1612:12:14;;1593:31;;1649:9;1634:12;:24;;;;1669:33;1682:8;1692:9;1669:33;;;;;;;;;;;;;;;;;;;;;;;;1497:212;;:::o;238:20:45:-;;;;;;;;;;;;;:::o;1118:27:14:-;;;;:::o;1008:22::-;;;;:::o;672:24::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;834:169:45:-;654:5;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;930:1;910:22;;:8;:22;;;;902:31;;;;;;;;967:8;939:37;;960:5;;;;;;;;;;;939:37;;;;;;;;;;;;990:8;982:5;;:16;;;;;;;;;;;;;;;;;;834:169;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport './DataEntity.sol';\nimport './IDataset.sol';\n\n/*\n */\n\ncontract Dataset is DataEntity, IDataset {\n    uint256 public samplesCount;\n    uint8 public batchesCount;\n\n    function Dataset (\n        bytes _ipfsAddress,\n        uint256 _dataDim,\n        uint256 _samplesCount,\n        uint8 _batchesCount,\n        uint256 _initialPrice\n    )\n    DataEntity(_ipfsAddress, _dataDim, _initialPrice)\n    public {\n        samplesCount = _samplesCount;\n        batchesCount = _batchesCount;\n    }\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/Dataset.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/Dataset.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/Dataset.sol",
       "exportedSymbols": {
         "Dataset": [
-          1223
+          3232
         ]
       }
     },
@@ -206,27 +206,27 @@
             "solidity",
             "^",
             "0.4",
-            ".15"
+            ".18"
           ]
         },
-        "id": 1188,
+        "id": 3194,
         "name": "PragmaDirective",
-        "src": "0:24:2"
+        "src": "0:24:15"
       },
       {
         "attributes": {
-          "SourceUnit": 1187,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/neuroether/contracts/DataEntity.sol",
+          "SourceUnit": 3193,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/DataEntity.sol",
           "file": "./DataEntity.sol",
-          "scope": 1224,
+          "scope": 3233,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1189,
+        "id": 3195,
         "name": "ImportDirective",
-        "src": "34:26:2"
+        "src": "26:26:15"
       },
       {
         "attributes": {
@@ -243,7 +243,14 @@
             3232
           ],
           "name": "Dataset",
-          "scope": 1224
+          "scope": 3233,
+          "SourceUnit": 3269,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataset.sol",
+          "file": "./IDataset.sol",
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
         },
         "children": [
           {
@@ -660,14 +667,477 @@
             "src": "164:302:2"
           }
         ],
-        "id": 1223,
+        "id": 3196,
+        "name": "ImportDirective",
+        "src": "53:24:15"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            3192,
+            3258,
+            3268,
+            7008
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            3232,
+            3268,
+            3192,
+            3258,
+            7008
+          ],
+          "name": "Dataset",
+          "scope": 3233
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "DataEntity",
+                  "referencedDeclaration": 3192,
+                  "type": "contract DataEntity"
+                },
+                "id": 3197,
+                "name": "UserDefinedTypeName",
+                "src": "107:10:15"
+              }
+            ],
+            "id": 3198,
+            "name": "InheritanceSpecifier",
+            "src": "107:10:15"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IDataset",
+                  "referencedDeclaration": 3268,
+                  "type": "contract IDataset"
+                },
+                "id": 3199,
+                "name": "UserDefinedTypeName",
+                "src": "119:8:15"
+              }
+            ],
+            "id": 3200,
+            "name": "InheritanceSpecifier",
+            "src": "119:8:15"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "samplesCount",
+              "scope": 3232,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 3201,
+                "name": "ElementaryTypeName",
+                "src": "134:7:15"
+              }
+            ],
+            "id": 3202,
+            "name": "VariableDeclaration",
+            "src": "134:27:15"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "batchesCount",
+              "scope": 3232,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint8",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint8",
+                  "type": "uint8"
+                },
+                "id": 3203,
+                "name": "ElementaryTypeName",
+                "src": "167:5:15"
+              }
+            ],
+            "id": 3204,
+            "name": "VariableDeclaration",
+            "src": "167:25:15"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "name": "Dataset",
+              "payable": false,
+              "scope": 3232,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsAddress",
+                      "scope": 3231,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 3205,
+                        "name": "ElementaryTypeName",
+                        "src": "226:5:15"
+                      }
+                    ],
+                    "id": 3206,
+                    "name": "VariableDeclaration",
+                    "src": "226:18:15"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_dataDim",
+                      "scope": 3231,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3207,
+                        "name": "ElementaryTypeName",
+                        "src": "254:7:15"
+                      }
+                    ],
+                    "id": 3208,
+                    "name": "VariableDeclaration",
+                    "src": "254:16:15"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_samplesCount",
+                      "scope": 3231,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3209,
+                        "name": "ElementaryTypeName",
+                        "src": "280:7:15"
+                      }
+                    ],
+                    "id": 3210,
+                    "name": "VariableDeclaration",
+                    "src": "280:21:15"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_batchesCount",
+                      "scope": 3231,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 3211,
+                        "name": "ElementaryTypeName",
+                        "src": "311:5:15"
+                      }
+                    ],
+                    "id": 3212,
+                    "name": "VariableDeclaration",
+                    "src": "311:19:15"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_initialPrice",
+                      "scope": 3231,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3213,
+                        "name": "ElementaryTypeName",
+                        "src": "340:7:15"
+                      }
+                    ],
+                    "id": 3214,
+                    "name": "VariableDeclaration",
+                    "src": "340:21:15"
+                  }
+                ],
+                "id": 3215,
+                "name": "ParameterList",
+                "src": "216:151:15"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3221,
+                "name": "ParameterList",
+                "src": "433:0:15"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 3192,
+                      "type": "type(contract DataEntity)",
+                      "value": "DataEntity"
+                    },
+                    "id": 3216,
+                    "name": "Identifier",
+                    "src": "372:10:15"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 3206,
+                      "type": "bytes memory",
+                      "value": "_ipfsAddress"
+                    },
+                    "id": 3217,
+                    "name": "Identifier",
+                    "src": "383:12:15"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 3208,
+                      "type": "uint256",
+                      "value": "_dataDim"
+                    },
+                    "id": 3218,
+                    "name": "Identifier",
+                    "src": "397:8:15"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 3214,
+                      "type": "uint256",
+                      "value": "_initialPrice"
+                    },
+                    "id": 3219,
+                    "name": "Identifier",
+                    "src": "407:13:15"
+                  }
+                ],
+                "id": 3220,
+                "name": "ModifierInvocation",
+                "src": "372:49:15"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3202,
+                              "type": "uint256",
+                              "value": "samplesCount"
+                            },
+                            "id": 3222,
+                            "name": "Identifier",
+                            "src": "443:12:15"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3210,
+                              "type": "uint256",
+                              "value": "_samplesCount"
+                            },
+                            "id": 3223,
+                            "name": "Identifier",
+                            "src": "458:13:15"
+                          }
+                        ],
+                        "id": 3224,
+                        "name": "Assignment",
+                        "src": "443:28:15"
+                      }
+                    ],
+                    "id": 3225,
+                    "name": "ExpressionStatement",
+                    "src": "443:28:15"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3204,
+                              "type": "uint8",
+                              "value": "batchesCount"
+                            },
+                            "id": 3226,
+                            "name": "Identifier",
+                            "src": "481:12:15"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3212,
+                              "type": "uint8",
+                              "value": "_batchesCount"
+                            },
+                            "id": 3227,
+                            "name": "Identifier",
+                            "src": "496:13:15"
+                          }
+                        ],
+                        "id": 3228,
+                        "name": "Assignment",
+                        "src": "481:28:15"
+                      }
+                    ],
+                    "id": 3229,
+                    "name": "ExpressionStatement",
+                    "src": "481:28:15"
+                  }
+                ],
+                "id": 3230,
+                "name": "Block",
+                "src": "433:83:15"
+              }
+            ],
+            "id": 3231,
+            "name": "FunctionDefinition",
+            "src": "199:317:15"
+          }
+        ],
+        "id": 3232,
         "name": "ContractDefinition",
-        "src": "62:406:2"
+        "src": "87:431:15"
       }
     ],
-    "id": 1224,
+    "id": 3233,
     "name": "SourceUnit",
-    "src": "0:469:2"
+    "src": "0:519:15"
   },
   "compiler": {
     "name": "solc",
@@ -681,5 +1151,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-11T13:57:57.712Z"
+  "updatedAt": "2017-12-13T18:09:34.165Z"
 }

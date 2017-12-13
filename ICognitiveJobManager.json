@@ -1,0 +1,737 @@
+{
+  "contractName": "ICognitiveJobManager",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "job",
+          "type": "address"
+        }
+      ],
+      "name": "isActiveJob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "finishCognitiveJob",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "activeJobs",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "cognitiveJobFactory",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "activeJobsCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "jobAddresses",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "kernel",
+          "type": "address"
+        },
+        {
+          "name": "dataset",
+          "type": "address"
+        }
+      ],
+      "name": "createCognitiveJob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "cognitiveJob",
+          "type": "address"
+        }
+      ],
+      "name": "CognitiveJobCreated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport '../../entities/IDataEntity.sol';\nimport '../../nodes/IWorkerNode.sol';\nimport '../../jobs/IComputingJob.sol';\nimport '../factories/CognitiveJobFactory.sol';\n\ncontract ICognitiveJobManager {\n    CognitiveJobFactory public cognitiveJobFactory;\n\n    IComputingJob[] public activeJobs;\n    mapping(address => uint16) public jobAddresses;\n\n    function activeJobsCount() view public returns (uint256);\n    function isActiveJob(IComputingJob job) view public returns (bool);\n\n    function createCognitiveJob(IKernel kernel, IDataset dataset) external payable returns (IComputingJob);\n    function finishCognitiveJob() external;\n\n    event CognitiveJobCreated(IComputingJob cognitiveJob);\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/managers/ICognitiveJobManager.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/managers/ICognitiveJobManager.sol",
+      "exportedSymbols": {
+        "ICognitiveJobManager": [
+          6397
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 6355,
+        "name": "PragmaDirective",
+        "src": "0:24:39"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 3259,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataEntity.sol",
+          "file": "../../entities/IDataEntity.sol",
+          "scope": 6398,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 6356,
+        "name": "ImportDirective",
+        "src": "26:40:39"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 5024,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/IWorkerNode.sol",
+          "file": "../../nodes/IWorkerNode.sol",
+          "scope": 6398,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 6357,
+        "name": "ImportDirective",
+        "src": "67:37:39"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 4421,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/jobs/IComputingJob.sol",
+          "file": "../../jobs/IComputingJob.sol",
+          "scope": 6398,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 6358,
+        "name": "ImportDirective",
+        "src": "105:38:39"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 5779,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/factories/CognitiveJobFactory.sol",
+          "file": "../factories/CognitiveJobFactory.sol",
+          "scope": 6398,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 6359,
+        "name": "ImportDirective",
+        "src": "144:46:39"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            6397
+          ],
+          "name": "ICognitiveJobManager",
+          "scope": 6398
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "cognitiveJobFactory",
+              "scope": 6397,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract CognitiveJobFactory",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CognitiveJobFactory",
+                  "referencedDeclaration": 5778,
+                  "type": "contract CognitiveJobFactory"
+                },
+                "id": 6360,
+                "name": "UserDefinedTypeName",
+                "src": "228:19:39"
+              }
+            ],
+            "id": 6361,
+            "name": "VariableDeclaration",
+            "src": "228:46:39"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "activeJobs",
+              "scope": 6397,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IComputingJob[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IComputingJob[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IComputingJob",
+                      "referencedDeclaration": 4420,
+                      "type": "contract IComputingJob"
+                    },
+                    "id": 6362,
+                    "name": "UserDefinedTypeName",
+                    "src": "281:13:39"
+                  }
+                ],
+                "id": 6363,
+                "name": "ArrayTypeName",
+                "src": "281:15:39"
+              }
+            ],
+            "id": 6364,
+            "name": "VariableDeclaration",
+            "src": "281:33:39"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "jobAddresses",
+              "scope": 6397,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => uint16)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => uint16)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 6365,
+                    "name": "ElementaryTypeName",
+                    "src": "328:7:39"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint16",
+                      "type": "uint16"
+                    },
+                    "id": 6366,
+                    "name": "ElementaryTypeName",
+                    "src": "339:6:39"
+                  }
+                ],
+                "id": 6367,
+                "name": "Mapping",
+                "src": "320:26:39"
+              }
+            ],
+            "id": 6368,
+            "name": "VariableDeclaration",
+            "src": "320:46:39"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "activeJobsCount",
+              "payable": false,
+              "scope": 6397,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6369,
+                "name": "ParameterList",
+                "src": "397:2:39"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 6373,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 6370,
+                        "name": "ElementaryTypeName",
+                        "src": "421:7:39"
+                      }
+                    ],
+                    "id": 6371,
+                    "name": "VariableDeclaration",
+                    "src": "421:7:39"
+                  }
+                ],
+                "id": 6372,
+                "name": "ParameterList",
+                "src": "420:9:39"
+              }
+            ],
+            "id": 6373,
+            "name": "FunctionDefinition",
+            "src": "373:57:39"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "isActiveJob",
+              "payable": false,
+              "scope": 6397,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "job",
+                      "scope": 6380,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IComputingJob",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IComputingJob",
+                          "referencedDeclaration": 4420,
+                          "type": "contract IComputingJob"
+                        },
+                        "id": 6374,
+                        "name": "UserDefinedTypeName",
+                        "src": "456:13:39"
+                      }
+                    ],
+                    "id": 6375,
+                    "name": "VariableDeclaration",
+                    "src": "456:17:39"
+                  }
+                ],
+                "id": 6376,
+                "name": "ParameterList",
+                "src": "455:19:39"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 6380,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 6377,
+                        "name": "ElementaryTypeName",
+                        "src": "496:4:39"
+                      }
+                    ],
+                    "id": 6378,
+                    "name": "VariableDeclaration",
+                    "src": "496:4:39"
+                  }
+                ],
+                "id": 6379,
+                "name": "ParameterList",
+                "src": "495:6:39"
+              }
+            ],
+            "id": 6380,
+            "name": "FunctionDefinition",
+            "src": "435:67:39"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createCognitiveJob",
+              "payable": true,
+              "scope": 6397,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "kernel",
+                      "scope": 6389,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IKernel",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IKernel",
+                          "referencedDeclaration": 3276,
+                          "type": "contract IKernel"
+                        },
+                        "id": 6381,
+                        "name": "UserDefinedTypeName",
+                        "src": "536:7:39"
+                      }
+                    ],
+                    "id": 6382,
+                    "name": "VariableDeclaration",
+                    "src": "536:14:39"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "dataset",
+                      "scope": 6389,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IDataset",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IDataset",
+                          "referencedDeclaration": 3268,
+                          "type": "contract IDataset"
+                        },
+                        "id": 6383,
+                        "name": "UserDefinedTypeName",
+                        "src": "552:8:39"
+                      }
+                    ],
+                    "id": 6384,
+                    "name": "VariableDeclaration",
+                    "src": "552:16:39"
+                  }
+                ],
+                "id": 6385,
+                "name": "ParameterList",
+                "src": "535:34:39"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 6389,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IComputingJob",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IComputingJob",
+                          "referencedDeclaration": 4420,
+                          "type": "contract IComputingJob"
+                        },
+                        "id": 6386,
+                        "name": "UserDefinedTypeName",
+                        "src": "596:13:39"
+                      }
+                    ],
+                    "id": 6387,
+                    "name": "VariableDeclaration",
+                    "src": "596:13:39"
+                  }
+                ],
+                "id": 6388,
+                "name": "ParameterList",
+                "src": "595:15:39"
+              }
+            ],
+            "id": 6389,
+            "name": "FunctionDefinition",
+            "src": "508:103:39"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "finishCognitiveJob",
+              "payable": false,
+              "scope": 6397,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6390,
+                "name": "ParameterList",
+                "src": "643:2:39"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 6391,
+                "name": "ParameterList",
+                "src": "654:0:39"
+              }
+            ],
+            "id": 6392,
+            "name": "FunctionDefinition",
+            "src": "616:39:39"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "CognitiveJobCreated"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "cognitiveJob",
+                      "scope": 6396,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IComputingJob",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IComputingJob",
+                          "referencedDeclaration": 4420,
+                          "type": "contract IComputingJob"
+                        },
+                        "id": 6393,
+                        "name": "UserDefinedTypeName",
+                        "src": "687:13:39"
+                      }
+                    ],
+                    "id": 6394,
+                    "name": "VariableDeclaration",
+                    "src": "687:26:39"
+                  }
+                ],
+                "id": 6395,
+                "name": "ParameterList",
+                "src": "686:28:39"
+              }
+            ],
+            "id": 6396,
+            "name": "EventDefinition",
+            "src": "661:54:39"
+          }
+        ],
+        "id": 6397,
+        "name": "ContractDefinition",
+        "src": "192:525:39"
+      }
+    ],
+    "id": 6398,
+    "name": "SourceUnit",
+    "src": "0:718:39"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-13T18:09:34.155Z"
+}

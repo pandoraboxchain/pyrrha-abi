@@ -38,13 +38,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\n\n\ncontract IStateMachine {\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
       "exportedSymbols": {
         "IStateMachine": [
-          4464
+          1401
         ]
       }
     },
@@ -58,9 +58,9 @@
             ".18"
           ]
         },
-        "id": 4452,
+        "id": 1389,
         "name": "PragmaDirective",
-        "src": "0:24:23"
+        "src": "0:24:10"
       },
       {
         "attributes": {
@@ -74,10 +74,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            4464
+            1401
           ],
           "name": "IStateMachine",
-          "scope": 4465
+          "scope": 1402
         },
         "children": [
           {
@@ -91,7 +91,7 @@
               ],
               "name": "currentState",
               "payable": false,
-              "scope": 4464,
+              "scope": 1401,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -104,9 +104,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4453,
+                "id": 1390,
                 "name": "ParameterList",
-                "src": "77:2:23"
+                "src": "77:2:10"
               },
               {
                 "children": [
@@ -114,7 +114,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 4457,
+                      "scope": 1394,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -127,24 +127,24 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4454,
+                        "id": 1391,
                         "name": "ElementaryTypeName",
-                        "src": "101:5:23"
+                        "src": "101:5:10"
                       }
                     ],
-                    "id": 4455,
+                    "id": 1392,
                     "name": "VariableDeclaration",
-                    "src": "101:5:23"
+                    "src": "101:5:10"
                   }
                 ],
-                "id": 4456,
+                "id": 1393,
                 "name": "ParameterList",
-                "src": "100:7:23"
+                "src": "100:7:10"
               }
             ],
-            "id": 4457,
+            "id": 1394,
             "name": "FunctionDefinition",
-            "src": "56:52:23"
+            "src": "56:52:10"
           },
           {
             "attributes": {
@@ -159,7 +159,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "oldState",
-                      "scope": 4463,
+                      "scope": 1400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -172,21 +172,21 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4458,
+                        "id": 1395,
                         "name": "ElementaryTypeName",
-                        "src": "133:5:23"
+                        "src": "133:5:10"
                       }
                     ],
-                    "id": 4459,
+                    "id": 1396,
                     "name": "VariableDeclaration",
-                    "src": "133:14:23"
+                    "src": "133:14:10"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": false,
                       "name": "newState",
-                      "scope": 4463,
+                      "scope": 1400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -199,34 +199,34 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4460,
+                        "id": 1397,
                         "name": "ElementaryTypeName",
-                        "src": "149:5:23"
+                        "src": "149:5:10"
                       }
                     ],
-                    "id": 4461,
+                    "id": 1398,
                     "name": "VariableDeclaration",
-                    "src": "149:14:23"
+                    "src": "149:14:10"
                   }
                 ],
-                "id": 4462,
+                "id": 1399,
                 "name": "ParameterList",
-                "src": "132:32:23"
+                "src": "132:32:10"
               }
             ],
-            "id": 4463,
+            "id": 1400,
             "name": "EventDefinition",
-            "src": "114:51:23"
+            "src": "114:51:10"
           }
         ],
-        "id": 4464,
+        "id": 1401,
         "name": "ContractDefinition",
-        "src": "27:140:23"
+        "src": "27:140:10"
       }
     ],
-    "id": 4465,
+    "id": 1402,
     "name": "SourceUnit",
-    "src": "0:167:23"
+    "src": "0:167:10"
   },
   "compiler": {
     "name": "solc",
@@ -234,5 +234,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.152Z"
+  "updatedAt": "2017-12-17T07:58:45.702Z"
 }

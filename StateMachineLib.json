@@ -1,18 +1,18 @@
 {
   "contractName": "StateMachineLib",
   "abi": [],
-  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a723058200e5913ebafc4a739eac5a6154249937898ff3209260246b11d6b624a0310ed4f0029",
-  "deployedBytecode": "0x6060604052600080fd00a165627a7a723058200e5913ebafc4a739eac5a6154249937898ff3209260246b11d6b624a0310ed4f0029",
-  "sourceMap": "27:2613:25:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "27:2613:25:-;;;;;",
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820561d61af40666429591b97c334eddd443b0577fdbd23e0fb9a373002eeb4fa970029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820561d61af40666429591b97c334eddd443b0577fdbd23e0fb9a373002eeb4fa970029",
+  "sourceMap": "27:2613:12:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "27:2613:12:-;;;;;",
   "source": "pragma solidity ^0.4.18;\n\n\nlibrary StateMachineLib {\n    struct StateMachine {\n        bool initialized;\n        uint8 currentState;\n        mapping(uint8 => uint8[]) transitionTable;\n    }\n\n    function transitionToState(\n        StateMachine storage _machine,\n        uint8 _newState\n    )\n    internal {\n        // Should not happen\n        assert(_machine.currentState != 0xFF);\n\n        // Checking if the state transition is allowed\n        bool transitionAllowed = false;\n        uint8[] storage allowedStates = _machine.transitionTable[uint8(_machine.currentState)];\n        for (uint no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _newState) {\n                transitionAllowed = true;\n            }\n        }\n\n        require(transitionAllowed == true);\n    }\n\n    function transitionThroughState(\n        StateMachine storage _machine,\n        uint8 _transitionState\n    )\n    internal {\n        // Should not happen\n        assert(_machine.currentState != 0xFF);\n\n        // Checking if the state transitions are allowed\n\n        bool firstTransitionAllowed = false;\n        uint8[] storage allowedStates = _machine.transitionTable[uint8(_machine.currentState)];\n        for (uint no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _transitionState) {\n                firstTransitionAllowed = true;\n                break;\n            }\n        }\n        require(firstTransitionAllowed == true);\n\n        bool secondTransitionAllowed = false;\n        allowedStates = _machine.transitionTable[uint8(_transitionState)];\n        for (no = 0; no < allowedStates.length; no++) {\n            if (allowedStates[no] == _machine.currentState) {\n                secondTransitionAllowed = true;\n                break;\n            }\n        }\n        require(secondTransitionAllowed == true);\n\n        _machine.currentState = _transitionState;\n    }\n\n    function requireStates2(\n        StateMachine storage _machine,\n        uint8 _requiredState1,\n        uint8 _requiredState2\n    )\n    view\n    internal {\n        bool properState = false;\n        var _requiredStates = [_requiredState1, _requiredState2];\n        for (uint no = 0; no < _requiredStates.length; no++) {\n            if (_requiredStates[no] == _machine.currentState) {\n                properState = true;\n                break;\n            }\n        }\n        require(properState == true);\n    }\n\n    function initStateMachine(\n        StateMachine storage _machine\n    ) internal {\n        require(_machine.initialized == false);\n        _machine.currentState = 1;\n        _machine.initialized = true;\n    }\n\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/StateMachineLib.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/StateMachineLib.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/StateMachineLib.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/StateMachineLib.sol",
       "exportedSymbols": {
         "StateMachineLib": [
-          4874
+          1811
         ]
       }
     },
@@ -26,9 +26,9 @@
             ".18"
           ]
         },
-        "id": 4613,
+        "id": 1550,
         "name": "PragmaDirective",
-        "src": "0:24:25"
+        "src": "0:24:12"
       },
       {
         "attributes": {
@@ -42,17 +42,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            4874
+            1811
           ],
           "name": "StateMachineLib",
-          "scope": 4875
+          "scope": 1812
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "StateMachineLib.StateMachine",
               "name": "StateMachine",
-              "scope": 4874,
+              "scope": 1811,
               "visibility": "public"
             },
             "children": [
@@ -60,7 +60,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "initialized",
-                  "scope": 4623,
+                  "scope": 1560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -73,20 +73,20 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 4614,
+                    "id": 1551,
                     "name": "ElementaryTypeName",
-                    "src": "87:4:25"
+                    "src": "87:4:12"
                   }
                 ],
-                "id": 4615,
+                "id": 1552,
                 "name": "VariableDeclaration",
-                "src": "87:16:25"
+                "src": "87:16:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "currentState",
-                  "scope": 4623,
+                  "scope": 1560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint8",
@@ -99,20 +99,20 @@
                       "name": "uint8",
                       "type": "uint8"
                     },
-                    "id": 4616,
+                    "id": 1553,
                     "name": "ElementaryTypeName",
-                    "src": "113:5:25"
+                    "src": "113:5:12"
                   }
                 ],
-                "id": 4617,
+                "id": 1554,
                 "name": "VariableDeclaration",
-                "src": "113:18:25"
+                "src": "113:18:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "transitionTable",
-                  "scope": 4623,
+                  "scope": 1560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "mapping(uint8 => uint8[] storage ref)",
@@ -130,9 +130,9 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4618,
+                        "id": 1555,
                         "name": "ElementaryTypeName",
-                        "src": "149:5:25"
+                        "src": "149:5:12"
                       },
                       {
                         "attributes": {
@@ -145,29 +145,29 @@
                               "name": "uint8",
                               "type": "uint8"
                             },
-                            "id": 4619,
+                            "id": 1556,
                             "name": "ElementaryTypeName",
-                            "src": "158:5:25"
+                            "src": "158:5:12"
                           }
                         ],
-                        "id": 4620,
+                        "id": 1557,
                         "name": "ArrayTypeName",
-                        "src": "158:7:25"
+                        "src": "158:7:12"
                       }
                     ],
-                    "id": 4621,
+                    "id": 1558,
                     "name": "Mapping",
-                    "src": "141:25:25"
+                    "src": "141:25:12"
                   }
                 ],
-                "id": 4622,
+                "id": 1559,
                 "name": "VariableDeclaration",
-                "src": "141:41:25"
+                "src": "141:41:12"
               }
             ],
-            "id": 4623,
+            "id": 1560,
             "name": "StructDefinition",
-            "src": "57:132:25"
+            "src": "57:132:12"
           },
           {
             "attributes": {
@@ -179,7 +179,7 @@
               ],
               "name": "transitionToState",
               "payable": false,
-              "scope": 4874,
+              "scope": 1811,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "internal"
@@ -191,7 +191,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_machine",
-                      "scope": 4684,
+                      "scope": 1621,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct StateMachineLib.StateMachine storage pointer",
@@ -203,23 +203,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "StateMachine",
-                          "referencedDeclaration": 4623,
+                          "referencedDeclaration": 1560,
                           "type": "struct StateMachineLib.StateMachine storage pointer"
                         },
-                        "id": 4624,
+                        "id": 1561,
                         "name": "UserDefinedTypeName",
-                        "src": "231:12:25"
+                        "src": "231:12:12"
                       }
                     ],
-                    "id": 4625,
+                    "id": 1562,
                     "name": "VariableDeclaration",
-                    "src": "231:29:25"
+                    "src": "231:29:12"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_newState",
-                      "scope": 4684,
+                      "scope": 1621,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -232,19 +232,19 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4626,
+                        "id": 1563,
                         "name": "ElementaryTypeName",
-                        "src": "270:5:25"
+                        "src": "270:5:12"
                       }
                     ],
-                    "id": 4627,
+                    "id": 1564,
                     "name": "VariableDeclaration",
-                    "src": "270:15:25"
+                    "src": "270:15:12"
                   }
                 ],
-                "id": 4628,
+                "id": 1565,
                 "name": "ParameterList",
-                "src": "221:70:25"
+                "src": "221:70:12"
               },
               {
                 "attributes": {
@@ -253,9 +253,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4629,
+                "id": 1566,
                 "name": "ParameterList",
-                "src": "305:0:25"
+                "src": "305:0:12"
               },
               {
                 "children": [
@@ -287,13 +287,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7415,
+                              "referencedDeclaration": 4355,
                               "type": "function (bool) pure",
                               "value": "assert"
                             },
-                            "id": 4630,
+                            "id": 1567,
                             "name": "Identifier",
-                            "src": "344:6:25"
+                            "src": "344:6:12"
                           },
                           {
                             "attributes": {
@@ -318,7 +318,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "currentState",
-                                  "referencedDeclaration": 4617,
+                                  "referencedDeclaration": 1554,
                                   "type": "uint8"
                                 },
                                 "children": [
@@ -328,18 +328,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4625,
+                                      "referencedDeclaration": 1562,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4631,
+                                    "id": 1568,
                                     "name": "Identifier",
-                                    "src": "351:8:25"
+                                    "src": "351:8:12"
                                   }
                                 ],
-                                "id": 4632,
+                                "id": 1569,
                                 "name": "MemberAccess",
-                                "src": "351:21:25"
+                                "src": "351:21:12"
                               },
                               {
                                 "attributes": {
@@ -354,29 +354,29 @@
                                   "type": "int_const 255",
                                   "value": "0xFF"
                                 },
-                                "id": 4633,
+                                "id": 1570,
                                 "name": "Literal",
-                                "src": "376:4:25"
+                                "src": "376:4:12"
                               }
                             ],
-                            "id": 4634,
+                            "id": 1571,
                             "name": "BinaryOperation",
-                            "src": "351:29:25"
+                            "src": "351:29:12"
                           }
                         ],
-                        "id": 4635,
+                        "id": 1572,
                         "name": "FunctionCall",
-                        "src": "344:37:25"
+                        "src": "344:37:12"
                       }
                     ],
-                    "id": 4636,
+                    "id": 1573,
                     "name": "ExpressionStatement",
-                    "src": "344:37:25"
+                    "src": "344:37:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4638
+                        1575
                       ]
                     },
                     "children": [
@@ -384,7 +384,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "transitionAllowed",
-                          "scope": 4684,
+                          "scope": 1621,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "bool",
@@ -397,14 +397,14 @@
                               "name": "bool",
                               "type": "bool"
                             },
-                            "id": 4637,
+                            "id": 1574,
                             "name": "ElementaryTypeName",
-                            "src": "447:4:25"
+                            "src": "447:4:12"
                           }
                         ],
-                        "id": 4638,
+                        "id": 1575,
                         "name": "VariableDeclaration",
-                        "src": "447:22:25"
+                        "src": "447:22:12"
                       },
                       {
                         "attributes": {
@@ -419,19 +419,19 @@
                           "type": "bool",
                           "value": "false"
                         },
-                        "id": 4639,
+                        "id": 1576,
                         "name": "Literal",
-                        "src": "472:5:25"
+                        "src": "472:5:12"
                       }
                     ],
-                    "id": 4640,
+                    "id": 1577,
                     "name": "VariableDeclarationStatement",
-                    "src": "447:30:25"
+                    "src": "447:30:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4644
+                        1581
                       ]
                     },
                     "children": [
@@ -439,7 +439,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "allowedStates",
-                          "scope": 4684,
+                          "scope": 1621,
                           "stateVariable": false,
                           "storageLocation": "storage",
                           "type": "uint8[] storage pointer",
@@ -458,19 +458,19 @@
                                   "name": "uint8",
                                   "type": "uint8"
                                 },
-                                "id": 4642,
+                                "id": 1579,
                                 "name": "ElementaryTypeName",
-                                "src": "487:5:25"
+                                "src": "487:5:12"
                               }
                             ],
-                            "id": 4643,
+                            "id": 1580,
                             "name": "ArrayTypeName",
-                            "src": "487:7:25"
+                            "src": "487:7:12"
                           }
                         ],
-                        "id": 4644,
+                        "id": 1581,
                         "name": "VariableDeclaration",
-                        "src": "487:29:25"
+                        "src": "487:29:12"
                       },
                       {
                         "attributes": {
@@ -490,7 +490,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transitionTable",
-                              "referencedDeclaration": 4622,
+                              "referencedDeclaration": 1559,
                               "type": "mapping(uint8 => uint8[] storage ref)"
                             },
                             "children": [
@@ -500,18 +500,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4625,
+                                  "referencedDeclaration": 1562,
                                   "type": "struct StateMachineLib.StateMachine storage pointer",
                                   "value": "_machine"
                                 },
-                                "id": 4645,
+                                "id": 1582,
                                 "name": "Identifier",
-                                "src": "519:8:25"
+                                "src": "519:8:12"
                               }
                             ],
-                            "id": 4646,
+                            "id": 1583,
                             "name": "MemberAccess",
-                            "src": "519:24:25"
+                            "src": "519:24:12"
                           },
                           {
                             "attributes": {
@@ -543,9 +543,9 @@
                                   "type": "type(uint8)",
                                   "value": "uint8"
                                 },
-                                "id": 4647,
+                                "id": 1584,
                                 "name": "ElementaryTypeNameExpression",
-                                "src": "544:5:25"
+                                "src": "544:5:12"
                               },
                               {
                                 "attributes": {
@@ -555,7 +555,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "currentState",
-                                  "referencedDeclaration": 4617,
+                                  "referencedDeclaration": 1554,
                                   "type": "uint8"
                                 },
                                 "children": [
@@ -565,40 +565,40 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4625,
+                                      "referencedDeclaration": 1562,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4648,
+                                    "id": 1585,
                                     "name": "Identifier",
-                                    "src": "550:8:25"
+                                    "src": "550:8:12"
                                   }
                                 ],
-                                "id": 4649,
+                                "id": 1586,
                                 "name": "MemberAccess",
-                                "src": "550:21:25"
+                                "src": "550:21:12"
                               }
                             ],
-                            "id": 4650,
+                            "id": 1587,
                             "name": "FunctionCall",
-                            "src": "544:28:25"
+                            "src": "544:28:12"
                           }
                         ],
-                        "id": 4651,
+                        "id": 1588,
                         "name": "IndexAccess",
-                        "src": "519:54:25"
+                        "src": "519:54:12"
                       }
                     ],
-                    "id": 4652,
+                    "id": 1589,
                     "name": "VariableDeclarationStatement",
-                    "src": "487:86:25"
+                    "src": "487:86:12"
                   },
                   {
                     "children": [
                       {
                         "attributes": {
                           "assignments": [
-                            4654
+                            1591
                           ]
                         },
                         "children": [
@@ -606,7 +606,7 @@
                             "attributes": {
                               "constant": false,
                               "name": "no",
-                              "scope": 4684,
+                              "scope": 1621,
                               "stateVariable": false,
                               "storageLocation": "default",
                               "type": "uint256",
@@ -619,14 +619,14 @@
                                   "name": "uint",
                                   "type": "uint256"
                                 },
-                                "id": 4653,
+                                "id": 1590,
                                 "name": "ElementaryTypeName",
-                                "src": "588:4:25"
+                                "src": "588:4:12"
                               }
                             ],
-                            "id": 4654,
+                            "id": 1591,
                             "name": "VariableDeclaration",
-                            "src": "588:7:25"
+                            "src": "588:7:12"
                           },
                           {
                             "attributes": {
@@ -641,14 +641,14 @@
                               "type": "int_const 0",
                               "value": "0"
                             },
-                            "id": 4655,
+                            "id": 1592,
                             "name": "Literal",
-                            "src": "598:1:25"
+                            "src": "598:1:12"
                           }
                         ],
-                        "id": 4656,
+                        "id": 1593,
                         "name": "VariableDeclarationStatement",
-                        "src": "588:11:25"
+                        "src": "588:11:12"
                       },
                       {
                         "attributes": {
@@ -671,13 +671,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4654,
+                              "referencedDeclaration": 1591,
                               "type": "uint256",
                               "value": "no"
                             },
-                            "id": 4657,
+                            "id": 1594,
                             "name": "Identifier",
-                            "src": "601:2:25"
+                            "src": "601:2:12"
                           },
                           {
                             "attributes": {
@@ -697,23 +697,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4644,
+                                  "referencedDeclaration": 1581,
                                   "type": "uint8[] storage pointer",
                                   "value": "allowedStates"
                                 },
-                                "id": 4658,
+                                "id": 1595,
                                 "name": "Identifier",
-                                "src": "606:13:25"
+                                "src": "606:13:12"
                               }
                             ],
-                            "id": 4659,
+                            "id": 1596,
                             "name": "MemberAccess",
-                            "src": "606:20:25"
+                            "src": "606:20:12"
                           }
                         ],
-                        "id": 4660,
+                        "id": 1597,
                         "name": "BinaryOperation",
-                        "src": "601:25:25"
+                        "src": "601:25:12"
                       },
                       {
                         "children": [
@@ -735,23 +735,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4654,
+                                  "referencedDeclaration": 1591,
                                   "type": "uint256",
                                   "value": "no"
                                 },
-                                "id": 4661,
+                                "id": 1598,
                                 "name": "Identifier",
-                                "src": "628:2:25"
+                                "src": "628:2:12"
                               }
                             ],
-                            "id": 4662,
+                            "id": 1599,
                             "name": "UnaryOperation",
-                            "src": "628:4:25"
+                            "src": "628:4:12"
                           }
                         ],
-                        "id": 4663,
+                        "id": 1600,
                         "name": "ExpressionStatement",
-                        "src": "628:4:25"
+                        "src": "628:4:12"
                       },
                       {
                         "children": [
@@ -791,13 +791,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4644,
+                                          "referencedDeclaration": 1581,
                                           "type": "uint8[] storage pointer",
                                           "value": "allowedStates"
                                         },
-                                        "id": 4664,
+                                        "id": 1601,
                                         "name": "Identifier",
-                                        "src": "652:13:25"
+                                        "src": "652:13:12"
                                       },
                                       {
                                         "attributes": {
@@ -805,18 +805,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4654,
+                                          "referencedDeclaration": 1591,
                                           "type": "uint256",
                                           "value": "no"
                                         },
-                                        "id": 4665,
+                                        "id": 1602,
                                         "name": "Identifier",
-                                        "src": "666:2:25"
+                                        "src": "666:2:12"
                                       }
                                     ],
-                                    "id": 4666,
+                                    "id": 1603,
                                     "name": "IndexAccess",
-                                    "src": "652:17:25"
+                                    "src": "652:17:12"
                                   },
                                   {
                                     "attributes": {
@@ -824,18 +824,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4627,
+                                      "referencedDeclaration": 1564,
                                       "type": "uint8",
                                       "value": "_newState"
                                     },
-                                    "id": 4667,
+                                    "id": 1604,
                                     "name": "Identifier",
-                                    "src": "673:9:25"
+                                    "src": "673:9:12"
                                   }
                                 ],
-                                "id": 4668,
+                                "id": 1605,
                                 "name": "BinaryOperation",
-                                "src": "652:30:25"
+                                "src": "652:30:12"
                               },
                               {
                                 "children": [
@@ -858,13 +858,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4638,
+                                              "referencedDeclaration": 1575,
                                               "type": "bool",
                                               "value": "transitionAllowed"
                                             },
-                                            "id": 4669,
+                                            "id": 1606,
                                             "name": "Identifier",
-                                            "src": "702:17:25"
+                                            "src": "702:17:12"
                                           },
                                           {
                                             "attributes": {
@@ -879,39 +879,39 @@
                                               "type": "bool",
                                               "value": "true"
                                             },
-                                            "id": 4670,
+                                            "id": 1607,
                                             "name": "Literal",
-                                            "src": "722:4:25"
+                                            "src": "722:4:12"
                                           }
                                         ],
-                                        "id": 4671,
+                                        "id": 1608,
                                         "name": "Assignment",
-                                        "src": "702:24:25"
+                                        "src": "702:24:12"
                                       }
                                     ],
-                                    "id": 4672,
+                                    "id": 1609,
                                     "name": "ExpressionStatement",
-                                    "src": "702:24:25"
+                                    "src": "702:24:12"
                                   }
                                 ],
-                                "id": 4673,
+                                "id": 1610,
                                 "name": "Block",
-                                "src": "684:57:25"
+                                "src": "684:57:12"
                               }
                             ],
-                            "id": 4674,
+                            "id": 1611,
                             "name": "IfStatement",
-                            "src": "648:93:25"
+                            "src": "648:93:12"
                           }
                         ],
-                        "id": 4675,
+                        "id": 1612,
                         "name": "Block",
-                        "src": "634:117:25"
+                        "src": "634:117:12"
                       }
                     ],
-                    "id": 4676,
+                    "id": 1613,
                     "name": "ForStatement",
-                    "src": "583:168:25"
+                    "src": "583:168:12"
                   },
                   {
                     "children": [
@@ -941,13 +941,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7427,
+                              "referencedDeclaration": 4367,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4677,
+                            "id": 1614,
                             "name": "Identifier",
-                            "src": "761:7:25"
+                            "src": "761:7:12"
                           },
                           {
                             "attributes": {
@@ -970,13 +970,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4638,
+                                  "referencedDeclaration": 1575,
                                   "type": "bool",
                                   "value": "transitionAllowed"
                                 },
-                                "id": 4678,
+                                "id": 1615,
                                 "name": "Identifier",
-                                "src": "769:17:25"
+                                "src": "769:17:12"
                               },
                               {
                                 "attributes": {
@@ -991,34 +991,34 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 4679,
+                                "id": 1616,
                                 "name": "Literal",
-                                "src": "790:4:25"
+                                "src": "790:4:12"
                               }
                             ],
-                            "id": 4680,
+                            "id": 1617,
                             "name": "BinaryOperation",
-                            "src": "769:25:25"
+                            "src": "769:25:12"
                           }
                         ],
-                        "id": 4681,
+                        "id": 1618,
                         "name": "FunctionCall",
-                        "src": "761:34:25"
+                        "src": "761:34:12"
                       }
                     ],
-                    "id": 4682,
+                    "id": 1619,
                     "name": "ExpressionStatement",
-                    "src": "761:34:25"
+                    "src": "761:34:12"
                   }
                 ],
-                "id": 4683,
+                "id": 1620,
                 "name": "Block",
-                "src": "305:497:25"
+                "src": "305:497:12"
               }
             ],
-            "id": 4684,
+            "id": 1621,
             "name": "FunctionDefinition",
-            "src": "195:607:25"
+            "src": "195:607:12"
           },
           {
             "attributes": {
@@ -1030,7 +1030,7 @@
               ],
               "name": "transitionThroughState",
               "payable": false,
-              "scope": 4874,
+              "scope": 1811,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "internal"
@@ -1042,7 +1042,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_machine",
-                      "scope": 4797,
+                      "scope": 1734,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct StateMachineLib.StateMachine storage pointer",
@@ -1054,23 +1054,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "StateMachine",
-                          "referencedDeclaration": 4623,
+                          "referencedDeclaration": 1560,
                           "type": "struct StateMachineLib.StateMachine storage pointer"
                         },
-                        "id": 4685,
+                        "id": 1622,
                         "name": "UserDefinedTypeName",
-                        "src": "849:12:25"
+                        "src": "849:12:12"
                       }
                     ],
-                    "id": 4686,
+                    "id": 1623,
                     "name": "VariableDeclaration",
-                    "src": "849:29:25"
+                    "src": "849:29:12"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_transitionState",
-                      "scope": 4797,
+                      "scope": 1734,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -1083,19 +1083,19 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4687,
+                        "id": 1624,
                         "name": "ElementaryTypeName",
-                        "src": "888:5:25"
+                        "src": "888:5:12"
                       }
                     ],
-                    "id": 4688,
+                    "id": 1625,
                     "name": "VariableDeclaration",
-                    "src": "888:22:25"
+                    "src": "888:22:12"
                   }
                 ],
-                "id": 4689,
+                "id": 1626,
                 "name": "ParameterList",
-                "src": "839:77:25"
+                "src": "839:77:12"
               },
               {
                 "attributes": {
@@ -1104,9 +1104,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4690,
+                "id": 1627,
                 "name": "ParameterList",
-                "src": "930:0:25"
+                "src": "930:0:12"
               },
               {
                 "children": [
@@ -1138,13 +1138,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7415,
+                              "referencedDeclaration": 4355,
                               "type": "function (bool) pure",
                               "value": "assert"
                             },
-                            "id": 4691,
+                            "id": 1628,
                             "name": "Identifier",
-                            "src": "969:6:25"
+                            "src": "969:6:12"
                           },
                           {
                             "attributes": {
@@ -1169,7 +1169,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "currentState",
-                                  "referencedDeclaration": 4617,
+                                  "referencedDeclaration": 1554,
                                   "type": "uint8"
                                 },
                                 "children": [
@@ -1179,18 +1179,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4686,
+                                      "referencedDeclaration": 1623,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4692,
+                                    "id": 1629,
                                     "name": "Identifier",
-                                    "src": "976:8:25"
+                                    "src": "976:8:12"
                                   }
                                 ],
-                                "id": 4693,
+                                "id": 1630,
                                 "name": "MemberAccess",
-                                "src": "976:21:25"
+                                "src": "976:21:12"
                               },
                               {
                                 "attributes": {
@@ -1205,29 +1205,29 @@
                                   "type": "int_const 255",
                                   "value": "0xFF"
                                 },
-                                "id": 4694,
+                                "id": 1631,
                                 "name": "Literal",
-                                "src": "1001:4:25"
+                                "src": "1001:4:12"
                               }
                             ],
-                            "id": 4695,
+                            "id": 1632,
                             "name": "BinaryOperation",
-                            "src": "976:29:25"
+                            "src": "976:29:12"
                           }
                         ],
-                        "id": 4696,
+                        "id": 1633,
                         "name": "FunctionCall",
-                        "src": "969:37:25"
+                        "src": "969:37:12"
                       }
                     ],
-                    "id": 4697,
+                    "id": 1634,
                     "name": "ExpressionStatement",
-                    "src": "969:37:25"
+                    "src": "969:37:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4699
+                        1636
                       ]
                     },
                     "children": [
@@ -1235,7 +1235,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "firstTransitionAllowed",
-                          "scope": 4797,
+                          "scope": 1734,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "bool",
@@ -1248,14 +1248,14 @@
                               "name": "bool",
                               "type": "bool"
                             },
-                            "id": 4698,
+                            "id": 1635,
                             "name": "ElementaryTypeName",
-                            "src": "1075:4:25"
+                            "src": "1075:4:12"
                           }
                         ],
-                        "id": 4699,
+                        "id": 1636,
                         "name": "VariableDeclaration",
-                        "src": "1075:27:25"
+                        "src": "1075:27:12"
                       },
                       {
                         "attributes": {
@@ -1270,19 +1270,19 @@
                           "type": "bool",
                           "value": "false"
                         },
-                        "id": 4700,
+                        "id": 1637,
                         "name": "Literal",
-                        "src": "1105:5:25"
+                        "src": "1105:5:12"
                       }
                     ],
-                    "id": 4701,
+                    "id": 1638,
                     "name": "VariableDeclarationStatement",
-                    "src": "1075:35:25"
+                    "src": "1075:35:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4705
+                        1642
                       ]
                     },
                     "children": [
@@ -1290,7 +1290,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "allowedStates",
-                          "scope": 4797,
+                          "scope": 1734,
                           "stateVariable": false,
                           "storageLocation": "storage",
                           "type": "uint8[] storage pointer",
@@ -1309,19 +1309,19 @@
                                   "name": "uint8",
                                   "type": "uint8"
                                 },
-                                "id": 4703,
+                                "id": 1640,
                                 "name": "ElementaryTypeName",
-                                "src": "1120:5:25"
+                                "src": "1120:5:12"
                               }
                             ],
-                            "id": 4704,
+                            "id": 1641,
                             "name": "ArrayTypeName",
-                            "src": "1120:7:25"
+                            "src": "1120:7:12"
                           }
                         ],
-                        "id": 4705,
+                        "id": 1642,
                         "name": "VariableDeclaration",
-                        "src": "1120:29:25"
+                        "src": "1120:29:12"
                       },
                       {
                         "attributes": {
@@ -1341,7 +1341,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transitionTable",
-                              "referencedDeclaration": 4622,
+                              "referencedDeclaration": 1559,
                               "type": "mapping(uint8 => uint8[] storage ref)"
                             },
                             "children": [
@@ -1351,18 +1351,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4686,
+                                  "referencedDeclaration": 1623,
                                   "type": "struct StateMachineLib.StateMachine storage pointer",
                                   "value": "_machine"
                                 },
-                                "id": 4706,
+                                "id": 1643,
                                 "name": "Identifier",
-                                "src": "1152:8:25"
+                                "src": "1152:8:12"
                               }
                             ],
-                            "id": 4707,
+                            "id": 1644,
                             "name": "MemberAccess",
-                            "src": "1152:24:25"
+                            "src": "1152:24:12"
                           },
                           {
                             "attributes": {
@@ -1394,9 +1394,9 @@
                                   "type": "type(uint8)",
                                   "value": "uint8"
                                 },
-                                "id": 4708,
+                                "id": 1645,
                                 "name": "ElementaryTypeNameExpression",
-                                "src": "1177:5:25"
+                                "src": "1177:5:12"
                               },
                               {
                                 "attributes": {
@@ -1406,7 +1406,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "currentState",
-                                  "referencedDeclaration": 4617,
+                                  "referencedDeclaration": 1554,
                                   "type": "uint8"
                                 },
                                 "children": [
@@ -1416,40 +1416,40 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4686,
+                                      "referencedDeclaration": 1623,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4709,
+                                    "id": 1646,
                                     "name": "Identifier",
-                                    "src": "1183:8:25"
+                                    "src": "1183:8:12"
                                   }
                                 ],
-                                "id": 4710,
+                                "id": 1647,
                                 "name": "MemberAccess",
-                                "src": "1183:21:25"
+                                "src": "1183:21:12"
                               }
                             ],
-                            "id": 4711,
+                            "id": 1648,
                             "name": "FunctionCall",
-                            "src": "1177:28:25"
+                            "src": "1177:28:12"
                           }
                         ],
-                        "id": 4712,
+                        "id": 1649,
                         "name": "IndexAccess",
-                        "src": "1152:54:25"
+                        "src": "1152:54:12"
                       }
                     ],
-                    "id": 4713,
+                    "id": 1650,
                     "name": "VariableDeclarationStatement",
-                    "src": "1120:86:25"
+                    "src": "1120:86:12"
                   },
                   {
                     "children": [
                       {
                         "attributes": {
                           "assignments": [
-                            4715
+                            1652
                           ]
                         },
                         "children": [
@@ -1457,7 +1457,7 @@
                             "attributes": {
                               "constant": false,
                               "name": "no",
-                              "scope": 4797,
+                              "scope": 1734,
                               "stateVariable": false,
                               "storageLocation": "default",
                               "type": "uint256",
@@ -1470,14 +1470,14 @@
                                   "name": "uint",
                                   "type": "uint256"
                                 },
-                                "id": 4714,
+                                "id": 1651,
                                 "name": "ElementaryTypeName",
-                                "src": "1221:4:25"
+                                "src": "1221:4:12"
                               }
                             ],
-                            "id": 4715,
+                            "id": 1652,
                             "name": "VariableDeclaration",
-                            "src": "1221:7:25"
+                            "src": "1221:7:12"
                           },
                           {
                             "attributes": {
@@ -1492,14 +1492,14 @@
                               "type": "int_const 0",
                               "value": "0"
                             },
-                            "id": 4716,
+                            "id": 1653,
                             "name": "Literal",
-                            "src": "1231:1:25"
+                            "src": "1231:1:12"
                           }
                         ],
-                        "id": 4717,
+                        "id": 1654,
                         "name": "VariableDeclarationStatement",
-                        "src": "1221:11:25"
+                        "src": "1221:11:12"
                       },
                       {
                         "attributes": {
@@ -1522,13 +1522,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4715,
+                              "referencedDeclaration": 1652,
                               "type": "uint256",
                               "value": "no"
                             },
-                            "id": 4718,
+                            "id": 1655,
                             "name": "Identifier",
-                            "src": "1234:2:25"
+                            "src": "1234:2:12"
                           },
                           {
                             "attributes": {
@@ -1548,23 +1548,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4705,
+                                  "referencedDeclaration": 1642,
                                   "type": "uint8[] storage pointer",
                                   "value": "allowedStates"
                                 },
-                                "id": 4719,
+                                "id": 1656,
                                 "name": "Identifier",
-                                "src": "1239:13:25"
+                                "src": "1239:13:12"
                               }
                             ],
-                            "id": 4720,
+                            "id": 1657,
                             "name": "MemberAccess",
-                            "src": "1239:20:25"
+                            "src": "1239:20:12"
                           }
                         ],
-                        "id": 4721,
+                        "id": 1658,
                         "name": "BinaryOperation",
-                        "src": "1234:25:25"
+                        "src": "1234:25:12"
                       },
                       {
                         "children": [
@@ -1586,23 +1586,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4715,
+                                  "referencedDeclaration": 1652,
                                   "type": "uint256",
                                   "value": "no"
                                 },
-                                "id": 4722,
+                                "id": 1659,
                                 "name": "Identifier",
-                                "src": "1261:2:25"
+                                "src": "1261:2:12"
                               }
                             ],
-                            "id": 4723,
+                            "id": 1660,
                             "name": "UnaryOperation",
-                            "src": "1261:4:25"
+                            "src": "1261:4:12"
                           }
                         ],
-                        "id": 4724,
+                        "id": 1661,
                         "name": "ExpressionStatement",
-                        "src": "1261:4:25"
+                        "src": "1261:4:12"
                       },
                       {
                         "children": [
@@ -1642,13 +1642,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4705,
+                                          "referencedDeclaration": 1642,
                                           "type": "uint8[] storage pointer",
                                           "value": "allowedStates"
                                         },
-                                        "id": 4725,
+                                        "id": 1662,
                                         "name": "Identifier",
-                                        "src": "1285:13:25"
+                                        "src": "1285:13:12"
                                       },
                                       {
                                         "attributes": {
@@ -1656,18 +1656,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4715,
+                                          "referencedDeclaration": 1652,
                                           "type": "uint256",
                                           "value": "no"
                                         },
-                                        "id": 4726,
+                                        "id": 1663,
                                         "name": "Identifier",
-                                        "src": "1299:2:25"
+                                        "src": "1299:2:12"
                                       }
                                     ],
-                                    "id": 4727,
+                                    "id": 1664,
                                     "name": "IndexAccess",
-                                    "src": "1285:17:25"
+                                    "src": "1285:17:12"
                                   },
                                   {
                                     "attributes": {
@@ -1675,18 +1675,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4688,
+                                      "referencedDeclaration": 1625,
                                       "type": "uint8",
                                       "value": "_transitionState"
                                     },
-                                    "id": 4728,
+                                    "id": 1665,
                                     "name": "Identifier",
-                                    "src": "1306:16:25"
+                                    "src": "1306:16:12"
                                   }
                                 ],
-                                "id": 4729,
+                                "id": 1666,
                                 "name": "BinaryOperation",
-                                "src": "1285:37:25"
+                                "src": "1285:37:12"
                               },
                               {
                                 "children": [
@@ -1709,13 +1709,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4699,
+                                              "referencedDeclaration": 1636,
                                               "type": "bool",
                                               "value": "firstTransitionAllowed"
                                             },
-                                            "id": 4730,
+                                            "id": 1667,
                                             "name": "Identifier",
-                                            "src": "1342:22:25"
+                                            "src": "1342:22:12"
                                           },
                                           {
                                             "attributes": {
@@ -1730,44 +1730,44 @@
                                               "type": "bool",
                                               "value": "true"
                                             },
-                                            "id": 4731,
+                                            "id": 1668,
                                             "name": "Literal",
-                                            "src": "1367:4:25"
+                                            "src": "1367:4:12"
                                           }
                                         ],
-                                        "id": 4732,
+                                        "id": 1669,
                                         "name": "Assignment",
-                                        "src": "1342:29:25"
+                                        "src": "1342:29:12"
                                       }
                                     ],
-                                    "id": 4733,
+                                    "id": 1670,
                                     "name": "ExpressionStatement",
-                                    "src": "1342:29:25"
+                                    "src": "1342:29:12"
                                   },
                                   {
-                                    "id": 4734,
+                                    "id": 1671,
                                     "name": "Break",
-                                    "src": "1389:5:25"
+                                    "src": "1389:5:12"
                                   }
                                 ],
-                                "id": 4735,
+                                "id": 1672,
                                 "name": "Block",
-                                "src": "1324:85:25"
+                                "src": "1324:85:12"
                               }
                             ],
-                            "id": 4736,
+                            "id": 1673,
                             "name": "IfStatement",
-                            "src": "1281:128:25"
+                            "src": "1281:128:12"
                           }
                         ],
-                        "id": 4737,
+                        "id": 1674,
                         "name": "Block",
-                        "src": "1267:152:25"
+                        "src": "1267:152:12"
                       }
                     ],
-                    "id": 4738,
+                    "id": 1675,
                     "name": "ForStatement",
-                    "src": "1216:203:25"
+                    "src": "1216:203:12"
                   },
                   {
                     "children": [
@@ -1797,13 +1797,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7427,
+                              "referencedDeclaration": 4367,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4739,
+                            "id": 1676,
                             "name": "Identifier",
-                            "src": "1428:7:25"
+                            "src": "1428:7:12"
                           },
                           {
                             "attributes": {
@@ -1826,13 +1826,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4699,
+                                  "referencedDeclaration": 1636,
                                   "type": "bool",
                                   "value": "firstTransitionAllowed"
                                 },
-                                "id": 4740,
+                                "id": 1677,
                                 "name": "Identifier",
-                                "src": "1436:22:25"
+                                "src": "1436:22:12"
                               },
                               {
                                 "attributes": {
@@ -1847,29 +1847,29 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 4741,
+                                "id": 1678,
                                 "name": "Literal",
-                                "src": "1462:4:25"
+                                "src": "1462:4:12"
                               }
                             ],
-                            "id": 4742,
+                            "id": 1679,
                             "name": "BinaryOperation",
-                            "src": "1436:30:25"
+                            "src": "1436:30:12"
                           }
                         ],
-                        "id": 4743,
+                        "id": 1680,
                         "name": "FunctionCall",
-                        "src": "1428:39:25"
+                        "src": "1428:39:12"
                       }
                     ],
-                    "id": 4744,
+                    "id": 1681,
                     "name": "ExpressionStatement",
-                    "src": "1428:39:25"
+                    "src": "1428:39:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4746
+                        1683
                       ]
                     },
                     "children": [
@@ -1877,7 +1877,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "secondTransitionAllowed",
-                          "scope": 4797,
+                          "scope": 1734,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "bool",
@@ -1890,14 +1890,14 @@
                               "name": "bool",
                               "type": "bool"
                             },
-                            "id": 4745,
+                            "id": 1682,
                             "name": "ElementaryTypeName",
-                            "src": "1478:4:25"
+                            "src": "1478:4:12"
                           }
                         ],
-                        "id": 4746,
+                        "id": 1683,
                         "name": "VariableDeclaration",
-                        "src": "1478:28:25"
+                        "src": "1478:28:12"
                       },
                       {
                         "attributes": {
@@ -1912,14 +1912,14 @@
                           "type": "bool",
                           "value": "false"
                         },
-                        "id": 4747,
+                        "id": 1684,
                         "name": "Literal",
-                        "src": "1509:5:25"
+                        "src": "1509:5:12"
                       }
                     ],
-                    "id": 4748,
+                    "id": 1685,
                     "name": "VariableDeclarationStatement",
-                    "src": "1478:36:25"
+                    "src": "1478:36:12"
                   },
                   {
                     "children": [
@@ -1940,13 +1940,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4705,
+                              "referencedDeclaration": 1642,
                               "type": "uint8[] storage pointer",
                               "value": "allowedStates"
                             },
-                            "id": 4749,
+                            "id": 1686,
                             "name": "Identifier",
-                            "src": "1524:13:25"
+                            "src": "1524:13:12"
                           },
                           {
                             "attributes": {
@@ -1966,7 +1966,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "transitionTable",
-                                  "referencedDeclaration": 4622,
+                                  "referencedDeclaration": 1559,
                                   "type": "mapping(uint8 => uint8[] storage ref)"
                                 },
                                 "children": [
@@ -1976,18 +1976,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4686,
+                                      "referencedDeclaration": 1623,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4750,
+                                    "id": 1687,
                                     "name": "Identifier",
-                                    "src": "1540:8:25"
+                                    "src": "1540:8:12"
                                   }
                                 ],
-                                "id": 4751,
+                                "id": 1688,
                                 "name": "MemberAccess",
-                                "src": "1540:24:25"
+                                "src": "1540:24:12"
                               },
                               {
                                 "attributes": {
@@ -2019,9 +2019,9 @@
                                       "type": "type(uint8)",
                                       "value": "uint8"
                                     },
-                                    "id": 4752,
+                                    "id": 1689,
                                     "name": "ElementaryTypeNameExpression",
-                                    "src": "1565:5:25"
+                                    "src": "1565:5:12"
                                   },
                                   {
                                     "attributes": {
@@ -2029,33 +2029,33 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4688,
+                                      "referencedDeclaration": 1625,
                                       "type": "uint8",
                                       "value": "_transitionState"
                                     },
-                                    "id": 4753,
+                                    "id": 1690,
                                     "name": "Identifier",
-                                    "src": "1571:16:25"
+                                    "src": "1571:16:12"
                                   }
                                 ],
-                                "id": 4754,
+                                "id": 1691,
                                 "name": "FunctionCall",
-                                "src": "1565:23:25"
+                                "src": "1565:23:12"
                               }
                             ],
-                            "id": 4755,
+                            "id": 1692,
                             "name": "IndexAccess",
-                            "src": "1540:49:25"
+                            "src": "1540:49:12"
                           }
                         ],
-                        "id": 4756,
+                        "id": 1693,
                         "name": "Assignment",
-                        "src": "1524:65:25"
+                        "src": "1524:65:12"
                       }
                     ],
-                    "id": 4757,
+                    "id": 1694,
                     "name": "ExpressionStatement",
-                    "src": "1524:65:25"
+                    "src": "1524:65:12"
                   },
                   {
                     "children": [
@@ -2078,13 +2078,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4715,
+                                  "referencedDeclaration": 1652,
                                   "type": "uint256",
                                   "value": "no"
                                 },
-                                "id": 4758,
+                                "id": 1695,
                                 "name": "Identifier",
-                                "src": "1604:2:25"
+                                "src": "1604:2:12"
                               },
                               {
                                 "attributes": {
@@ -2099,19 +2099,19 @@
                                   "type": "int_const 0",
                                   "value": "0"
                                 },
-                                "id": 4759,
+                                "id": 1696,
                                 "name": "Literal",
-                                "src": "1609:1:25"
+                                "src": "1609:1:12"
                               }
                             ],
-                            "id": 4760,
+                            "id": 1697,
                             "name": "Assignment",
-                            "src": "1604:6:25"
+                            "src": "1604:6:12"
                           }
                         ],
-                        "id": 4761,
+                        "id": 1698,
                         "name": "ExpressionStatement",
-                        "src": "1604:6:25"
+                        "src": "1604:6:12"
                       },
                       {
                         "attributes": {
@@ -2134,13 +2134,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4715,
+                              "referencedDeclaration": 1652,
                               "type": "uint256",
                               "value": "no"
                             },
-                            "id": 4762,
+                            "id": 1699,
                             "name": "Identifier",
-                            "src": "1612:2:25"
+                            "src": "1612:2:12"
                           },
                           {
                             "attributes": {
@@ -2160,23 +2160,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4705,
+                                  "referencedDeclaration": 1642,
                                   "type": "uint8[] storage pointer",
                                   "value": "allowedStates"
                                 },
-                                "id": 4763,
+                                "id": 1700,
                                 "name": "Identifier",
-                                "src": "1617:13:25"
+                                "src": "1617:13:12"
                               }
                             ],
-                            "id": 4764,
+                            "id": 1701,
                             "name": "MemberAccess",
-                            "src": "1617:20:25"
+                            "src": "1617:20:12"
                           }
                         ],
-                        "id": 4765,
+                        "id": 1702,
                         "name": "BinaryOperation",
-                        "src": "1612:25:25"
+                        "src": "1612:25:12"
                       },
                       {
                         "children": [
@@ -2198,23 +2198,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4715,
+                                  "referencedDeclaration": 1652,
                                   "type": "uint256",
                                   "value": "no"
                                 },
-                                "id": 4766,
+                                "id": 1703,
                                 "name": "Identifier",
-                                "src": "1639:2:25"
+                                "src": "1639:2:12"
                               }
                             ],
-                            "id": 4767,
+                            "id": 1704,
                             "name": "UnaryOperation",
-                            "src": "1639:4:25"
+                            "src": "1639:4:12"
                           }
                         ],
-                        "id": 4768,
+                        "id": 1705,
                         "name": "ExpressionStatement",
-                        "src": "1639:4:25"
+                        "src": "1639:4:12"
                       },
                       {
                         "children": [
@@ -2254,13 +2254,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4705,
+                                          "referencedDeclaration": 1642,
                                           "type": "uint8[] storage pointer",
                                           "value": "allowedStates"
                                         },
-                                        "id": 4769,
+                                        "id": 1706,
                                         "name": "Identifier",
-                                        "src": "1663:13:25"
+                                        "src": "1663:13:12"
                                       },
                                       {
                                         "attributes": {
@@ -2268,18 +2268,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4715,
+                                          "referencedDeclaration": 1652,
                                           "type": "uint256",
                                           "value": "no"
                                         },
-                                        "id": 4770,
+                                        "id": 1707,
                                         "name": "Identifier",
-                                        "src": "1677:2:25"
+                                        "src": "1677:2:12"
                                       }
                                     ],
-                                    "id": 4771,
+                                    "id": 1708,
                                     "name": "IndexAccess",
-                                    "src": "1663:17:25"
+                                    "src": "1663:17:12"
                                   },
                                   {
                                     "attributes": {
@@ -2289,7 +2289,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "currentState",
-                                      "referencedDeclaration": 4617,
+                                      "referencedDeclaration": 1554,
                                       "type": "uint8"
                                     },
                                     "children": [
@@ -2299,23 +2299,23 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4686,
+                                          "referencedDeclaration": 1623,
                                           "type": "struct StateMachineLib.StateMachine storage pointer",
                                           "value": "_machine"
                                         },
-                                        "id": 4772,
+                                        "id": 1709,
                                         "name": "Identifier",
-                                        "src": "1684:8:25"
+                                        "src": "1684:8:12"
                                       }
                                     ],
-                                    "id": 4773,
+                                    "id": 1710,
                                     "name": "MemberAccess",
-                                    "src": "1684:21:25"
+                                    "src": "1684:21:12"
                                   }
                                 ],
-                                "id": 4774,
+                                "id": 1711,
                                 "name": "BinaryOperation",
-                                "src": "1663:42:25"
+                                "src": "1663:42:12"
                               },
                               {
                                 "children": [
@@ -2338,13 +2338,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4746,
+                                              "referencedDeclaration": 1683,
                                               "type": "bool",
                                               "value": "secondTransitionAllowed"
                                             },
-                                            "id": 4775,
+                                            "id": 1712,
                                             "name": "Identifier",
-                                            "src": "1725:23:25"
+                                            "src": "1725:23:12"
                                           },
                                           {
                                             "attributes": {
@@ -2359,44 +2359,44 @@
                                               "type": "bool",
                                               "value": "true"
                                             },
-                                            "id": 4776,
+                                            "id": 1713,
                                             "name": "Literal",
-                                            "src": "1751:4:25"
+                                            "src": "1751:4:12"
                                           }
                                         ],
-                                        "id": 4777,
+                                        "id": 1714,
                                         "name": "Assignment",
-                                        "src": "1725:30:25"
+                                        "src": "1725:30:12"
                                       }
                                     ],
-                                    "id": 4778,
+                                    "id": 1715,
                                     "name": "ExpressionStatement",
-                                    "src": "1725:30:25"
+                                    "src": "1725:30:12"
                                   },
                                   {
-                                    "id": 4779,
+                                    "id": 1716,
                                     "name": "Break",
-                                    "src": "1773:5:25"
+                                    "src": "1773:5:12"
                                   }
                                 ],
-                                "id": 4780,
+                                "id": 1717,
                                 "name": "Block",
-                                "src": "1707:86:25"
+                                "src": "1707:86:12"
                               }
                             ],
-                            "id": 4781,
+                            "id": 1718,
                             "name": "IfStatement",
-                            "src": "1659:134:25"
+                            "src": "1659:134:12"
                           }
                         ],
-                        "id": 4782,
+                        "id": 1719,
                         "name": "Block",
-                        "src": "1645:158:25"
+                        "src": "1645:158:12"
                       }
                     ],
-                    "id": 4783,
+                    "id": 1720,
                     "name": "ForStatement",
-                    "src": "1599:204:25"
+                    "src": "1599:204:12"
                   },
                   {
                     "children": [
@@ -2426,13 +2426,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7427,
+                              "referencedDeclaration": 4367,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4784,
+                            "id": 1721,
                             "name": "Identifier",
-                            "src": "1812:7:25"
+                            "src": "1812:7:12"
                           },
                           {
                             "attributes": {
@@ -2455,13 +2455,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4746,
+                                  "referencedDeclaration": 1683,
                                   "type": "bool",
                                   "value": "secondTransitionAllowed"
                                 },
-                                "id": 4785,
+                                "id": 1722,
                                 "name": "Identifier",
-                                "src": "1820:23:25"
+                                "src": "1820:23:12"
                               },
                               {
                                 "attributes": {
@@ -2476,24 +2476,24 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 4786,
+                                "id": 1723,
                                 "name": "Literal",
-                                "src": "1847:4:25"
+                                "src": "1847:4:12"
                               }
                             ],
-                            "id": 4787,
+                            "id": 1724,
                             "name": "BinaryOperation",
-                            "src": "1820:31:25"
+                            "src": "1820:31:12"
                           }
                         ],
-                        "id": 4788,
+                        "id": 1725,
                         "name": "FunctionCall",
-                        "src": "1812:40:25"
+                        "src": "1812:40:12"
                       }
                     ],
-                    "id": 4789,
+                    "id": 1726,
                     "name": "ExpressionStatement",
-                    "src": "1812:40:25"
+                    "src": "1812:40:12"
                   },
                   {
                     "children": [
@@ -2516,7 +2516,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "currentState",
-                              "referencedDeclaration": 4617,
+                              "referencedDeclaration": 1554,
                               "type": "uint8"
                             },
                             "children": [
@@ -2526,18 +2526,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4686,
+                                  "referencedDeclaration": 1623,
                                   "type": "struct StateMachineLib.StateMachine storage pointer",
                                   "value": "_machine"
                                 },
-                                "id": 4790,
+                                "id": 1727,
                                 "name": "Identifier",
-                                "src": "1863:8:25"
+                                "src": "1863:8:12"
                               }
                             ],
-                            "id": 4792,
+                            "id": 1729,
                             "name": "MemberAccess",
-                            "src": "1863:21:25"
+                            "src": "1863:21:12"
                           },
                           {
                             "attributes": {
@@ -2545,33 +2545,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4688,
+                              "referencedDeclaration": 1625,
                               "type": "uint8",
                               "value": "_transitionState"
                             },
-                            "id": 4793,
+                            "id": 1730,
                             "name": "Identifier",
-                            "src": "1887:16:25"
+                            "src": "1887:16:12"
                           }
                         ],
-                        "id": 4794,
+                        "id": 1731,
                         "name": "Assignment",
-                        "src": "1863:40:25"
+                        "src": "1863:40:12"
                       }
                     ],
-                    "id": 4795,
+                    "id": 1732,
                     "name": "ExpressionStatement",
-                    "src": "1863:40:25"
+                    "src": "1863:40:12"
                   }
                 ],
-                "id": 4796,
+                "id": 1733,
                 "name": "Block",
-                "src": "930:980:25"
+                "src": "930:980:12"
               }
             ],
-            "id": 4797,
+            "id": 1734,
             "name": "FunctionDefinition",
-            "src": "808:1102:25"
+            "src": "808:1102:12"
           },
           {
             "attributes": {
@@ -2583,7 +2583,7 @@
               ],
               "name": "requireStates2",
               "payable": false,
-              "scope": 4874,
+              "scope": 1811,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "internal"
@@ -2595,7 +2595,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_machine",
-                      "scope": 4848,
+                      "scope": 1785,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct StateMachineLib.StateMachine storage pointer",
@@ -2607,23 +2607,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "StateMachine",
-                          "referencedDeclaration": 4623,
+                          "referencedDeclaration": 1560,
                           "type": "struct StateMachineLib.StateMachine storage pointer"
                         },
-                        "id": 4798,
+                        "id": 1735,
                         "name": "UserDefinedTypeName",
-                        "src": "1949:12:25"
+                        "src": "1949:12:12"
                       }
                     ],
-                    "id": 4799,
+                    "id": 1736,
                     "name": "VariableDeclaration",
-                    "src": "1949:29:25"
+                    "src": "1949:29:12"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_requiredState1",
-                      "scope": 4848,
+                      "scope": 1785,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -2636,20 +2636,20 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4800,
+                        "id": 1737,
                         "name": "ElementaryTypeName",
-                        "src": "1988:5:25"
+                        "src": "1988:5:12"
                       }
                     ],
-                    "id": 4801,
+                    "id": 1738,
                     "name": "VariableDeclaration",
-                    "src": "1988:21:25"
+                    "src": "1988:21:12"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_requiredState2",
-                      "scope": 4848,
+                      "scope": 1785,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -2662,19 +2662,19 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 4802,
+                        "id": 1739,
                         "name": "ElementaryTypeName",
-                        "src": "2019:5:25"
+                        "src": "2019:5:12"
                       }
                     ],
-                    "id": 4803,
+                    "id": 1740,
                     "name": "VariableDeclaration",
-                    "src": "2019:21:25"
+                    "src": "2019:21:12"
                   }
                 ],
-                "id": 4804,
+                "id": 1741,
                 "name": "ParameterList",
-                "src": "1939:107:25"
+                "src": "1939:107:12"
               },
               {
                 "attributes": {
@@ -2683,16 +2683,16 @@
                   ]
                 },
                 "children": [],
-                "id": 4805,
+                "id": 1742,
                 "name": "ParameterList",
-                "src": "2069:0:25"
+                "src": "2069:0:12"
               },
               {
                 "children": [
                   {
                     "attributes": {
                       "assignments": [
-                        4807
+                        1744
                       ]
                     },
                     "children": [
@@ -2700,7 +2700,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "properState",
-                          "scope": 4848,
+                          "scope": 1785,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "bool",
@@ -2713,14 +2713,14 @@
                               "name": "bool",
                               "type": "bool"
                             },
-                            "id": 4806,
+                            "id": 1743,
                             "name": "ElementaryTypeName",
-                            "src": "2079:4:25"
+                            "src": "2079:4:12"
                           }
                         ],
-                        "id": 4807,
+                        "id": 1744,
                         "name": "VariableDeclaration",
-                        "src": "2079:16:25"
+                        "src": "2079:16:12"
                       },
                       {
                         "attributes": {
@@ -2735,19 +2735,19 @@
                           "type": "bool",
                           "value": "false"
                         },
-                        "id": 4808,
+                        "id": 1745,
                         "name": "Literal",
-                        "src": "2098:5:25"
+                        "src": "2098:5:12"
                       }
                     ],
-                    "id": 4809,
+                    "id": 1746,
                     "name": "VariableDeclarationStatement",
-                    "src": "2079:24:25"
+                    "src": "2079:24:12"
                   },
                   {
                     "attributes": {
                       "assignments": [
-                        4810
+                        1747
                       ]
                     },
                     "children": [
@@ -2755,7 +2755,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "_requiredStates",
-                          "scope": 4848,
+                          "scope": 1785,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "uint8[2] memory",
@@ -2764,9 +2764,9 @@
                           "visibility": "internal"
                         },
                         "children": [],
-                        "id": 4810,
+                        "id": 1747,
                         "name": "VariableDeclaration",
-                        "src": "2113:19:25"
+                        "src": "2113:19:12"
                       },
                       {
                         "attributes": {
@@ -2785,13 +2785,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4801,
+                              "referencedDeclaration": 1738,
                               "type": "uint8",
                               "value": "_requiredState1"
                             },
-                            "id": 4811,
+                            "id": 1748,
                             "name": "Identifier",
-                            "src": "2136:15:25"
+                            "src": "2136:15:12"
                           },
                           {
                             "attributes": {
@@ -2799,30 +2799,30 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4803,
+                              "referencedDeclaration": 1740,
                               "type": "uint8",
                               "value": "_requiredState2"
                             },
-                            "id": 4812,
+                            "id": 1749,
                             "name": "Identifier",
-                            "src": "2153:15:25"
+                            "src": "2153:15:12"
                           }
                         ],
-                        "id": 4813,
+                        "id": 1750,
                         "name": "TupleExpression",
-                        "src": "2135:34:25"
+                        "src": "2135:34:12"
                       }
                     ],
-                    "id": 4814,
+                    "id": 1751,
                     "name": "VariableDeclarationStatement",
-                    "src": "2113:56:25"
+                    "src": "2113:56:12"
                   },
                   {
                     "children": [
                       {
                         "attributes": {
                           "assignments": [
-                            4816
+                            1753
                           ]
                         },
                         "children": [
@@ -2830,7 +2830,7 @@
                             "attributes": {
                               "constant": false,
                               "name": "no",
-                              "scope": 4848,
+                              "scope": 1785,
                               "stateVariable": false,
                               "storageLocation": "default",
                               "type": "uint256",
@@ -2843,14 +2843,14 @@
                                   "name": "uint",
                                   "type": "uint256"
                                 },
-                                "id": 4815,
+                                "id": 1752,
                                 "name": "ElementaryTypeName",
-                                "src": "2184:4:25"
+                                "src": "2184:4:12"
                               }
                             ],
-                            "id": 4816,
+                            "id": 1753,
                             "name": "VariableDeclaration",
-                            "src": "2184:7:25"
+                            "src": "2184:7:12"
                           },
                           {
                             "attributes": {
@@ -2865,14 +2865,14 @@
                               "type": "int_const 0",
                               "value": "0"
                             },
-                            "id": 4817,
+                            "id": 1754,
                             "name": "Literal",
-                            "src": "2194:1:25"
+                            "src": "2194:1:12"
                           }
                         ],
-                        "id": 4818,
+                        "id": 1755,
                         "name": "VariableDeclarationStatement",
-                        "src": "2184:11:25"
+                        "src": "2184:11:12"
                       },
                       {
                         "attributes": {
@@ -2895,13 +2895,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4816,
+                              "referencedDeclaration": 1753,
                               "type": "uint256",
                               "value": "no"
                             },
-                            "id": 4819,
+                            "id": 1756,
                             "name": "Identifier",
-                            "src": "2197:2:25"
+                            "src": "2197:2:12"
                           },
                           {
                             "attributes": {
@@ -2921,23 +2921,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4810,
+                                  "referencedDeclaration": 1747,
                                   "type": "uint8[2] memory",
                                   "value": "_requiredStates"
                                 },
-                                "id": 4820,
+                                "id": 1757,
                                 "name": "Identifier",
-                                "src": "2202:15:25"
+                                "src": "2202:15:12"
                               }
                             ],
-                            "id": 4821,
+                            "id": 1758,
                             "name": "MemberAccess",
-                            "src": "2202:22:25"
+                            "src": "2202:22:12"
                           }
                         ],
-                        "id": 4822,
+                        "id": 1759,
                         "name": "BinaryOperation",
-                        "src": "2197:27:25"
+                        "src": "2197:27:12"
                       },
                       {
                         "children": [
@@ -2959,23 +2959,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4816,
+                                  "referencedDeclaration": 1753,
                                   "type": "uint256",
                                   "value": "no"
                                 },
-                                "id": 4823,
+                                "id": 1760,
                                 "name": "Identifier",
-                                "src": "2226:2:25"
+                                "src": "2226:2:12"
                               }
                             ],
-                            "id": 4824,
+                            "id": 1761,
                             "name": "UnaryOperation",
-                            "src": "2226:4:25"
+                            "src": "2226:4:12"
                           }
                         ],
-                        "id": 4825,
+                        "id": 1762,
                         "name": "ExpressionStatement",
-                        "src": "2226:4:25"
+                        "src": "2226:4:12"
                       },
                       {
                         "children": [
@@ -3015,13 +3015,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4810,
+                                          "referencedDeclaration": 1747,
                                           "type": "uint8[2] memory",
                                           "value": "_requiredStates"
                                         },
-                                        "id": 4826,
+                                        "id": 1763,
                                         "name": "Identifier",
-                                        "src": "2250:15:25"
+                                        "src": "2250:15:12"
                                       },
                                       {
                                         "attributes": {
@@ -3029,18 +3029,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4816,
+                                          "referencedDeclaration": 1753,
                                           "type": "uint256",
                                           "value": "no"
                                         },
-                                        "id": 4827,
+                                        "id": 1764,
                                         "name": "Identifier",
-                                        "src": "2266:2:25"
+                                        "src": "2266:2:12"
                                       }
                                     ],
-                                    "id": 4828,
+                                    "id": 1765,
                                     "name": "IndexAccess",
-                                    "src": "2250:19:25"
+                                    "src": "2250:19:12"
                                   },
                                   {
                                     "attributes": {
@@ -3050,7 +3050,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "currentState",
-                                      "referencedDeclaration": 4617,
+                                      "referencedDeclaration": 1554,
                                       "type": "uint8"
                                     },
                                     "children": [
@@ -3060,23 +3060,23 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4799,
+                                          "referencedDeclaration": 1736,
                                           "type": "struct StateMachineLib.StateMachine storage pointer",
                                           "value": "_machine"
                                         },
-                                        "id": 4829,
+                                        "id": 1766,
                                         "name": "Identifier",
-                                        "src": "2273:8:25"
+                                        "src": "2273:8:12"
                                       }
                                     ],
-                                    "id": 4830,
+                                    "id": 1767,
                                     "name": "MemberAccess",
-                                    "src": "2273:21:25"
+                                    "src": "2273:21:12"
                                   }
                                 ],
-                                "id": 4831,
+                                "id": 1768,
                                 "name": "BinaryOperation",
-                                "src": "2250:44:25"
+                                "src": "2250:44:12"
                               },
                               {
                                 "children": [
@@ -3099,13 +3099,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 4807,
+                                              "referencedDeclaration": 1744,
                                               "type": "bool",
                                               "value": "properState"
                                             },
-                                            "id": 4832,
+                                            "id": 1769,
                                             "name": "Identifier",
-                                            "src": "2314:11:25"
+                                            "src": "2314:11:12"
                                           },
                                           {
                                             "attributes": {
@@ -3120,44 +3120,44 @@
                                               "type": "bool",
                                               "value": "true"
                                             },
-                                            "id": 4833,
+                                            "id": 1770,
                                             "name": "Literal",
-                                            "src": "2328:4:25"
+                                            "src": "2328:4:12"
                                           }
                                         ],
-                                        "id": 4834,
+                                        "id": 1771,
                                         "name": "Assignment",
-                                        "src": "2314:18:25"
+                                        "src": "2314:18:12"
                                       }
                                     ],
-                                    "id": 4835,
+                                    "id": 1772,
                                     "name": "ExpressionStatement",
-                                    "src": "2314:18:25"
+                                    "src": "2314:18:12"
                                   },
                                   {
-                                    "id": 4836,
+                                    "id": 1773,
                                     "name": "Break",
-                                    "src": "2350:5:25"
+                                    "src": "2350:5:12"
                                   }
                                 ],
-                                "id": 4837,
+                                "id": 1774,
                                 "name": "Block",
-                                "src": "2296:74:25"
+                                "src": "2296:74:12"
                               }
                             ],
-                            "id": 4838,
+                            "id": 1775,
                             "name": "IfStatement",
-                            "src": "2246:124:25"
+                            "src": "2246:124:12"
                           }
                         ],
-                        "id": 4839,
+                        "id": 1776,
                         "name": "Block",
-                        "src": "2232:148:25"
+                        "src": "2232:148:12"
                       }
                     ],
-                    "id": 4840,
+                    "id": 1777,
                     "name": "ForStatement",
-                    "src": "2179:201:25"
+                    "src": "2179:201:12"
                   },
                   {
                     "children": [
@@ -3187,13 +3187,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7427,
+                              "referencedDeclaration": 4367,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4841,
+                            "id": 1778,
                             "name": "Identifier",
-                            "src": "2389:7:25"
+                            "src": "2389:7:12"
                           },
                           {
                             "attributes": {
@@ -3216,13 +3216,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4807,
+                                  "referencedDeclaration": 1744,
                                   "type": "bool",
                                   "value": "properState"
                                 },
-                                "id": 4842,
+                                "id": 1779,
                                 "name": "Identifier",
-                                "src": "2397:11:25"
+                                "src": "2397:11:12"
                               },
                               {
                                 "attributes": {
@@ -3237,34 +3237,34 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 4843,
+                                "id": 1780,
                                 "name": "Literal",
-                                "src": "2412:4:25"
+                                "src": "2412:4:12"
                               }
                             ],
-                            "id": 4844,
+                            "id": 1781,
                             "name": "BinaryOperation",
-                            "src": "2397:19:25"
+                            "src": "2397:19:12"
                           }
                         ],
-                        "id": 4845,
+                        "id": 1782,
                         "name": "FunctionCall",
-                        "src": "2389:28:25"
+                        "src": "2389:28:12"
                       }
                     ],
-                    "id": 4846,
+                    "id": 1783,
                     "name": "ExpressionStatement",
-                    "src": "2389:28:25"
+                    "src": "2389:28:12"
                   }
                 ],
-                "id": 4847,
+                "id": 1784,
                 "name": "Block",
-                "src": "2069:355:25"
+                "src": "2069:355:12"
               }
             ],
-            "id": 4848,
+            "id": 1785,
             "name": "FunctionDefinition",
-            "src": "1916:508:25"
+            "src": "1916:508:12"
           },
           {
             "attributes": {
@@ -3276,7 +3276,7 @@
               ],
               "name": "initStateMachine",
               "payable": false,
-              "scope": 4874,
+              "scope": 1811,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "internal"
@@ -3288,7 +3288,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_machine",
-                      "scope": 4873,
+                      "scope": 1810,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct StateMachineLib.StateMachine storage pointer",
@@ -3300,22 +3300,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "StateMachine",
-                          "referencedDeclaration": 4623,
+                          "referencedDeclaration": 1560,
                           "type": "struct StateMachineLib.StateMachine storage pointer"
                         },
-                        "id": 4849,
+                        "id": 1786,
                         "name": "UserDefinedTypeName",
-                        "src": "2465:12:25"
+                        "src": "2465:12:12"
                       }
                     ],
-                    "id": 4850,
+                    "id": 1787,
                     "name": "VariableDeclaration",
-                    "src": "2465:29:25"
+                    "src": "2465:29:12"
                   }
                 ],
-                "id": 4851,
+                "id": 1788,
                 "name": "ParameterList",
-                "src": "2455:45:25"
+                "src": "2455:45:12"
               },
               {
                 "attributes": {
@@ -3324,9 +3324,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4852,
+                "id": 1789,
                 "name": "ParameterList",
-                "src": "2510:0:25"
+                "src": "2510:0:12"
               },
               {
                 "children": [
@@ -3358,13 +3358,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 7427,
+                              "referencedDeclaration": 4367,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4853,
+                            "id": 1790,
                             "name": "Identifier",
-                            "src": "2520:7:25"
+                            "src": "2520:7:12"
                           },
                           {
                             "attributes": {
@@ -3389,7 +3389,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "initialized",
-                                  "referencedDeclaration": 4615,
+                                  "referencedDeclaration": 1552,
                                   "type": "bool"
                                 },
                                 "children": [
@@ -3399,18 +3399,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4850,
+                                      "referencedDeclaration": 1787,
                                       "type": "struct StateMachineLib.StateMachine storage pointer",
                                       "value": "_machine"
                                     },
-                                    "id": 4854,
+                                    "id": 1791,
                                     "name": "Identifier",
-                                    "src": "2528:8:25"
+                                    "src": "2528:8:12"
                                   }
                                 ],
-                                "id": 4855,
+                                "id": 1792,
                                 "name": "MemberAccess",
-                                "src": "2528:20:25"
+                                "src": "2528:20:12"
                               },
                               {
                                 "attributes": {
@@ -3425,24 +3425,24 @@
                                   "type": "bool",
                                   "value": "false"
                                 },
-                                "id": 4856,
+                                "id": 1793,
                                 "name": "Literal",
-                                "src": "2552:5:25"
+                                "src": "2552:5:12"
                               }
                             ],
-                            "id": 4857,
+                            "id": 1794,
                             "name": "BinaryOperation",
-                            "src": "2528:29:25"
+                            "src": "2528:29:12"
                           }
                         ],
-                        "id": 4858,
+                        "id": 1795,
                         "name": "FunctionCall",
-                        "src": "2520:38:25"
+                        "src": "2520:38:12"
                       }
                     ],
-                    "id": 4859,
+                    "id": 1796,
                     "name": "ExpressionStatement",
-                    "src": "2520:38:25"
+                    "src": "2520:38:12"
                   },
                   {
                     "children": [
@@ -3465,7 +3465,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "currentState",
-                              "referencedDeclaration": 4617,
+                              "referencedDeclaration": 1554,
                               "type": "uint8"
                             },
                             "children": [
@@ -3475,18 +3475,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4850,
+                                  "referencedDeclaration": 1787,
                                   "type": "struct StateMachineLib.StateMachine storage pointer",
                                   "value": "_machine"
                                 },
-                                "id": 4860,
+                                "id": 1797,
                                 "name": "Identifier",
-                                "src": "2568:8:25"
+                                "src": "2568:8:12"
                               }
                             ],
-                            "id": 4862,
+                            "id": 1799,
                             "name": "MemberAccess",
-                            "src": "2568:21:25"
+                            "src": "2568:21:12"
                           },
                           {
                             "attributes": {
@@ -3501,19 +3501,19 @@
                               "type": "int_const 1",
                               "value": "1"
                             },
-                            "id": 4863,
+                            "id": 1800,
                             "name": "Literal",
-                            "src": "2592:1:25"
+                            "src": "2592:1:12"
                           }
                         ],
-                        "id": 4864,
+                        "id": 1801,
                         "name": "Assignment",
-                        "src": "2568:25:25"
+                        "src": "2568:25:12"
                       }
                     ],
-                    "id": 4865,
+                    "id": 1802,
                     "name": "ExpressionStatement",
-                    "src": "2568:25:25"
+                    "src": "2568:25:12"
                   },
                   {
                     "children": [
@@ -3536,7 +3536,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "initialized",
-                              "referencedDeclaration": 4615,
+                              "referencedDeclaration": 1552,
                               "type": "bool"
                             },
                             "children": [
@@ -3546,18 +3546,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4850,
+                                  "referencedDeclaration": 1787,
                                   "type": "struct StateMachineLib.StateMachine storage pointer",
                                   "value": "_machine"
                                 },
-                                "id": 4866,
+                                "id": 1803,
                                 "name": "Identifier",
-                                "src": "2603:8:25"
+                                "src": "2603:8:12"
                               }
                             ],
-                            "id": 4868,
+                            "id": 1805,
                             "name": "MemberAccess",
-                            "src": "2603:20:25"
+                            "src": "2603:20:12"
                           },
                           {
                             "attributes": {
@@ -3572,39 +3572,39 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 4869,
+                            "id": 1806,
                             "name": "Literal",
-                            "src": "2626:4:25"
+                            "src": "2626:4:12"
                           }
                         ],
-                        "id": 4870,
+                        "id": 1807,
                         "name": "Assignment",
-                        "src": "2603:27:25"
+                        "src": "2603:27:12"
                       }
                     ],
-                    "id": 4871,
+                    "id": 1808,
                     "name": "ExpressionStatement",
-                    "src": "2603:27:25"
+                    "src": "2603:27:12"
                   }
                 ],
-                "id": 4872,
+                "id": 1809,
                 "name": "Block",
-                "src": "2510:127:25"
+                "src": "2510:127:12"
               }
             ],
-            "id": 4873,
+            "id": 1810,
             "name": "FunctionDefinition",
-            "src": "2430:207:25"
+            "src": "2430:207:12"
           }
         ],
-        "id": 4874,
+        "id": 1811,
         "name": "ContractDefinition",
-        "src": "27:2613:25"
+        "src": "27:2613:12"
       }
     ],
-    "id": 4875,
+    "id": 1812,
     "name": "SourceUnit",
-    "src": "0:2641:25"
+    "src": "0:2641:12"
   },
   "compiler": {
     "name": "solc",
@@ -3614,9 +3614,9 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xa43bd34038ca13e7115e16770d722e62ea706212"
+      "address": "0x66078a97def9d40b2ca7abb44733dd897ec6231d"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.177Z"
+  "updatedAt": "2017-12-17T07:58:46.482Z"
 }

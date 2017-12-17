@@ -162,13 +162,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\n\nimport './IDataEntity.sol';\n\ncontract IDataset is IDataEntity {\n    uint256 public samplesCount;\n    uint8 public batchesCount;\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataset.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataset.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
       "exportedSymbols": {
         "IDataset": [
-          3268
+          206
         ]
       }
     },
@@ -182,41 +182,41 @@
             ".18"
           ]
         },
-        "id": 3260,
+        "id": 198,
         "name": "PragmaDirective",
-        "src": "0:24:17"
+        "src": "0:24:4"
       },
       {
         "attributes": {
-          "SourceUnit": 3259,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataEntity.sol",
+          "SourceUnit": 197,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
           "file": "./IDataEntity.sol",
-          "scope": 3269,
+          "scope": 207,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 3261,
+        "id": 199,
         "name": "ImportDirective",
-        "src": "26:27:17"
+        "src": "26:27:4"
       },
       {
         "attributes": {
           "contractDependencies": [
-            3258,
-            7008
+            196,
+            3948
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            3268,
-            3258,
-            7008
+            206,
+            196,
+            3948
           ],
           "name": "IDataset",
-          "scope": 3269
+          "scope": 207
         },
         "children": [
           {
@@ -230,23 +230,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IDataEntity",
-                  "referencedDeclaration": 3258,
+                  "referencedDeclaration": 196,
                   "type": "contract IDataEntity"
                 },
-                "id": 3262,
+                "id": 200,
                 "name": "UserDefinedTypeName",
-                "src": "76:11:17"
+                "src": "76:11:4"
               }
             ],
-            "id": 3263,
+            "id": 201,
             "name": "InheritanceSpecifier",
-            "src": "76:11:17"
+            "src": "76:11:4"
           },
           {
             "attributes": {
               "constant": false,
               "name": "samplesCount",
-              "scope": 3268,
+              "scope": 206,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -259,20 +259,20 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 3264,
+                "id": 202,
                 "name": "ElementaryTypeName",
-                "src": "94:7:17"
+                "src": "94:7:4"
               }
             ],
-            "id": 3265,
+            "id": 203,
             "name": "VariableDeclaration",
-            "src": "94:27:17"
+            "src": "94:27:4"
           },
           {
             "attributes": {
               "constant": false,
               "name": "batchesCount",
-              "scope": 3268,
+              "scope": 206,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -285,24 +285,24 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 3266,
+                "id": 204,
                 "name": "ElementaryTypeName",
-                "src": "127:5:17"
+                "src": "127:5:4"
               }
             ],
-            "id": 3267,
+            "id": 205,
             "name": "VariableDeclaration",
-            "src": "127:25:17"
+            "src": "127:25:4"
           }
         ],
-        "id": 3268,
+        "id": 206,
         "name": "ContractDefinition",
-        "src": "55:100:17"
+        "src": "55:100:4"
       }
     ],
-    "id": 3269,
+    "id": 207,
     "name": "SourceUnit",
-    "src": "0:156:17"
+    "src": "0:156:4"
   },
   "compiler": {
     "name": "solc",
@@ -310,5 +310,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.152Z"
+  "updatedAt": "2017-12-17T07:58:45.695Z"
 }

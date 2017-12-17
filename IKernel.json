@@ -148,13 +148,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\n\nimport './IDataEntity.sol';\n\ncontract IKernel is IDataEntity {\n    uint256 public complexity;\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IKernel.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IKernel.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IKernel.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IKernel.sol",
       "exportedSymbols": {
         "IKernel": [
-          3276
+          214
         ]
       }
     },
@@ -168,41 +168,41 @@
             ".18"
           ]
         },
-        "id": 3270,
+        "id": 208,
         "name": "PragmaDirective",
-        "src": "0:24:18"
+        "src": "0:24:5"
       },
       {
         "attributes": {
-          "SourceUnit": 3259,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/entities/IDataEntity.sol",
+          "SourceUnit": 197,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
           "file": "./IDataEntity.sol",
-          "scope": 3277,
+          "scope": 215,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 3271,
+        "id": 209,
         "name": "ImportDirective",
-        "src": "26:27:18"
+        "src": "26:27:5"
       },
       {
         "attributes": {
           "contractDependencies": [
-            3258,
-            7008
+            196,
+            3948
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            3276,
-            3258,
-            7008
+            214,
+            196,
+            3948
           ],
           "name": "IKernel",
-          "scope": 3277
+          "scope": 215
         },
         "children": [
           {
@@ -216,23 +216,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IDataEntity",
-                  "referencedDeclaration": 3258,
+                  "referencedDeclaration": 196,
                   "type": "contract IDataEntity"
                 },
-                "id": 3272,
+                "id": 210,
                 "name": "UserDefinedTypeName",
-                "src": "75:11:18"
+                "src": "75:11:5"
               }
             ],
-            "id": 3273,
+            "id": 211,
             "name": "InheritanceSpecifier",
-            "src": "75:11:18"
+            "src": "75:11:5"
           },
           {
             "attributes": {
               "constant": false,
               "name": "complexity",
-              "scope": 3276,
+              "scope": 214,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -245,24 +245,24 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 3274,
+                "id": 212,
                 "name": "ElementaryTypeName",
-                "src": "93:7:18"
+                "src": "93:7:5"
               }
             ],
-            "id": 3275,
+            "id": 213,
             "name": "VariableDeclaration",
-            "src": "93:25:18"
+            "src": "93:25:5"
           }
         ],
-        "id": 3276,
+        "id": 214,
         "name": "ContractDefinition",
-        "src": "55:66:18"
+        "src": "55:66:5"
       }
     ],
-    "id": 3277,
+    "id": 215,
     "name": "SourceUnit",
-    "src": "0:122:18"
+    "src": "0:122:5"
   },
   "compiler": {
     "name": "solc",
@@ -270,5 +270,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.152Z"
+  "updatedAt": "2017-12-17T07:58:45.696Z"
 }

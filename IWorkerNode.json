@@ -457,13 +457,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\n\nimport 'zeppelin-solidity/contracts/ownership/Ownable.sol';\n\nimport '../libraries/IStateMachine.sol';\nimport '../pandora/IPandora.sol';\nimport '../jobs/IComputingJob.sol';\nimport './WorkerNodeStates.sol';\n\ncontract IWorkerNode is IStateMachine, Ownable, WorkerNodeStates {\n    /// @notice Defines possible cases for penaltize worker nodes. Used in `WorkerNodeManager.penaltizeWorkerNode`\n    enum Penalties {\n        OfflineWhileGathering,\n        DeclinesJob,\n        OfflineWhileDataValidation,\n        FalseReportInvalidData,\n        OfflineWhileCognition\n    }\n\n    function destroy() external;\n\n    IPandora public pandora;\n    IComputingJob public activeJob;\n    uint256 public reputation;\n\n    function alive() external;\n    function assignJob(IComputingJob job) external;\n    function cancelJob() external;\n    function acceptAssignment() external;\n    function declineAssignment() external;\n    function processToDataValidation() external;\n    function acceptValidData() external;\n    function declineValidData() external;\n    function reportInvalidData() external;\n    function processToCognition() external;\n    function provideResults(bytes ipfs) external;\n    function increaseReputation() external;\n    function decreaseReputation() external;\n    function resetReputation() external;\n    function maxPenalty() external;\n    function deathPenalty() external;\n    function withdrawBalance() external;\n\n    event WorkerDestroyed();\n}\n\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/IWorkerNode.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/nodes/IWorkerNode.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/IWorkerNode.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/nodes/IWorkerNode.sol",
       "exportedSymbols": {
         "IWorkerNode": [
-          5023
+          1960
         ]
       }
     },
@@ -477,103 +477,103 @@
             ".18"
           ]
         },
-        "id": 4939,
+        "id": 1876,
         "name": "PragmaDirective",
-        "src": "0:24:28"
+        "src": "0:24:15"
       },
       {
         "attributes": {
-          "SourceUnit": 7009,
+          "SourceUnit": 3949,
           "absolutePath": "zeppelin-solidity/contracts/ownership/Ownable.sol",
           "file": "zeppelin-solidity/contracts/ownership/Ownable.sol",
-          "scope": 5024,
+          "scope": 1961,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4940,
+        "id": 1877,
         "name": "ImportDirective",
-        "src": "26:59:28"
+        "src": "26:59:15"
       },
       {
         "attributes": {
-          "SourceUnit": 4465,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/libraries/IStateMachine.sol",
+          "SourceUnit": 1402,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
           "file": "../libraries/IStateMachine.sol",
-          "scope": 5024,
+          "scope": 1961,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4941,
+        "id": 1878,
         "name": "ImportDirective",
-        "src": "87:40:28"
+        "src": "87:40:15"
       },
       {
         "attributes": {
-          "SourceUnit": 5652,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/IPandora.sol",
+          "SourceUnit": 2589,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/IPandora.sol",
           "file": "../pandora/IPandora.sol",
-          "scope": 5024,
+          "scope": 1961,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4942,
+        "id": 1879,
         "name": "ImportDirective",
-        "src": "128:33:28"
+        "src": "128:33:15"
       },
       {
         "attributes": {
-          "SourceUnit": 4421,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/jobs/IComputingJob.sol",
+          "SourceUnit": 1358,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/IComputingJob.sol",
           "file": "../jobs/IComputingJob.sol",
-          "scope": 5024,
+          "scope": 1961,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4943,
+        "id": 1880,
         "name": "ImportDirective",
-        "src": "162:35:28"
+        "src": "162:35:15"
       },
       {
         "attributes": {
-          "SourceUnit": 5638,
-          "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/nodes/WorkerNodeStates.sol",
+          "SourceUnit": 2575,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/nodes/WorkerNodeStates.sol",
           "file": "./WorkerNodeStates.sol",
-          "scope": 5024,
+          "scope": 1961,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4944,
+        "id": 1881,
         "name": "ImportDirective",
-        "src": "198:32:28"
+        "src": "198:32:15"
       },
       {
         "attributes": {
           "contractDependencies": [
-            4464,
-            5637,
-            7008
+            1401,
+            2574,
+            3948
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            5023,
-            5637,
-            7008,
-            4464
+            1960,
+            2574,
+            3948,
+            1401
           ],
           "name": "IWorkerNode",
-          "scope": 5024
+          "scope": 1961
         },
         "children": [
           {
@@ -587,17 +587,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IStateMachine",
-                  "referencedDeclaration": 4464,
+                  "referencedDeclaration": 1401,
                   "type": "contract IStateMachine"
                 },
-                "id": 4945,
+                "id": 1882,
                 "name": "UserDefinedTypeName",
-                "src": "256:13:28"
+                "src": "256:13:15"
               }
             ],
-            "id": 4946,
+            "id": 1883,
             "name": "InheritanceSpecifier",
-            "src": "256:13:28"
+            "src": "256:13:15"
           },
           {
             "attributes": {
@@ -610,17 +610,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Ownable",
-                  "referencedDeclaration": 7008,
+                  "referencedDeclaration": 3948,
                   "type": "contract Ownable"
                 },
-                "id": 4947,
+                "id": 1884,
                 "name": "UserDefinedTypeName",
-                "src": "271:7:28"
+                "src": "271:7:15"
               }
             ],
-            "id": 4948,
+            "id": 1885,
             "name": "InheritanceSpecifier",
-            "src": "271:7:28"
+            "src": "271:7:15"
           },
           {
             "attributes": {
@@ -633,17 +633,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "WorkerNodeStates",
-                  "referencedDeclaration": 5637,
+                  "referencedDeclaration": 2574,
                   "type": "contract WorkerNodeStates"
                 },
-                "id": 4949,
+                "id": 1886,
                 "name": "UserDefinedTypeName",
-                "src": "280:16:28"
+                "src": "280:16:15"
               }
             ],
-            "id": 4950,
+            "id": 1887,
             "name": "InheritanceSpecifier",
-            "src": "280:16:28"
+            "src": "280:16:15"
           },
           {
             "attributes": {
@@ -655,46 +655,46 @@
                 "attributes": {
                   "name": "OfflineWhileGathering"
                 },
-                "id": 4951,
+                "id": 1888,
                 "name": "EnumValue",
-                "src": "443:21:28"
+                "src": "443:21:15"
               },
               {
                 "attributes": {
                   "name": "DeclinesJob"
                 },
-                "id": 4952,
+                "id": 1889,
                 "name": "EnumValue",
-                "src": "474:11:28"
+                "src": "474:11:15"
               },
               {
                 "attributes": {
                   "name": "OfflineWhileDataValidation"
                 },
-                "id": 4953,
+                "id": 1890,
                 "name": "EnumValue",
-                "src": "495:26:28"
+                "src": "495:26:15"
               },
               {
                 "attributes": {
                   "name": "FalseReportInvalidData"
                 },
-                "id": 4954,
+                "id": 1891,
                 "name": "EnumValue",
-                "src": "531:22:28"
+                "src": "531:22:15"
               },
               {
                 "attributes": {
                   "name": "OfflineWhileCognition"
                 },
-                "id": 4955,
+                "id": 1892,
                 "name": "EnumValue",
-                "src": "563:21:28"
+                "src": "563:21:15"
               }
             ],
-            "id": 4956,
+            "id": 1893,
             "name": "EnumDefinition",
-            "src": "418:172:28"
+            "src": "418:172:15"
           },
           {
             "attributes": {
@@ -707,7 +707,7 @@
               ],
               "name": "destroy",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -720,9 +720,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4957,
+                "id": 1894,
                 "name": "ParameterList",
-                "src": "612:2:28"
+                "src": "612:2:15"
               },
               {
                 "attributes": {
@@ -731,20 +731,20 @@
                   ]
                 },
                 "children": [],
-                "id": 4958,
+                "id": 1895,
                 "name": "ParameterList",
-                "src": "623:0:28"
+                "src": "623:0:15"
               }
             ],
-            "id": 4959,
+            "id": 1896,
             "name": "FunctionDefinition",
-            "src": "596:28:28"
+            "src": "596:28:15"
           },
           {
             "attributes": {
               "constant": false,
               "name": "pandora",
-              "scope": 5023,
+              "scope": 1960,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IPandora",
@@ -756,23 +756,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IPandora",
-                  "referencedDeclaration": 5651,
+                  "referencedDeclaration": 2588,
                   "type": "contract IPandora"
                 },
-                "id": 4960,
+                "id": 1897,
                 "name": "UserDefinedTypeName",
-                "src": "630:8:28"
+                "src": "630:8:15"
               }
             ],
-            "id": 4961,
+            "id": 1898,
             "name": "VariableDeclaration",
-            "src": "630:23:28"
+            "src": "630:23:15"
           },
           {
             "attributes": {
               "constant": false,
               "name": "activeJob",
-              "scope": 5023,
+              "scope": 1960,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IComputingJob",
@@ -784,23 +784,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IComputingJob",
-                  "referencedDeclaration": 4420,
+                  "referencedDeclaration": 1357,
                   "type": "contract IComputingJob"
                 },
-                "id": 4962,
+                "id": 1899,
                 "name": "UserDefinedTypeName",
-                "src": "659:13:28"
+                "src": "659:13:15"
               }
             ],
-            "id": 4963,
+            "id": 1900,
             "name": "VariableDeclaration",
-            "src": "659:30:28"
+            "src": "659:30:15"
           },
           {
             "attributes": {
               "constant": false,
               "name": "reputation",
-              "scope": 5023,
+              "scope": 1960,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -813,14 +813,14 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 4964,
+                "id": 1901,
                 "name": "ElementaryTypeName",
-                "src": "695:7:28"
+                "src": "695:7:15"
               }
             ],
-            "id": 4965,
+            "id": 1902,
             "name": "VariableDeclaration",
-            "src": "695:25:28"
+            "src": "695:25:15"
           },
           {
             "attributes": {
@@ -833,7 +833,7 @@
               ],
               "name": "alive",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -846,9 +846,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4966,
+                "id": 1903,
                 "name": "ParameterList",
-                "src": "741:2:28"
+                "src": "741:2:15"
               },
               {
                 "attributes": {
@@ -857,14 +857,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4967,
+                "id": 1904,
                 "name": "ParameterList",
-                "src": "752:0:28"
+                "src": "752:0:15"
               }
             ],
-            "id": 4968,
+            "id": 1905,
             "name": "FunctionDefinition",
-            "src": "727:26:28"
+            "src": "727:26:15"
           },
           {
             "attributes": {
@@ -877,7 +877,7 @@
               ],
               "name": "assignJob",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -889,7 +889,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "job",
-                      "scope": 4973,
+                      "scope": 1910,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IComputingJob",
@@ -901,22 +901,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "IComputingJob",
-                          "referencedDeclaration": 4420,
+                          "referencedDeclaration": 1357,
                           "type": "contract IComputingJob"
                         },
-                        "id": 4969,
+                        "id": 1906,
                         "name": "UserDefinedTypeName",
-                        "src": "777:13:28"
+                        "src": "777:13:15"
                       }
                     ],
-                    "id": 4970,
+                    "id": 1907,
                     "name": "VariableDeclaration",
-                    "src": "777:17:28"
+                    "src": "777:17:15"
                   }
                 ],
-                "id": 4971,
+                "id": 1908,
                 "name": "ParameterList",
-                "src": "776:19:28"
+                "src": "776:19:15"
               },
               {
                 "attributes": {
@@ -925,14 +925,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4972,
+                "id": 1909,
                 "name": "ParameterList",
-                "src": "804:0:28"
+                "src": "804:0:15"
               }
             ],
-            "id": 4973,
+            "id": 1910,
             "name": "FunctionDefinition",
-            "src": "758:47:28"
+            "src": "758:47:15"
           },
           {
             "attributes": {
@@ -945,7 +945,7 @@
               ],
               "name": "cancelJob",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -958,9 +958,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4974,
+                "id": 1911,
                 "name": "ParameterList",
-                "src": "828:2:28"
+                "src": "828:2:15"
               },
               {
                 "attributes": {
@@ -969,14 +969,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4975,
+                "id": 1912,
                 "name": "ParameterList",
-                "src": "839:0:28"
+                "src": "839:0:15"
               }
             ],
-            "id": 4976,
+            "id": 1913,
             "name": "FunctionDefinition",
-            "src": "810:30:28"
+            "src": "810:30:15"
           },
           {
             "attributes": {
@@ -989,7 +989,7 @@
               ],
               "name": "acceptAssignment",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1002,9 +1002,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4977,
+                "id": 1914,
                 "name": "ParameterList",
-                "src": "870:2:28"
+                "src": "870:2:15"
               },
               {
                 "attributes": {
@@ -1013,14 +1013,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4978,
+                "id": 1915,
                 "name": "ParameterList",
-                "src": "881:0:28"
+                "src": "881:0:15"
               }
             ],
-            "id": 4979,
+            "id": 1916,
             "name": "FunctionDefinition",
-            "src": "845:37:28"
+            "src": "845:37:15"
           },
           {
             "attributes": {
@@ -1033,7 +1033,7 @@
               ],
               "name": "declineAssignment",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1046,9 +1046,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4980,
+                "id": 1917,
                 "name": "ParameterList",
-                "src": "913:2:28"
+                "src": "913:2:15"
               },
               {
                 "attributes": {
@@ -1057,14 +1057,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4981,
+                "id": 1918,
                 "name": "ParameterList",
-                "src": "924:0:28"
+                "src": "924:0:15"
               }
             ],
-            "id": 4982,
+            "id": 1919,
             "name": "FunctionDefinition",
-            "src": "887:38:28"
+            "src": "887:38:15"
           },
           {
             "attributes": {
@@ -1077,7 +1077,7 @@
               ],
               "name": "processToDataValidation",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1090,9 +1090,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4983,
+                "id": 1920,
                 "name": "ParameterList",
-                "src": "962:2:28"
+                "src": "962:2:15"
               },
               {
                 "attributes": {
@@ -1101,14 +1101,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4984,
+                "id": 1921,
                 "name": "ParameterList",
-                "src": "973:0:28"
+                "src": "973:0:15"
               }
             ],
-            "id": 4985,
+            "id": 1922,
             "name": "FunctionDefinition",
-            "src": "930:44:28"
+            "src": "930:44:15"
           },
           {
             "attributes": {
@@ -1121,7 +1121,7 @@
               ],
               "name": "acceptValidData",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1134,9 +1134,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4986,
+                "id": 1923,
                 "name": "ParameterList",
-                "src": "1003:2:28"
+                "src": "1003:2:15"
               },
               {
                 "attributes": {
@@ -1145,14 +1145,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4987,
+                "id": 1924,
                 "name": "ParameterList",
-                "src": "1014:0:28"
+                "src": "1014:0:15"
               }
             ],
-            "id": 4988,
+            "id": 1925,
             "name": "FunctionDefinition",
-            "src": "979:36:28"
+            "src": "979:36:15"
           },
           {
             "attributes": {
@@ -1165,7 +1165,7 @@
               ],
               "name": "declineValidData",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1178,9 +1178,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4989,
+                "id": 1926,
                 "name": "ParameterList",
-                "src": "1045:2:28"
+                "src": "1045:2:15"
               },
               {
                 "attributes": {
@@ -1189,14 +1189,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4990,
+                "id": 1927,
                 "name": "ParameterList",
-                "src": "1056:0:28"
+                "src": "1056:0:15"
               }
             ],
-            "id": 4991,
+            "id": 1928,
             "name": "FunctionDefinition",
-            "src": "1020:37:28"
+            "src": "1020:37:15"
           },
           {
             "attributes": {
@@ -1209,7 +1209,7 @@
               ],
               "name": "reportInvalidData",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1222,9 +1222,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4992,
+                "id": 1929,
                 "name": "ParameterList",
-                "src": "1088:2:28"
+                "src": "1088:2:15"
               },
               {
                 "attributes": {
@@ -1233,14 +1233,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4993,
+                "id": 1930,
                 "name": "ParameterList",
-                "src": "1099:0:28"
+                "src": "1099:0:15"
               }
             ],
-            "id": 4994,
+            "id": 1931,
             "name": "FunctionDefinition",
-            "src": "1062:38:28"
+            "src": "1062:38:15"
           },
           {
             "attributes": {
@@ -1253,7 +1253,7 @@
               ],
               "name": "processToCognition",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1266,9 +1266,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4995,
+                "id": 1932,
                 "name": "ParameterList",
-                "src": "1132:2:28"
+                "src": "1132:2:15"
               },
               {
                 "attributes": {
@@ -1277,14 +1277,14 @@
                   ]
                 },
                 "children": [],
-                "id": 4996,
+                "id": 1933,
                 "name": "ParameterList",
-                "src": "1143:0:28"
+                "src": "1143:0:15"
               }
             ],
-            "id": 4997,
+            "id": 1934,
             "name": "FunctionDefinition",
-            "src": "1105:39:28"
+            "src": "1105:39:15"
           },
           {
             "attributes": {
@@ -1297,7 +1297,7 @@
               ],
               "name": "provideResults",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1309,7 +1309,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "ipfs",
-                      "scope": 5002,
+                      "scope": 1939,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes calldata",
@@ -1322,19 +1322,19 @@
                           "name": "bytes",
                           "type": "bytes storage pointer"
                         },
-                        "id": 4998,
+                        "id": 1935,
                         "name": "ElementaryTypeName",
-                        "src": "1173:5:28"
+                        "src": "1173:5:15"
                       }
                     ],
-                    "id": 4999,
+                    "id": 1936,
                     "name": "VariableDeclaration",
-                    "src": "1173:10:28"
+                    "src": "1173:10:15"
                   }
                 ],
-                "id": 5000,
+                "id": 1937,
                 "name": "ParameterList",
-                "src": "1172:12:28"
+                "src": "1172:12:15"
               },
               {
                 "attributes": {
@@ -1343,14 +1343,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5001,
+                "id": 1938,
                 "name": "ParameterList",
-                "src": "1193:0:28"
+                "src": "1193:0:15"
               }
             ],
-            "id": 5002,
+            "id": 1939,
             "name": "FunctionDefinition",
-            "src": "1149:45:28"
+            "src": "1149:45:15"
           },
           {
             "attributes": {
@@ -1363,7 +1363,7 @@
               ],
               "name": "increaseReputation",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1376,9 +1376,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5003,
+                "id": 1940,
                 "name": "ParameterList",
-                "src": "1226:2:28"
+                "src": "1226:2:15"
               },
               {
                 "attributes": {
@@ -1387,14 +1387,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5004,
+                "id": 1941,
                 "name": "ParameterList",
-                "src": "1237:0:28"
+                "src": "1237:0:15"
               }
             ],
-            "id": 5005,
+            "id": 1942,
             "name": "FunctionDefinition",
-            "src": "1199:39:28"
+            "src": "1199:39:15"
           },
           {
             "attributes": {
@@ -1407,7 +1407,7 @@
               ],
               "name": "decreaseReputation",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1420,9 +1420,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5006,
+                "id": 1943,
                 "name": "ParameterList",
-                "src": "1270:2:28"
+                "src": "1270:2:15"
               },
               {
                 "attributes": {
@@ -1431,14 +1431,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5007,
+                "id": 1944,
                 "name": "ParameterList",
-                "src": "1281:0:28"
+                "src": "1281:0:15"
               }
             ],
-            "id": 5008,
+            "id": 1945,
             "name": "FunctionDefinition",
-            "src": "1243:39:28"
+            "src": "1243:39:15"
           },
           {
             "attributes": {
@@ -1451,7 +1451,7 @@
               ],
               "name": "resetReputation",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1464,9 +1464,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5009,
+                "id": 1946,
                 "name": "ParameterList",
-                "src": "1311:2:28"
+                "src": "1311:2:15"
               },
               {
                 "attributes": {
@@ -1475,14 +1475,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5010,
+                "id": 1947,
                 "name": "ParameterList",
-                "src": "1322:0:28"
+                "src": "1322:0:15"
               }
             ],
-            "id": 5011,
+            "id": 1948,
             "name": "FunctionDefinition",
-            "src": "1287:36:28"
+            "src": "1287:36:15"
           },
           {
             "attributes": {
@@ -1495,7 +1495,7 @@
               ],
               "name": "maxPenalty",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1508,9 +1508,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5012,
+                "id": 1949,
                 "name": "ParameterList",
-                "src": "1347:2:28"
+                "src": "1347:2:15"
               },
               {
                 "attributes": {
@@ -1519,14 +1519,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5013,
+                "id": 1950,
                 "name": "ParameterList",
-                "src": "1358:0:28"
+                "src": "1358:0:15"
               }
             ],
-            "id": 5014,
+            "id": 1951,
             "name": "FunctionDefinition",
-            "src": "1328:31:28"
+            "src": "1328:31:15"
           },
           {
             "attributes": {
@@ -1539,7 +1539,7 @@
               ],
               "name": "deathPenalty",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1552,9 +1552,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5015,
+                "id": 1952,
                 "name": "ParameterList",
-                "src": "1385:2:28"
+                "src": "1385:2:15"
               },
               {
                 "attributes": {
@@ -1563,14 +1563,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5016,
+                "id": 1953,
                 "name": "ParameterList",
-                "src": "1396:0:28"
+                "src": "1396:0:15"
               }
             ],
-            "id": 5017,
+            "id": 1954,
             "name": "FunctionDefinition",
-            "src": "1364:33:28"
+            "src": "1364:33:15"
           },
           {
             "attributes": {
@@ -1583,7 +1583,7 @@
               ],
               "name": "withdrawBalance",
               "payable": false,
-              "scope": 5023,
+              "scope": 1960,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -1596,9 +1596,9 @@
                   ]
                 },
                 "children": [],
-                "id": 5018,
+                "id": 1955,
                 "name": "ParameterList",
-                "src": "1426:2:28"
+                "src": "1426:2:15"
               },
               {
                 "attributes": {
@@ -1607,14 +1607,14 @@
                   ]
                 },
                 "children": [],
-                "id": 5019,
+                "id": 1956,
                 "name": "ParameterList",
-                "src": "1437:0:28"
+                "src": "1437:0:15"
               }
             ],
-            "id": 5020,
+            "id": 1957,
             "name": "FunctionDefinition",
-            "src": "1402:36:28"
+            "src": "1402:36:15"
           },
           {
             "attributes": {
@@ -1629,24 +1629,24 @@
                   ]
                 },
                 "children": [],
-                "id": 5021,
+                "id": 1958,
                 "name": "ParameterList",
-                "src": "1465:2:28"
+                "src": "1465:2:15"
               }
             ],
-            "id": 5022,
+            "id": 1959,
             "name": "EventDefinition",
-            "src": "1444:24:28"
+            "src": "1444:24:15"
           }
         ],
-        "id": 5023,
+        "id": 1960,
         "name": "ContractDefinition",
-        "src": "232:1238:28"
+        "src": "232:1238:15"
       }
     ],
-    "id": 5024,
+    "id": 1961,
     "name": "SourceUnit",
-    "src": "0:1472:28"
+    "src": "0:1472:15"
   },
   "compiler": {
     "name": "solc",
@@ -1654,5 +1654,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.153Z"
+  "updatedAt": "2017-12-17T07:58:45.733Z"
 }

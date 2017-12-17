@@ -128,18 +128,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b61029e8061001e6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063026d49ea1461009e5780631590d658146100cd5780631c72fad4146100fc57806321514ef31461012b5780635cb045db1461015a578063c36b33b014610189578063cbd315ae146101b8578063cc0e82c1146101e7578063e06452d014610216575b600080fd5b34156100a957600080fd5b6100b1610245565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d857600080fd5b6100e061024a565b604051808260ff1660ff16815260200191505060405180910390f35b341561010757600080fd5b61010f61024f565b604051808260ff1660ff16815260200191505060405180910390f35b341561013657600080fd5b61013e610254565b604051808260ff1660ff16815260200191505060405180910390f35b341561016557600080fd5b61016d610259565b604051808260ff1660ff16815260200191505060405180910390f35b341561019457600080fd5b61019c61025e565b604051808260ff1660ff16815260200191505060405180910390f35b34156101c357600080fd5b6101cb610263565b604051808260ff1660ff16815260200191505060405180910390f35b34156101f257600080fd5b6101fa610268565b604051808260ff1660ff16815260200191505060405180910390f35b341561022157600080fd5b61022961026d565b604051808260ff1660ff16815260200191505060405180910390f35b600681565b600581565b600081565b600181565b600481565b600281565b600381565b60ff81565b6007815600a165627a7a723058200136c9d7ae788875ccea61115656807363cbad1fba2379a4b79b623a19b44b040029",
-  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063026d49ea1461009e5780631590d658146100cd5780631c72fad4146100fc57806321514ef31461012b5780635cb045db1461015a578063c36b33b014610189578063cbd315ae146101b8578063cc0e82c1146101e7578063e06452d014610216575b600080fd5b34156100a957600080fd5b6100b1610245565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d857600080fd5b6100e061024a565b604051808260ff1660ff16815260200191505060405180910390f35b341561010757600080fd5b61010f61024f565b604051808260ff1660ff16815260200191505060405180910390f35b341561013657600080fd5b61013e610254565b604051808260ff1660ff16815260200191505060405180910390f35b341561016557600080fd5b61016d610259565b604051808260ff1660ff16815260200191505060405180910390f35b341561019457600080fd5b61019c61025e565b604051808260ff1660ff16815260200191505060405180910390f35b34156101c357600080fd5b6101cb610263565b604051808260ff1660ff16815260200191505060405180910390f35b34156101f257600080fd5b6101fa610268565b604051808260ff1660ff16815260200191505060405180910390f35b341561022157600080fd5b61022961026d565b604051808260ff1660ff16815260200191505060405180910390f35b600681565b600581565b600081565b600181565b600481565b600281565b600381565b60ff81565b6007815600a165627a7a723058200136c9d7ae788875ccea61115656807363cbad1fba2379a4b79b623a19b44b040029",
-  "sourceMap": "26:819:22:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:819:22:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;761:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;719:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;527:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;675:37;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;576:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;628:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;807:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;761:39;799:1;761:39;:::o;719:35::-;753:1;719:35;:::o;481:39::-;519:1;481:39;:::o;527:42::-;568:1;527:42;:::o;675:37::-;711:1;675:37;:::o;576:45::-;620:1;576:45;:::o;628:40::-;667:1;628:40;:::o;213:38::-;247:4;213:38;:::o;807:35::-;841:1;807:35;:::o",
+  "bytecode": "0x6060604052341561000f57600080fd5b61029e8061001e6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063026d49ea1461009e5780631590d658146100cd5780631c72fad4146100fc57806321514ef31461012b5780635cb045db1461015a578063c36b33b014610189578063cbd315ae146101b8578063cc0e82c1146101e7578063e06452d014610216575b600080fd5b34156100a957600080fd5b6100b1610245565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d857600080fd5b6100e061024a565b604051808260ff1660ff16815260200191505060405180910390f35b341561010757600080fd5b61010f61024f565b604051808260ff1660ff16815260200191505060405180910390f35b341561013657600080fd5b61013e610254565b604051808260ff1660ff16815260200191505060405180910390f35b341561016557600080fd5b61016d610259565b604051808260ff1660ff16815260200191505060405180910390f35b341561019457600080fd5b61019c61025e565b604051808260ff1660ff16815260200191505060405180910390f35b34156101c357600080fd5b6101cb610263565b604051808260ff1660ff16815260200191505060405180910390f35b34156101f257600080fd5b6101fa610268565b604051808260ff1660ff16815260200191505060405180910390f35b341561022157600080fd5b61022961026d565b604051808260ff1660ff16815260200191505060405180910390f35b600681565b600581565b600081565b600181565b600481565b600281565b600381565b60ff81565b6007815600a165627a7a72305820914c98a7e9d54b6942da5e516a73c8a09457bbb6256909fb751a2c61d7bca0810029",
+  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063026d49ea1461009e5780631590d658146100cd5780631c72fad4146100fc57806321514ef31461012b5780635cb045db1461015a578063c36b33b014610189578063cbd315ae146101b8578063cc0e82c1146101e7578063e06452d014610216575b600080fd5b34156100a957600080fd5b6100b1610245565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d857600080fd5b6100e061024a565b604051808260ff1660ff16815260200191505060405180910390f35b341561010757600080fd5b61010f61024f565b604051808260ff1660ff16815260200191505060405180910390f35b341561013657600080fd5b61013e610254565b604051808260ff1660ff16815260200191505060405180910390f35b341561016557600080fd5b61016d610259565b604051808260ff1660ff16815260200191505060405180910390f35b341561019457600080fd5b61019c61025e565b604051808260ff1660ff16815260200191505060405180910390f35b34156101c357600080fd5b6101cb610263565b604051808260ff1660ff16815260200191505060405180910390f35b34156101f257600080fd5b6101fa610268565b604051808260ff1660ff16815260200191505060405180910390f35b341561022157600080fd5b61022961026d565b604051808260ff1660ff16815260200191505060405180910390f35b600681565b600581565b600081565b600181565b600481565b600281565b600381565b60ff81565b6007815600a165627a7a72305820914c98a7e9d54b6942da5e516a73c8a09457bbb6256909fb751a2c61d7bca0810029",
+  "sourceMap": "26:819:9:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:819:9:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;761:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;719:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;527:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;675:37;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;576:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;628:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;807:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;761:39;799:1;761:39;:::o;719:35::-;753:1;719:35;:::o;481:39::-;519:1;481:39;:::o;527:42::-;568:1;527:42;:::o;675:37::-;711:1;675:37;:::o;576:45::-;620:1;576:45;:::o;628:40::-;667:1;628:40;:::o;213:38::-;247:4;213:38;:::o;807:35::-;841:1;807:35;:::o",
   "source": "pragma solidity ^0.4.18;\n\ncontract JobStates {\n    // Since `destroyself()` zeroes values of all variables, we need the first state (corresponding to zero)\n    // to indicate that contract had being destroyed\n    uint8 public constant Destroyed = 0xFF;\n\n    // Reserved system state not participating in transition table. Since contract creation all variables are\n    // initialized to zero and contract state will be zero until it will be initialized with some definite state\n    uint8 public constant Uninitialized = 0;\n\n    uint8 public constant GatheringWorkers = 1;\n\n    uint8 public constant InsufficientWorkers = 2;\n\n    uint8 public constant DataValidation = 3;\n\n    uint8 public constant InvalidData = 4;\n\n    uint8 public constant Cognition = 5;\n\n    uint8 public constant PartialResult = 6;\n\n    uint8 public constant Completed = 7;\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/jobs/JobStates.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/JobStates.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/jobs/JobStates.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/JobStates.sol",
       "exportedSymbols": {
         "JobStates": [
-          4450
+          1387
         ]
       }
     },
@@ -153,9 +153,9 @@
             ".18"
           ]
         },
-        "id": 4422,
+        "id": 1359,
         "name": "PragmaDirective",
-        "src": "0:24:22"
+        "src": "0:24:9"
       },
       {
         "attributes": {
@@ -169,17 +169,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            4450
+            1387
           ],
           "name": "JobStates",
-          "scope": 4451
+          "scope": 1388
         },
         "children": [
           {
             "attributes": {
               "constant": true,
               "name": "Destroyed",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -191,9 +191,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4423,
+                "id": 1360,
                 "name": "ElementaryTypeName",
-                "src": "213:5:22"
+                "src": "213:5:9"
               },
               {
                 "attributes": {
@@ -208,20 +208,20 @@
                   "type": "int_const 255",
                   "value": "0xFF"
                 },
-                "id": 4424,
+                "id": 1361,
                 "name": "Literal",
-                "src": "247:4:22"
+                "src": "247:4:9"
               }
             ],
-            "id": 4425,
+            "id": 1362,
             "name": "VariableDeclaration",
-            "src": "213:38:22"
+            "src": "213:38:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "Uninitialized",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -233,9 +233,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4426,
+                "id": 1363,
                 "name": "ElementaryTypeName",
-                "src": "481:5:22"
+                "src": "481:5:9"
               },
               {
                 "attributes": {
@@ -250,20 +250,20 @@
                   "type": "int_const 0",
                   "value": "0"
                 },
-                "id": 4427,
+                "id": 1364,
                 "name": "Literal",
-                "src": "519:1:22"
+                "src": "519:1:9"
               }
             ],
-            "id": 4428,
+            "id": 1365,
             "name": "VariableDeclaration",
-            "src": "481:39:22"
+            "src": "481:39:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "GatheringWorkers",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -275,9 +275,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4429,
+                "id": 1366,
                 "name": "ElementaryTypeName",
-                "src": "527:5:22"
+                "src": "527:5:9"
               },
               {
                 "attributes": {
@@ -292,20 +292,20 @@
                   "type": "int_const 1",
                   "value": "1"
                 },
-                "id": 4430,
+                "id": 1367,
                 "name": "Literal",
-                "src": "568:1:22"
+                "src": "568:1:9"
               }
             ],
-            "id": 4431,
+            "id": 1368,
             "name": "VariableDeclaration",
-            "src": "527:42:22"
+            "src": "527:42:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "InsufficientWorkers",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -317,9 +317,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4432,
+                "id": 1369,
                 "name": "ElementaryTypeName",
-                "src": "576:5:22"
+                "src": "576:5:9"
               },
               {
                 "attributes": {
@@ -334,20 +334,20 @@
                   "type": "int_const 2",
                   "value": "2"
                 },
-                "id": 4433,
+                "id": 1370,
                 "name": "Literal",
-                "src": "620:1:22"
+                "src": "620:1:9"
               }
             ],
-            "id": 4434,
+            "id": 1371,
             "name": "VariableDeclaration",
-            "src": "576:45:22"
+            "src": "576:45:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "DataValidation",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -359,9 +359,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4435,
+                "id": 1372,
                 "name": "ElementaryTypeName",
-                "src": "628:5:22"
+                "src": "628:5:9"
               },
               {
                 "attributes": {
@@ -376,20 +376,20 @@
                   "type": "int_const 3",
                   "value": "3"
                 },
-                "id": 4436,
+                "id": 1373,
                 "name": "Literal",
-                "src": "667:1:22"
+                "src": "667:1:9"
               }
             ],
-            "id": 4437,
+            "id": 1374,
             "name": "VariableDeclaration",
-            "src": "628:40:22"
+            "src": "628:40:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "InvalidData",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -401,9 +401,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4438,
+                "id": 1375,
                 "name": "ElementaryTypeName",
-                "src": "675:5:22"
+                "src": "675:5:9"
               },
               {
                 "attributes": {
@@ -418,20 +418,20 @@
                   "type": "int_const 4",
                   "value": "4"
                 },
-                "id": 4439,
+                "id": 1376,
                 "name": "Literal",
-                "src": "711:1:22"
+                "src": "711:1:9"
               }
             ],
-            "id": 4440,
+            "id": 1377,
             "name": "VariableDeclaration",
-            "src": "675:37:22"
+            "src": "675:37:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "Cognition",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -443,9 +443,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4441,
+                "id": 1378,
                 "name": "ElementaryTypeName",
-                "src": "719:5:22"
+                "src": "719:5:9"
               },
               {
                 "attributes": {
@@ -460,20 +460,20 @@
                   "type": "int_const 5",
                   "value": "5"
                 },
-                "id": 4442,
+                "id": 1379,
                 "name": "Literal",
-                "src": "753:1:22"
+                "src": "753:1:9"
               }
             ],
-            "id": 4443,
+            "id": 1380,
             "name": "VariableDeclaration",
-            "src": "719:35:22"
+            "src": "719:35:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "PartialResult",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -485,9 +485,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4444,
+                "id": 1381,
                 "name": "ElementaryTypeName",
-                "src": "761:5:22"
+                "src": "761:5:9"
               },
               {
                 "attributes": {
@@ -502,20 +502,20 @@
                   "type": "int_const 6",
                   "value": "6"
                 },
-                "id": 4445,
+                "id": 1382,
                 "name": "Literal",
-                "src": "799:1:22"
+                "src": "799:1:9"
               }
             ],
-            "id": 4446,
+            "id": 1383,
             "name": "VariableDeclaration",
-            "src": "761:39:22"
+            "src": "761:39:9"
           },
           {
             "attributes": {
               "constant": true,
               "name": "Completed",
-              "scope": 4450,
+              "scope": 1387,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -527,9 +527,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 4447,
+                "id": 1384,
                 "name": "ElementaryTypeName",
-                "src": "807:5:22"
+                "src": "807:5:9"
               },
               {
                 "attributes": {
@@ -544,24 +544,24 @@
                   "type": "int_const 7",
                   "value": "7"
                 },
-                "id": 4448,
+                "id": 1385,
                 "name": "Literal",
-                "src": "841:1:22"
+                "src": "841:1:9"
               }
             ],
-            "id": 4449,
+            "id": 1386,
             "name": "VariableDeclaration",
-            "src": "807:35:22"
+            "src": "807:35:9"
           }
         ],
-        "id": 4450,
+        "id": 1387,
         "name": "ContractDefinition",
-        "src": "26:819:22"
+        "src": "26:819:9"
       }
     ],
-    "id": 4451,
+    "id": 1388,
     "name": "SourceUnit",
-    "src": "0:846:22"
+    "src": "0:846:9"
   },
   "compiler": {
     "name": "solc",
@@ -569,5 +569,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.152Z"
+  "updatedAt": "2017-12-17T07:58:45.701Z"
 }

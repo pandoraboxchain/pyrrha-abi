@@ -26,13 +26,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\n\n\ncontract ILotteryEngine {\n    function getRandom(uint256 max) public returns (uint256);\n}\n",
-  "sourcePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/lottery/ILotteryEngine.sol",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/orlovsky/Repositories/pandora/pandora-solidity/contracts/pandora/lottery/ILotteryEngine.sol",
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
       "exportedSymbols": {
         "ILotteryEngine": [
-          5877
+          2814
         ]
       }
     },
@@ -46,9 +46,9 @@
             ".18"
           ]
         },
-        "id": 5869,
+        "id": 2806,
         "name": "PragmaDirective",
-        "src": "0:24:36"
+        "src": "0:24:23"
       },
       {
         "attributes": {
@@ -62,10 +62,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            5877
+            2814
           ],
           "name": "ILotteryEngine",
-          "scope": 5878
+          "scope": 2815
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "getRandom",
               "payable": false,
-              "scope": 5877,
+              "scope": 2814,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "max",
-                      "scope": 5876,
+                      "scope": 2813,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -104,19 +104,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 5870,
+                        "id": 2807,
                         "name": "ElementaryTypeName",
-                        "src": "76:7:36"
+                        "src": "76:7:23"
                       }
                     ],
-                    "id": 5871,
+                    "id": 2808,
                     "name": "VariableDeclaration",
-                    "src": "76:11:36"
+                    "src": "76:11:23"
                   }
                 ],
-                "id": 5872,
+                "id": 2809,
                 "name": "ParameterList",
-                "src": "75:13:36"
+                "src": "75:13:23"
               },
               {
                 "children": [
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 5876,
+                      "scope": 2813,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -137,34 +137,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 5873,
+                        "id": 2810,
                         "name": "ElementaryTypeName",
-                        "src": "105:7:36"
+                        "src": "105:7:23"
                       }
                     ],
-                    "id": 5874,
+                    "id": 2811,
                     "name": "VariableDeclaration",
-                    "src": "105:7:36"
+                    "src": "105:7:23"
                   }
                 ],
-                "id": 5875,
+                "id": 2812,
                 "name": "ParameterList",
-                "src": "104:9:36"
+                "src": "104:9:23"
               }
             ],
-            "id": 5876,
+            "id": 2813,
             "name": "FunctionDefinition",
-            "src": "57:57:36"
+            "src": "57:57:23"
           }
         ],
-        "id": 5877,
+        "id": 2814,
         "name": "ContractDefinition",
-        "src": "27:89:36"
+        "src": "27:89:23"
       }
     ],
-    "id": 5878,
+    "id": 2815,
     "name": "SourceUnit",
-    "src": "0:117:36"
+    "src": "0:117:23"
   },
   "compiler": {
     "name": "solc",
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-13T18:09:34.154Z"
+  "updatedAt": "2017-12-17T07:58:45.749Z"
 }

@@ -598,7 +598,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/IPandora.sol",
       "exportedSymbols": {
         "IPandora": [
-          2588
+          2392
         ]
       }
     },
@@ -612,86 +612,86 @@
             ".18"
           ]
         },
-        "id": 2576,
+        "id": 2380,
         "name": "PragmaDirective",
-        "src": "0:24:18"
+        "src": "0:24:14"
       },
       {
         "attributes": {
-          "SourceUnit": 3763,
+          "SourceUnit": 3453,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/token/PAN.sol",
           "file": "./token/PAN.sol",
-          "scope": 2589,
+          "scope": 2393,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 2577,
+        "id": 2381,
         "name": "ImportDirective",
-        "src": "26:25:18"
+        "src": "26:25:14"
       },
       {
         "attributes": {
-          "SourceUnit": 3728,
+          "SourceUnit": 3418,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/managers/WorkerNodeManager.sol",
           "file": "./managers/WorkerNodeManager.sol",
-          "scope": 2589,
+          "scope": 2393,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 2578,
+        "id": 2382,
         "name": "ImportDirective",
-        "src": "52:42:18"
+        "src": "52:42:14"
       },
       {
         "attributes": {
-          "SourceUnit": 3294,
+          "SourceUnit": 2984,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/managers/CognitiveJobManager.sol",
           "file": "./managers/CognitiveJobManager.sol",
-          "scope": 2589,
+          "scope": 2393,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 2579,
+        "id": 2383,
         "name": "ImportDirective",
-        "src": "95:44:18"
+        "src": "95:44:14"
       },
       {
         "attributes": {
           "contractDependencies": [
-            3337,
-            3380,
-            3762,
-            3948,
-            4034,
-            4077,
-            4106,
-            4352
+            3027,
+            3070,
+            3452,
+            3638,
+            3724,
+            3767,
+            3796,
+            4042
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2588,
-            3380,
-            3337,
-            3948,
-            3762,
-            4352,
-            4034,
-            4077,
-            4106
+            2392,
+            3070,
+            3027,
+            3638,
+            3452,
+            4042,
+            3724,
+            3767,
+            3796
           ],
           "name": "IPandora",
           "nodes": [
             null
           ],
-          "scope": 2589
+          "scope": 2393
         },
         "children": [
           {
@@ -705,17 +705,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "PAN",
-                  "referencedDeclaration": 3762,
+                  "referencedDeclaration": 3452,
                   "type": "contract PAN"
                 },
-                "id": 2580,
+                "id": 2384,
                 "name": "UserDefinedTypeName",
-                "src": "162:3:18"
+                "src": "162:3:14"
               }
             ],
-            "id": 2581,
+            "id": 2385,
             "name": "InheritanceSpecifier",
-            "src": "162:3:18"
+            "src": "162:3:14"
           },
           {
             "attributes": {
@@ -728,17 +728,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Ownable",
-                  "referencedDeclaration": 3948,
+                  "referencedDeclaration": 3638,
                   "type": "contract Ownable"
                 },
-                "id": 2582,
+                "id": 2386,
                 "name": "UserDefinedTypeName",
-                "src": "167:7:18"
+                "src": "167:7:14"
               }
             ],
-            "id": 2583,
+            "id": 2387,
             "name": "InheritanceSpecifier",
-            "src": "167:7:18"
+            "src": "167:7:14"
           },
           {
             "attributes": {
@@ -751,17 +751,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ICognitiveJobManager",
-                  "referencedDeclaration": 3337,
+                  "referencedDeclaration": 3027,
                   "type": "contract ICognitiveJobManager"
                 },
-                "id": 2584,
+                "id": 2388,
                 "name": "UserDefinedTypeName",
-                "src": "176:20:18"
+                "src": "176:20:14"
               }
             ],
-            "id": 2585,
+            "id": 2389,
             "name": "InheritanceSpecifier",
-            "src": "176:20:18"
+            "src": "176:20:14"
           },
           {
             "attributes": {
@@ -774,27 +774,27 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IWorkerNodeManager",
-                  "referencedDeclaration": 3380,
+                  "referencedDeclaration": 3070,
                   "type": "contract IWorkerNodeManager"
                 },
-                "id": 2586,
+                "id": 2390,
                 "name": "UserDefinedTypeName",
-                "src": "198:18:18"
+                "src": "198:18:14"
               }
             ],
-            "id": 2587,
+            "id": 2391,
             "name": "InheritanceSpecifier",
-            "src": "198:18:18"
+            "src": "198:18:14"
           }
         ],
-        "id": 2588,
+        "id": 2392,
         "name": "ContractDefinition",
-        "src": "141:79:18"
+        "src": "141:79:14"
       }
     ],
-    "id": 2589,
+    "id": 2393,
     "name": "SourceUnit",
-    "src": "0:221:18"
+    "src": "0:221:14"
   },
   "compiler": {
     "name": "solc",
@@ -802,5 +802,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-17T07:58:45.734Z"
+  "updatedAt": "2017-12-19T15:26:39.764Z"
 }

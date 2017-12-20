@@ -154,7 +154,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IKernel.sol",
       "exportedSymbols": {
         "IKernel": [
-          214
+          43
         ]
       }
     },
@@ -168,41 +168,41 @@
             ".18"
           ]
         },
-        "id": 208,
+        "id": 37,
         "name": "PragmaDirective",
-        "src": "0:24:5"
+        "src": "0:24:2"
       },
       {
         "attributes": {
-          "SourceUnit": 197,
+          "SourceUnit": 26,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
           "file": "./IDataEntity.sol",
-          "scope": 215,
+          "scope": 44,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 209,
+        "id": 38,
         "name": "ImportDirective",
-        "src": "26:27:5"
+        "src": "26:27:2"
       },
       {
         "attributes": {
           "contractDependencies": [
-            196,
-            3948
+            25,
+            3638
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            214,
-            196,
-            3948
+            43,
+            25,
+            3638
           ],
           "name": "IKernel",
-          "scope": 215
+          "scope": 44
         },
         "children": [
           {
@@ -216,23 +216,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IDataEntity",
-                  "referencedDeclaration": 196,
+                  "referencedDeclaration": 25,
                   "type": "contract IDataEntity"
                 },
-                "id": 210,
+                "id": 39,
                 "name": "UserDefinedTypeName",
-                "src": "75:11:5"
+                "src": "75:11:2"
               }
             ],
-            "id": 211,
+            "id": 40,
             "name": "InheritanceSpecifier",
-            "src": "75:11:5"
+            "src": "75:11:2"
           },
           {
             "attributes": {
               "constant": false,
               "name": "complexity",
-              "scope": 214,
+              "scope": 43,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -245,24 +245,24 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 212,
+                "id": 41,
                 "name": "ElementaryTypeName",
-                "src": "93:7:5"
+                "src": "93:7:2"
               }
             ],
-            "id": 213,
+            "id": 42,
             "name": "VariableDeclaration",
-            "src": "93:25:5"
+            "src": "93:25:2"
           }
         ],
-        "id": 214,
+        "id": 43,
         "name": "ContractDefinition",
-        "src": "55:66:5"
+        "src": "55:66:2"
       }
     ],
-    "id": 215,
+    "id": 44,
     "name": "SourceUnit",
-    "src": "0:122:5"
+    "src": "0:122:2"
   },
   "compiler": {
     "name": "solc",
@@ -270,5 +270,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-17T07:58:45.696Z"
+  "updatedAt": "2017-12-19T15:26:39.745Z"
 }

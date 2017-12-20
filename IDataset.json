@@ -168,7 +168,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
       "exportedSymbols": {
         "IDataset": [
-          206
+          35
         ]
       }
     },
@@ -182,41 +182,41 @@
             ".18"
           ]
         },
-        "id": 198,
+        "id": 27,
         "name": "PragmaDirective",
-        "src": "0:24:4"
+        "src": "0:24:1"
       },
       {
         "attributes": {
-          "SourceUnit": 197,
+          "SourceUnit": 26,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
           "file": "./IDataEntity.sol",
-          "scope": 207,
+          "scope": 36,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 199,
+        "id": 28,
         "name": "ImportDirective",
-        "src": "26:27:4"
+        "src": "26:27:1"
       },
       {
         "attributes": {
           "contractDependencies": [
-            196,
-            3948
+            25,
+            3638
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            206,
-            196,
-            3948
+            35,
+            25,
+            3638
           ],
           "name": "IDataset",
-          "scope": 207
+          "scope": 36
         },
         "children": [
           {
@@ -230,23 +230,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IDataEntity",
-                  "referencedDeclaration": 196,
+                  "referencedDeclaration": 25,
                   "type": "contract IDataEntity"
                 },
-                "id": 200,
+                "id": 29,
                 "name": "UserDefinedTypeName",
-                "src": "76:11:4"
+                "src": "76:11:1"
               }
             ],
-            "id": 201,
+            "id": 30,
             "name": "InheritanceSpecifier",
-            "src": "76:11:4"
+            "src": "76:11:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "samplesCount",
-              "scope": 206,
+              "scope": 35,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -259,20 +259,20 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 202,
+                "id": 31,
                 "name": "ElementaryTypeName",
-                "src": "94:7:4"
+                "src": "94:7:1"
               }
             ],
-            "id": 203,
+            "id": 32,
             "name": "VariableDeclaration",
-            "src": "94:27:4"
+            "src": "94:27:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "batchesCount",
-              "scope": 206,
+              "scope": 35,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -285,24 +285,24 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 204,
+                "id": 33,
                 "name": "ElementaryTypeName",
-                "src": "127:5:4"
+                "src": "127:5:1"
               }
             ],
-            "id": 205,
+            "id": 34,
             "name": "VariableDeclaration",
-            "src": "127:25:4"
+            "src": "127:25:1"
           }
         ],
-        "id": 206,
+        "id": 35,
         "name": "ContractDefinition",
-        "src": "55:100:4"
+        "src": "55:100:1"
       }
     ],
-    "id": 207,
+    "id": 36,
     "name": "SourceUnit",
-    "src": "0:156:4"
+    "src": "0:156:1"
   },
   "compiler": {
     "name": "solc",
@@ -310,5 +310,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-17T07:58:45.695Z"
+  "updatedAt": "2017-12-19T15:26:39.744Z"
 }

@@ -32,7 +32,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
       "exportedSymbols": {
         "ILotteryEngine": [
-          2504
+          2768
         ]
       }
     },
@@ -46,9 +46,9 @@
             ".18"
           ]
         },
-        "id": 2496,
+        "id": 2760,
         "name": "PragmaDirective",
-        "src": "0:24:17"
+        "src": "0:24:22"
       },
       {
         "attributes": {
@@ -62,10 +62,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2504
+            2768
           ],
           "name": "ILotteryEngine",
-          "scope": 2505
+          "scope": 2769
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "getRandom",
               "payable": false,
-              "scope": 2504,
+              "scope": 2768,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "max",
-                      "scope": 2503,
+                      "scope": 2767,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -104,19 +104,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 2497,
+                        "id": 2761,
                         "name": "ElementaryTypeName",
-                        "src": "76:7:17"
+                        "src": "76:7:22"
                       }
                     ],
-                    "id": 2498,
+                    "id": 2762,
                     "name": "VariableDeclaration",
-                    "src": "76:11:17"
+                    "src": "76:11:22"
                   }
                 ],
-                "id": 2499,
+                "id": 2763,
                 "name": "ParameterList",
-                "src": "75:13:17"
+                "src": "75:13:22"
               },
               {
                 "children": [
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 2503,
+                      "scope": 2767,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -137,34 +137,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 2500,
+                        "id": 2764,
                         "name": "ElementaryTypeName",
-                        "src": "105:7:17"
+                        "src": "105:7:22"
                       }
                     ],
-                    "id": 2501,
+                    "id": 2765,
                     "name": "VariableDeclaration",
-                    "src": "105:7:17"
+                    "src": "105:7:22"
                   }
                 ],
-                "id": 2502,
+                "id": 2766,
                 "name": "ParameterList",
-                "src": "104:9:17"
+                "src": "104:9:22"
               }
             ],
-            "id": 2503,
+            "id": 2767,
             "name": "FunctionDefinition",
-            "src": "57:57:17"
+            "src": "57:57:22"
           }
         ],
-        "id": 2504,
+        "id": 2768,
         "name": "ContractDefinition",
-        "src": "27:89:17"
+        "src": "27:89:22"
       }
     ],
-    "id": 2505,
+    "id": 2769,
     "name": "SourceUnit",
-    "src": "0:117:17"
+    "src": "0:117:22"
   },
   "compiler": {
     "name": "solc",
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-19T15:26:39.766Z"
+  "updatedAt": "2018-01-07T00:45:32.358Z"
 }

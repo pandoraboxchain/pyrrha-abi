@@ -1,0 +1,679 @@
+{
+  "contractName": "IMarket",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "datasets",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_kernel",
+          "type": "address"
+        }
+      ],
+      "name": "addKernel",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_dataset",
+          "type": "address"
+        }
+      ],
+      "name": "addDataset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "kernelMap",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "kernels",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "datasetMap",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "kernel",
+          "type": "address"
+        }
+      ],
+      "name": "KernelAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "dataset",
+          "type": "address"
+        }
+      ],
+      "name": "DatasetAdded",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"../entities/IKernel.sol\";\nimport \"../entities/IDataset.sol\";\n\ncontract IMarket {\n    IKernel[] public kernels;\n    IDataset[] public datasets;\n    mapping(address => bool) public kernelMap;\n    mapping(address => bool) public datasetMap;\n\n    event KernelAdded(IKernel kernel);\n    event DatasetAdded(IDataset dataset);\n\n    function addKernel(IKernel _kernel) external returns (bool);\n    function addDataset(IDataset _dataset) external returns (bool);\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/dmarket/IMarket.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/dmarket/IMarket.sol",
+      "exportedSymbols": {
+        "IMarket": [
+          40
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 197,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IKernel.sol",
+          "file": "../entities/IKernel.sol",
+          "scope": 41,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2,
+        "name": "ImportDirective",
+        "src": "26:33:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 189,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
+          "file": "../entities/IDataset.sol",
+          "scope": 41,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 3,
+        "name": "ImportDirective",
+        "src": "60:34:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            40
+          ],
+          "name": "IMarket",
+          "scope": 41
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "kernels",
+              "scope": 40,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IKernel[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IKernel[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IKernel",
+                      "referencedDeclaration": 196,
+                      "type": "contract IKernel"
+                    },
+                    "id": 4,
+                    "name": "UserDefinedTypeName",
+                    "src": "119:7:0"
+                  }
+                ],
+                "id": 5,
+                "name": "ArrayTypeName",
+                "src": "119:9:0"
+              }
+            ],
+            "id": 6,
+            "name": "VariableDeclaration",
+            "src": "119:24:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "datasets",
+              "scope": 40,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IDataset[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IDataset[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IDataset",
+                      "referencedDeclaration": 188,
+                      "type": "contract IDataset"
+                    },
+                    "id": 7,
+                    "name": "UserDefinedTypeName",
+                    "src": "149:8:0"
+                  }
+                ],
+                "id": 8,
+                "name": "ArrayTypeName",
+                "src": "149:10:0"
+              }
+            ],
+            "id": 9,
+            "name": "VariableDeclaration",
+            "src": "149:26:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "kernelMap",
+              "scope": 40,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => bool)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => bool)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 10,
+                    "name": "ElementaryTypeName",
+                    "src": "189:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 11,
+                    "name": "ElementaryTypeName",
+                    "src": "200:4:0"
+                  }
+                ],
+                "id": 12,
+                "name": "Mapping",
+                "src": "181:24:0"
+              }
+            ],
+            "id": 13,
+            "name": "VariableDeclaration",
+            "src": "181:41:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "datasetMap",
+              "scope": 40,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => bool)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => bool)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 14,
+                    "name": "ElementaryTypeName",
+                    "src": "236:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 15,
+                    "name": "ElementaryTypeName",
+                    "src": "247:4:0"
+                  }
+                ],
+                "id": 16,
+                "name": "Mapping",
+                "src": "228:24:0"
+              }
+            ],
+            "id": 17,
+            "name": "VariableDeclaration",
+            "src": "228:42:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "KernelAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "kernel",
+                      "scope": 21,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IKernel",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IKernel",
+                          "referencedDeclaration": 196,
+                          "type": "contract IKernel"
+                        },
+                        "id": 18,
+                        "name": "UserDefinedTypeName",
+                        "src": "295:7:0"
+                      }
+                    ],
+                    "id": 19,
+                    "name": "VariableDeclaration",
+                    "src": "295:14:0"
+                  }
+                ],
+                "id": 20,
+                "name": "ParameterList",
+                "src": "294:16:0"
+              }
+            ],
+            "id": 21,
+            "name": "EventDefinition",
+            "src": "277:34:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "DatasetAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "dataset",
+                      "scope": 25,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IDataset",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IDataset",
+                          "referencedDeclaration": 188,
+                          "type": "contract IDataset"
+                        },
+                        "id": 22,
+                        "name": "UserDefinedTypeName",
+                        "src": "335:8:0"
+                      }
+                    ],
+                    "id": 23,
+                    "name": "VariableDeclaration",
+                    "src": "335:16:0"
+                  }
+                ],
+                "id": 24,
+                "name": "ParameterList",
+                "src": "334:18:0"
+              }
+            ],
+            "id": 25,
+            "name": "EventDefinition",
+            "src": "316:37:0"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "addKernel",
+              "payable": false,
+              "scope": 40,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_kernel",
+                      "scope": 32,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IKernel",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IKernel",
+                          "referencedDeclaration": 196,
+                          "type": "contract IKernel"
+                        },
+                        "id": 26,
+                        "name": "UserDefinedTypeName",
+                        "src": "378:7:0"
+                      }
+                    ],
+                    "id": 27,
+                    "name": "VariableDeclaration",
+                    "src": "378:15:0"
+                  }
+                ],
+                "id": 28,
+                "name": "ParameterList",
+                "src": "377:17:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 32,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 29,
+                        "name": "ElementaryTypeName",
+                        "src": "413:4:0"
+                      }
+                    ],
+                    "id": 30,
+                    "name": "VariableDeclaration",
+                    "src": "413:4:0"
+                  }
+                ],
+                "id": 31,
+                "name": "ParameterList",
+                "src": "412:6:0"
+              }
+            ],
+            "id": 32,
+            "name": "FunctionDefinition",
+            "src": "359:60:0"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "addDataset",
+              "payable": false,
+              "scope": 40,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_dataset",
+                      "scope": 39,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IDataset",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IDataset",
+                          "referencedDeclaration": 188,
+                          "type": "contract IDataset"
+                        },
+                        "id": 33,
+                        "name": "UserDefinedTypeName",
+                        "src": "444:8:0"
+                      }
+                    ],
+                    "id": 34,
+                    "name": "VariableDeclaration",
+                    "src": "444:17:0"
+                  }
+                ],
+                "id": 35,
+                "name": "ParameterList",
+                "src": "443:19:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 39,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 36,
+                        "name": "ElementaryTypeName",
+                        "src": "481:4:0"
+                      }
+                    ],
+                    "id": 37,
+                    "name": "VariableDeclaration",
+                    "src": "481:4:0"
+                  }
+                ],
+                "id": 38,
+                "name": "ParameterList",
+                "src": "480:6:0"
+              }
+            ],
+            "id": 39,
+            "name": "FunctionDefinition",
+            "src": "424:63:0"
+          }
+        ],
+        "id": 40,
+        "name": "ContractDefinition",
+        "src": "96:393:0"
+      }
+    ],
+    "id": 41,
+    "name": "SourceUnit",
+    "src": "0:490:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-24T13:35:26.986Z"
+}

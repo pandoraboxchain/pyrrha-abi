@@ -32,7 +32,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
       "exportedSymbols": {
         "ILotteryEngine": [
-          2768
+          2618
         ]
       }
     },
@@ -46,9 +46,9 @@
             ".18"
           ]
         },
-        "id": 2760,
+        "id": 2610,
         "name": "PragmaDirective",
-        "src": "0:24:22"
+        "src": "0:24:19"
       },
       {
         "attributes": {
@@ -62,10 +62,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2768
+            2618
           ],
           "name": "ILotteryEngine",
-          "scope": 2769
+          "scope": 2619
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "getRandom",
               "payable": false,
-              "scope": 2768,
+              "scope": 2618,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "max",
-                      "scope": 2767,
+                      "scope": 2617,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -104,19 +104,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 2761,
+                        "id": 2611,
                         "name": "ElementaryTypeName",
-                        "src": "76:7:22"
+                        "src": "76:7:19"
                       }
                     ],
-                    "id": 2762,
+                    "id": 2612,
                     "name": "VariableDeclaration",
-                    "src": "76:11:22"
+                    "src": "76:11:19"
                   }
                 ],
-                "id": 2763,
+                "id": 2613,
                 "name": "ParameterList",
-                "src": "75:13:22"
+                "src": "75:13:19"
               },
               {
                 "children": [
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 2767,
+                      "scope": 2617,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -137,40 +137,40 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 2764,
+                        "id": 2614,
                         "name": "ElementaryTypeName",
-                        "src": "105:7:22"
+                        "src": "105:7:19"
                       }
                     ],
-                    "id": 2765,
+                    "id": 2615,
                     "name": "VariableDeclaration",
-                    "src": "105:7:22"
+                    "src": "105:7:19"
                   }
                 ],
-                "id": 2766,
+                "id": 2616,
                 "name": "ParameterList",
-                "src": "104:9:22"
+                "src": "104:9:19"
               }
             ],
-            "id": 2767,
+            "id": 2617,
             "name": "FunctionDefinition",
-            "src": "57:57:22"
+            "src": "57:57:19"
           }
         ],
-        "id": 2768,
+        "id": 2618,
         "name": "ContractDefinition",
-        "src": "27:89:22"
+        "src": "27:89:19"
       }
     ],
-    "id": 2769,
+    "id": 2619,
     "name": "SourceUnit",
-    "src": "0:117:22"
+    "src": "0:117:19"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-07T00:45:32.358Z"
+  "updatedAt": "2018-02-19T11:22:09.657Z"
 }

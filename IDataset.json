@@ -168,7 +168,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
       "exportedSymbols": {
         "IDataset": [
-          149
+          35
         ]
       }
     },
@@ -182,41 +182,41 @@
             ".18"
           ]
         },
-        "id": 141,
+        "id": 27,
         "name": "PragmaDirective",
-        "src": "0:24:3"
+        "src": "0:24:1"
       },
       {
         "attributes": {
-          "SourceUnit": 140,
+          "SourceUnit": 26,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
           "file": "./IDataEntity.sol",
-          "scope": 150,
+          "scope": 36,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 142,
+        "id": 28,
         "name": "ImportDirective",
-        "src": "26:27:3"
+        "src": "26:27:1"
       },
       {
         "attributes": {
           "contractDependencies": [
-            139,
-            3902
+            25,
+            3752
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            149,
-            139,
-            3902
+            35,
+            25,
+            3752
           ],
           "name": "IDataset",
-          "scope": 150
+          "scope": 36
         },
         "children": [
           {
@@ -230,23 +230,23 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "IDataEntity",
-                  "referencedDeclaration": 139,
+                  "referencedDeclaration": 25,
                   "type": "contract IDataEntity"
                 },
-                "id": 143,
+                "id": 29,
                 "name": "UserDefinedTypeName",
-                "src": "76:11:3"
+                "src": "76:11:1"
               }
             ],
-            "id": 144,
+            "id": 30,
             "name": "InheritanceSpecifier",
-            "src": "76:11:3"
+            "src": "76:11:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "samplesCount",
-              "scope": 149,
+              "scope": 35,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -259,20 +259,20 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 145,
+                "id": 31,
                 "name": "ElementaryTypeName",
-                "src": "94:7:3"
+                "src": "94:7:1"
               }
             ],
-            "id": 146,
+            "id": 32,
             "name": "VariableDeclaration",
-            "src": "94:27:3"
+            "src": "94:27:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "batchesCount",
-              "scope": 149,
+              "scope": 35,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -285,30 +285,30 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 147,
+                "id": 33,
                 "name": "ElementaryTypeName",
-                "src": "127:5:3"
+                "src": "127:5:1"
               }
             ],
-            "id": 148,
+            "id": 34,
             "name": "VariableDeclaration",
-            "src": "127:25:3"
+            "src": "127:25:1"
           }
         ],
-        "id": 149,
+        "id": 35,
         "name": "ContractDefinition",
-        "src": "55:100:3"
+        "src": "55:100:1"
       }
     ],
-    "id": 150,
+    "id": 36,
     "name": "SourceUnit",
-    "src": "0:156:3"
+    "src": "0:156:1"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-07T00:45:32.308Z"
+  "updatedAt": "2018-02-19T11:22:09.648Z"
 }

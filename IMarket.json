@@ -151,7 +151,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/dmarket/IMarket.sol",
       "exportedSymbols": {
         "IMarket": [
-          40
+          97
         ]
       }
     },
@@ -165,39 +165,39 @@
             ".18"
           ]
         },
-        "id": 1,
+        "id": 58,
         "name": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
       },
       {
         "attributes": {
-          "SourceUnit": 197,
+          "SourceUnit": 368,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IKernel.sol",
           "file": "../entities/IKernel.sol",
-          "scope": 41,
+          "scope": 98,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 2,
+        "id": 59,
         "name": "ImportDirective",
-        "src": "26:33:0"
+        "src": "26:33:1"
       },
       {
         "attributes": {
-          "SourceUnit": 189,
+          "SourceUnit": 360,
           "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
           "file": "../entities/IDataset.sol",
-          "scope": 41,
+          "scope": 98,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 3,
+        "id": 60,
         "name": "ImportDirective",
-        "src": "60:34:0"
+        "src": "60:34:1"
       },
       {
         "attributes": {
@@ -211,17 +211,17 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            40
+            97
           ],
           "name": "IMarket",
-          "scope": 41
+          "scope": 98
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "kernels",
-              "scope": 40,
+              "scope": 97,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IKernel[] storage ref",
@@ -239,28 +239,28 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "IKernel",
-                      "referencedDeclaration": 196,
+                      "referencedDeclaration": 367,
                       "type": "contract IKernel"
                     },
-                    "id": 4,
+                    "id": 61,
                     "name": "UserDefinedTypeName",
-                    "src": "119:7:0"
+                    "src": "119:7:1"
                   }
                 ],
-                "id": 5,
+                "id": 62,
                 "name": "ArrayTypeName",
-                "src": "119:9:0"
+                "src": "119:9:1"
               }
             ],
-            "id": 6,
+            "id": 63,
             "name": "VariableDeclaration",
-            "src": "119:24:0"
+            "src": "119:24:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "datasets",
-              "scope": 40,
+              "scope": 97,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IDataset[] storage ref",
@@ -278,28 +278,28 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "IDataset",
-                      "referencedDeclaration": 188,
+                      "referencedDeclaration": 359,
                       "type": "contract IDataset"
                     },
-                    "id": 7,
+                    "id": 64,
                     "name": "UserDefinedTypeName",
-                    "src": "149:8:0"
+                    "src": "149:8:1"
                   }
                 ],
-                "id": 8,
+                "id": 65,
                 "name": "ArrayTypeName",
-                "src": "149:10:0"
+                "src": "149:10:1"
               }
             ],
-            "id": 9,
+            "id": 66,
             "name": "VariableDeclaration",
-            "src": "149:26:0"
+            "src": "149:26:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "kernelMap",
-              "scope": 40,
+              "scope": 97,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => bool)",
@@ -317,34 +317,34 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 10,
+                    "id": 67,
                     "name": "ElementaryTypeName",
-                    "src": "189:7:0"
+                    "src": "189:7:1"
                   },
                   {
                     "attributes": {
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 11,
+                    "id": 68,
                     "name": "ElementaryTypeName",
-                    "src": "200:4:0"
+                    "src": "200:4:1"
                   }
                 ],
-                "id": 12,
+                "id": 69,
                 "name": "Mapping",
-                "src": "181:24:0"
+                "src": "181:24:1"
               }
             ],
-            "id": 13,
+            "id": 70,
             "name": "VariableDeclaration",
-            "src": "181:41:0"
+            "src": "181:41:1"
           },
           {
             "attributes": {
               "constant": false,
               "name": "datasetMap",
-              "scope": 40,
+              "scope": 97,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => bool)",
@@ -362,28 +362,28 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 14,
+                    "id": 71,
                     "name": "ElementaryTypeName",
-                    "src": "236:7:0"
+                    "src": "236:7:1"
                   },
                   {
                     "attributes": {
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 15,
+                    "id": 72,
                     "name": "ElementaryTypeName",
-                    "src": "247:4:0"
+                    "src": "247:4:1"
                   }
                 ],
-                "id": 16,
+                "id": 73,
                 "name": "Mapping",
-                "src": "228:24:0"
+                "src": "228:24:1"
               }
             ],
-            "id": 17,
+            "id": 74,
             "name": "VariableDeclaration",
-            "src": "228:42:0"
+            "src": "228:42:1"
           },
           {
             "attributes": {
@@ -398,7 +398,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "kernel",
-                      "scope": 21,
+                      "scope": 78,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IKernel",
@@ -410,27 +410,27 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "IKernel",
-                          "referencedDeclaration": 196,
+                          "referencedDeclaration": 367,
                           "type": "contract IKernel"
                         },
-                        "id": 18,
+                        "id": 75,
                         "name": "UserDefinedTypeName",
-                        "src": "295:7:0"
+                        "src": "295:7:1"
                       }
                     ],
-                    "id": 19,
+                    "id": 76,
                     "name": "VariableDeclaration",
-                    "src": "295:14:0"
+                    "src": "295:14:1"
                   }
                 ],
-                "id": 20,
+                "id": 77,
                 "name": "ParameterList",
-                "src": "294:16:0"
+                "src": "294:16:1"
               }
             ],
-            "id": 21,
+            "id": 78,
             "name": "EventDefinition",
-            "src": "277:34:0"
+            "src": "277:34:1"
           },
           {
             "attributes": {
@@ -445,7 +445,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "dataset",
-                      "scope": 25,
+                      "scope": 82,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IDataset",
@@ -457,27 +457,27 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "IDataset",
-                          "referencedDeclaration": 188,
+                          "referencedDeclaration": 359,
                           "type": "contract IDataset"
                         },
-                        "id": 22,
+                        "id": 79,
                         "name": "UserDefinedTypeName",
-                        "src": "335:8:0"
+                        "src": "335:8:1"
                       }
                     ],
-                    "id": 23,
+                    "id": 80,
                     "name": "VariableDeclaration",
-                    "src": "335:16:0"
+                    "src": "335:16:1"
                   }
                 ],
-                "id": 24,
+                "id": 81,
                 "name": "ParameterList",
-                "src": "334:18:0"
+                "src": "334:18:1"
               }
             ],
-            "id": 25,
+            "id": 82,
             "name": "EventDefinition",
-            "src": "316:37:0"
+            "src": "316:37:1"
           },
           {
             "attributes": {
@@ -490,7 +490,7 @@
               ],
               "name": "addKernel",
               "payable": false,
-              "scope": 40,
+              "scope": 97,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -502,7 +502,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_kernel",
-                      "scope": 32,
+                      "scope": 89,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IKernel",
@@ -514,22 +514,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "IKernel",
-                          "referencedDeclaration": 196,
+                          "referencedDeclaration": 367,
                           "type": "contract IKernel"
                         },
-                        "id": 26,
+                        "id": 83,
                         "name": "UserDefinedTypeName",
-                        "src": "378:7:0"
+                        "src": "378:7:1"
                       }
                     ],
-                    "id": 27,
+                    "id": 84,
                     "name": "VariableDeclaration",
-                    "src": "378:15:0"
+                    "src": "378:15:1"
                   }
                 ],
-                "id": 28,
+                "id": 85,
                 "name": "ParameterList",
-                "src": "377:17:0"
+                "src": "377:17:1"
               },
               {
                 "children": [
@@ -537,7 +537,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 32,
+                      "scope": 89,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -550,24 +550,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 29,
+                        "id": 86,
                         "name": "ElementaryTypeName",
-                        "src": "413:4:0"
+                        "src": "413:4:1"
                       }
                     ],
-                    "id": 30,
+                    "id": 87,
                     "name": "VariableDeclaration",
-                    "src": "413:4:0"
+                    "src": "413:4:1"
                   }
                 ],
-                "id": 31,
+                "id": 88,
                 "name": "ParameterList",
-                "src": "412:6:0"
+                "src": "412:6:1"
               }
             ],
-            "id": 32,
+            "id": 89,
             "name": "FunctionDefinition",
-            "src": "359:60:0"
+            "src": "359:60:1"
           },
           {
             "attributes": {
@@ -580,7 +580,7 @@
               ],
               "name": "addDataset",
               "payable": false,
-              "scope": 40,
+              "scope": 97,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -592,7 +592,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_dataset",
-                      "scope": 39,
+                      "scope": 96,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IDataset",
@@ -604,22 +604,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "IDataset",
-                          "referencedDeclaration": 188,
+                          "referencedDeclaration": 359,
                           "type": "contract IDataset"
                         },
-                        "id": 33,
+                        "id": 90,
                         "name": "UserDefinedTypeName",
-                        "src": "444:8:0"
+                        "src": "444:8:1"
                       }
                     ],
-                    "id": 34,
+                    "id": 91,
                     "name": "VariableDeclaration",
-                    "src": "444:17:0"
+                    "src": "444:17:1"
                   }
                 ],
-                "id": 35,
+                "id": 92,
                 "name": "ParameterList",
-                "src": "443:19:0"
+                "src": "443:19:1"
               },
               {
                 "children": [
@@ -627,7 +627,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 39,
+                      "scope": 96,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -640,34 +640,34 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 36,
+                        "id": 93,
                         "name": "ElementaryTypeName",
-                        "src": "481:4:0"
+                        "src": "481:4:1"
                       }
                     ],
-                    "id": 37,
+                    "id": 94,
                     "name": "VariableDeclaration",
-                    "src": "481:4:0"
+                    "src": "481:4:1"
                   }
                 ],
-                "id": 38,
+                "id": 95,
                 "name": "ParameterList",
-                "src": "480:6:0"
+                "src": "480:6:1"
               }
             ],
-            "id": 39,
+            "id": 96,
             "name": "FunctionDefinition",
-            "src": "424:63:0"
+            "src": "424:63:1"
           }
         ],
-        "id": 40,
+        "id": 97,
         "name": "ContractDefinition",
-        "src": "96:393:0"
+        "src": "96:393:1"
       }
     ],
-    "id": 41,
+    "id": 98,
     "name": "SourceUnit",
-    "src": "0:490:0"
+    "src": "0:490:1"
   },
   "compiler": {
     "name": "solc",
@@ -675,5 +675,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-24T13:35:26.986Z"
+  "updatedAt": "2018-01-25T11:59:01.959Z"
 }

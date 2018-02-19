@@ -2,20 +2,6 @@
   "contractName": "IStateMachine",
   "abi": [
     {
-      "constant": true,
-      "inputs": [],
-      "name": "currentState",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint8"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {
@@ -31,6 +17,20 @@
       ],
       "name": "StateChanged",
       "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
   "bytecode": "0x",
@@ -44,7 +44,7 @@
       "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
       "exportedSymbols": {
         "IStateMachine": [
-          1344
+          1198
         ]
       }
     },
@@ -58,9 +58,9 @@
             ".18"
           ]
         },
-        "id": 1332,
+        "id": 1186,
         "name": "PragmaDirective",
-        "src": "0:24:9"
+        "src": "0:24:6"
       },
       {
         "attributes": {
@@ -74,10 +74,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1344
+            1198
           ],
           "name": "IStateMachine",
-          "scope": 1345
+          "scope": 1199
         },
         "children": [
           {
@@ -91,7 +91,7 @@
               ],
               "name": "currentState",
               "payable": false,
-              "scope": 1344,
+              "scope": 1198,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -104,9 +104,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1333,
+                "id": 1187,
                 "name": "ParameterList",
-                "src": "77:2:9"
+                "src": "77:2:6"
               },
               {
                 "children": [
@@ -114,7 +114,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1337,
+                      "scope": 1191,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -127,24 +127,24 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 1334,
+                        "id": 1188,
                         "name": "ElementaryTypeName",
-                        "src": "101:5:9"
+                        "src": "101:5:6"
                       }
                     ],
-                    "id": 1335,
+                    "id": 1189,
                     "name": "VariableDeclaration",
-                    "src": "101:5:9"
+                    "src": "101:5:6"
                   }
                 ],
-                "id": 1336,
+                "id": 1190,
                 "name": "ParameterList",
-                "src": "100:7:9"
+                "src": "100:7:6"
               }
             ],
-            "id": 1337,
+            "id": 1191,
             "name": "FunctionDefinition",
-            "src": "56:52:9"
+            "src": "56:52:6"
           },
           {
             "attributes": {
@@ -159,7 +159,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "oldState",
-                      "scope": 1343,
+                      "scope": 1197,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -172,21 +172,21 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 1338,
+                        "id": 1192,
                         "name": "ElementaryTypeName",
-                        "src": "133:5:9"
+                        "src": "133:5:6"
                       }
                     ],
-                    "id": 1339,
+                    "id": 1193,
                     "name": "VariableDeclaration",
-                    "src": "133:14:9"
+                    "src": "133:14:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": false,
                       "name": "newState",
-                      "scope": 1343,
+                      "scope": 1197,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -199,40 +199,40 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 1340,
+                        "id": 1194,
                         "name": "ElementaryTypeName",
-                        "src": "149:5:9"
+                        "src": "149:5:6"
                       }
                     ],
-                    "id": 1341,
+                    "id": 1195,
                     "name": "VariableDeclaration",
-                    "src": "149:14:9"
+                    "src": "149:14:6"
                   }
                 ],
-                "id": 1342,
+                "id": 1196,
                 "name": "ParameterList",
-                "src": "132:32:9"
+                "src": "132:32:6"
               }
             ],
-            "id": 1343,
+            "id": 1197,
             "name": "EventDefinition",
-            "src": "114:51:9"
+            "src": "114:51:6"
           }
         ],
-        "id": 1344,
+        "id": 1198,
         "name": "ContractDefinition",
-        "src": "27:140:9"
+        "src": "27:140:6"
       }
     ],
-    "id": 1345,
+    "id": 1199,
     "name": "SourceUnit",
-    "src": "0:167:9"
+    "src": "0:167:6"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-07T00:45:32.315Z"
+  "updatedAt": "2018-02-19T11:22:09.649Z"
 }
